@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Art History &amp; Criticism &mdash; Lesson 8.01</title>
+<style>
+    body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
+    .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    img { max-width: 100%; height: auto; display: block; }
+    .artfig { margin: 16px 0; }
+    .artfig img { border: 1px solid #D0D9E8; border-radius: 6px; }
+    .artcap { font-size: 13px; color: #666; line-height: 1.5; margin-top: 6px; }
+    .artcap strong { color: #0E1C42; font-style: italic; font-weight: 600; }
+    .art2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 640px) { .art2 { grid-template-columns: 1fr; } }
+    .look-box { background: #E6F4F3; border-left: 5px solid #14807A; border-top: 3px solid #2BB6AC; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .look-kicker { font-size: 11px; color: #0E635E; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .now-box { background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .now-kicker { font-size: 11px; color: #A33D1F; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .accent-body { font-size: 17px; color: #0E1C42; line-height: 1.6; }
+    .spotlight { border: 2px solid #0E1C42; border-radius: 10px; padding: 18px; margin: 18px 0; }
+    .spotlight-title { font-size: 12px; font-weight: 700; color: #0E1C42; letter-spacing: 0.5px; margin-bottom: 6px; }
+    .spotlight-work { font-weight: 700; color: #0E1C42; font-size: 16px; }
+    .spotlight-loc { color: #777; font-size: 13px; margin-bottom: 12px; }
+    .daij-row { font-size: 16px; color: #1a2340; line-height: 1.6; margin-bottom: 9px; }
+    .daij-label { font-weight: 700; margin-right: 6px; }
+    .vocab-box { background: #F4F6FA; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px 18px; margin: 18px 0; }
+    .vocab-title { font-size: 11px; font-weight: 700; color: #c7922c; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .vocab-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .vocab-table td { padding: 6px 0; color: #1a2340; vertical-align: top; border-top: 1px solid #E2E8F2; line-height: 1.55; }
+    .vocab-table td:first-child { font-weight: 700; color: #0E1C42; width: 165px; padding-right: 12px; }
+    .optima-widget { background: linear-gradient(135deg, #E6F4F3 0%, #F4FBFA 100%); border: 1px solid #BFE3DF; border-left: 5px solid #14807A; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .widget-kicker { font-size: 11px; color: #0E635E; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+    .widget-options button:hover { background: #F4F6FA; border-color: #2BB6AC; }
+    .widget-options button.correct { background: #E6F4F3; border-color: #14807A; color: #0E635E; }
+    .widget-options button.incorrect { background: #FCEDE8; border-color: #D85C38; color: #A33D1F; }
+    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+    .row-feedback.correct { background: #E6F4F3; border-left: 3px solid #14807A; color: #0E635E; }
+    .row-feedback.incorrect { background: #FCEDE8; border-left: 3px solid #D85C38; color: #A33D1F; }
+    .ow-flip-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px 18px; cursor: pointer; text-align: center; min-height: 64px; display: flex; align-items: center; justify-content: center; }
+    .ow-flip .ow-flip-back { display: none; color: #1a2340; font-size: 14px; line-height: 1.5; }
+    .ow-flip .ow-flip-front { color: #0E1C42; font-weight: 700; font-size: 15px; }
+    .ow-flip.flipped .ow-flip-front { display: none; }
+    .ow-flip.flipped .ow-flip-back { display: block; }
+    @media (max-width: 640px) { .ow-flip-grid { grid-template-columns: 1fr; } }
+    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 10px; }
+    .widget-reset:hover { background: #FDF3E3; }
+    .ow-reflect textarea { width: 100%; box-sizing: border-box; border: 1px solid #D0D9E8; border-radius: 6px; padding: 10px 12px; font-family: inherit; font-size: 15px; color: #0E1C42; min-height: 72px; resize: vertical; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;">
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+        <div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width: 50px; height: 40px; object-fit: contain;" /></div>
+        <div>
+            <div style="font-size: 28px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+            <div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
+        </div>
+    </div>
+    <div style="font-size: 36px; color: #ffffff; margin-bottom: 6px;">ART HISTORY &amp; CRITICISM</div>
+</div>
+
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Semester / Unit</div>
+        <div style="font-size: 17px; color: #0e1c42;">S2 &middot; Unit 8</div>
+        <div style="font-size: 12px; color: #666;">Baroque &amp; Rococo</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+        <div style="font-size: 17px; color: #0e1c42;">Lesson 8.01</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+        <div style="font-size: 17px; color: #0e1c42; font-style: italic;">Caravaggio and the Theater of Light</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Module Theme</div>
+        <div style="font-size: 16px; color: #0e1c42;">Drama, Light, and Spectacle</div>
+    </div>
+</div>
+
+<div style="padding: 24px 34px;">
+
+    <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">LESSON 8.01</div>
+        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">Caravaggio and the Theater of Light</div>
+        <div style="font-size: 16px; color: #666;">Interactive Lesson</div>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
+        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">How can a single shaft of light turn a painting into a stage, and point straight at the one figure who matters?</div>
+        <div style="font-size: 18px; color: #1a2340; line-height: 1.65;">Around the year 1600 a new style swept across Europe. The calm balance of the Renaissance gave way to drama: deep shadow, sudden light, bodies caught mid-motion, raw human feeling. We call it the <strong>Baroque</strong>. No one used light more boldly than Caravaggio, who painted ordinary-looking people lit as if a spotlight had found them in the dark.</div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#127919; BY THE END OF THIS LESSON YOU WILL BE ABLE TO&hellip;</div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> describe the Baroque as a style of drama, movement, and intense emotion, roughly 1600 to 1750.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> define chiaroscuro and tenebrism and explain how Caravaggio used light to carry meaning.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> prepare for my Baroque analysis and my own Chiaroscuro challenge.</div>
+        </div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128203; WHAT YOU NEED FOR THIS LESSON</div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">A notebook or an open Word document; this lesson sets up your Baroque Analysis and Chiaroscuro Challenge</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">The calm, balanced Renaissance works of Units 7 (Leonardo, Raphael) for comparison</div>
+        </div>
+    </div>
+
+    <!-- PART 1 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 1 &middot; LOOK FIRST</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~12 MIN</span></div>
+
+        <div class="look-box">
+            <div class="look-kicker">&#128064; LOOK CLOSELY &middot; FIND THE LIGHT</div>
+            <div class="accent-body">Before you read on, look at the painting below. Most of it is in darkness. Where does the light come from, and where does it land? Follow it. Notice whose face and whose hand it touches, and whom it leaves in shadow. The light is doing more than helping you see; it is telling you where to look.</div>
+        </div>
+
+        <div class="artfig">
+            <img src="images/caravaggio-calling-of-st-matthew.jpg" alt="Caravaggio, The Calling of Saint Matthew" />
+            <div class="artcap"><strong>The Calling of Saint Matthew</strong>, Caravaggio, 1599&ndash;1600, oil on canvas. Contarelli Chapel, San Luigi dei Francesi, Rome. Public domain.</div>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 14px 0 10px 0;">A group of men in fashionable clothes sit counting coins at a table in a dim room. From the right, a beam of light cuts across the wall and strikes the group. A figure at the door (Christ) lifts a hand and points. One of the seated men points back at himself, as if to ask, &ldquo;Me?&rdquo; That man is Matthew the tax collector, and this is the instant his life turns. The light arrives with the call.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">This is the <strong>Baroque</strong> (roughly 1600 to 1750): an art of drama, movement, and intense emotion, made to grip you and pull you in. Where Renaissance art prized calm, balance, and ideal beauty, the Baroque reaches for the charged moment, the catch of breath, the feeling that something is happening right now.</p>
+    </div>
+
+    <!-- PART 2 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 2 &middot; LIGHT THAT MEANS SOMETHING</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~16 MIN</span></div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Caravaggio's main tool is the contrast between light and dark, called <strong>chiaroscuro</strong> (from the Italian <em>chiaro</em>, &ldquo;light,&rdquo; and <em>scuro</em>, &ldquo;dark&rdquo;). He pushes it to an extreme: most of the canvas is near-black, and a single hard shaft of light picks out only what matters. That extreme version, deep shadow pierced by a beam, is called <strong>tenebrism</strong> (from the Latin <em>tenebrae</em>, &ldquo;darkness&rdquo;). The light enters on a strong <strong>diagonal</strong>, which sets the scene in motion and leads your eye across the figures rather than letting it rest.</p>
+
+        <!-- Concept visual: diagonal light shaft striking a figure -->
+        <div style="background: #FAFBFD; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px; margin: 12px 0; text-align: center;">
+            <svg viewBox="0 0 340 180" width="100%" style="max-width: 380px; height: auto;" role="img" aria-label="A diagonal shaft of light entering from the upper right and striking a single figure in a dark room">
+                <rect x="1" y="1" width="338" height="178" fill="#1a2340" stroke="#0E1C42"/>
+                <!-- diagonal light shaft -->
+                <polygon points="340,8 340,70 150,160 110,160" fill="#FDF3E3" opacity="0.55"/>
+                <line x1="340" y1="12" x2="120" y2="160" stroke="#C7922C" stroke-width="1.5" opacity="0.9"/>
+                <!-- lit figure -->
+                <circle cx="135" cy="118" r="14" fill="#E6F4F3"/>
+                <rect x="121" y="132" width="28" height="40" rx="6" fill="#E6F4F3"/>
+                <!-- figures left in shadow -->
+                <circle cx="55" cy="120" r="13" fill="#2a3358"/>
+                <rect x="42" y="133" width="26" height="40" rx="6" fill="#2a3358"/>
+                <circle cx="88" cy="124" r="12" fill="#2a3358"/>
+                <rect x="76" y="136" width="24" height="38" rx="6" fill="#2a3358"/>
+                <text x="300" y="26" font-family="Segoe UI, sans-serif" font-size="11" fill="#C7922C" text-anchor="middle">light enters</text>
+                <text x="135" y="100" font-family="Segoe UI, sans-serif" font-size="10" fill="#E6F4F3" text-anchor="middle">singled out</text>
+            </svg>
+            <div style="font-size: 13px; color: #666; margin-top: 6px;">In tenebrism the room is nearly black; one diagonal shaft selects a single figure. The light is not just illumination, it is the point.</div>
+        </div>
+
+        <div class="optima-widget ow-reflect">
+            <div class="widget-kicker">&#9999;&#65039; PAUSE AND REFLECT &middot; YOUR NOTES STAY HERE</div>
+            <div class="widget-question">Look again at The Calling of Saint Matthew. In one or two sentences, what do you think Caravaggio is saying by making the same light that fills the room also fall on Matthew at the exact moment he is called?</div>
+            <textarea placeholder="Type your thinking here. Nothing is saved or sent; this is just for you."></textarea>
+            <button class="widget-reset">Reset</button>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 10px 0 0 0;">Caravaggio also broke with the polished, idealized bodies of the Renaissance. His figures show <strong>naturalism</strong>: they look like real, ordinary people, with weathered faces, dirty feet, and everyday clothes. He reportedly used working people from the streets of Rome as his models. To some viewers this felt shockingly common for a sacred subject. To Caravaggio it made the holy story feel like it could happen to anyone, in any dim room.</p>
+    </div>
+
+    <!-- PART 3 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 3 &middot; WATCH IT WORK</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~16 MIN</span></div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">A second Caravaggio shows the same tools in a quieter, more startling scene. In <strong>The Supper at Emmaus</strong>, two travelers share a meal with a stranger and suddenly recognize him as the risen Christ. Caravaggio freezes the split second of shock: one man flings his arms wide, the other grips his chair to push back, and a basket of fruit teeters on the very edge of the table, about to fall into our space. The light bursts onto the figures from the upper left, and the gestures lunge out toward us.</p>
+
+        <div class="artfig">
+            <img src="images/caravaggio-supper-emmaus.jpg" alt="Caravaggio, The Supper at Emmaus" />
+            <div class="artcap"><strong>The Supper at Emmaus</strong>, Caravaggio, 1601, oil and tempera on canvas. National Gallery, London. Public domain.</div>
+        </div>
+
+        <div class="spotlight">
+            <div class="spotlight-title">&#128269; ARTWORK SPOTLIGHT</div>
+            <div class="spotlight-work">The Calling of Saint Matthew (1599&ndash;1600)</div>
+            <div class="spotlight-loc">Caravaggio &middot; Contarelli Chapel, Rome (Baroque)</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E635E;">Describe:</span> In a dim room, several men in contemporary dress sit at a table counting coins. From the right, two figures stand; one points toward the table. A hard beam of light crosses the back wall and falls on the seated group. One seated man points at his own chest.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E1C42;">Analyze:</span> Extreme <strong>chiaroscuro</strong> (tenebrism) buries most of the scene in shadow, while a single diagonal shaft of <strong>light</strong> directs the eye along the pointing hands to Matthew. The strong <strong>diagonal</strong> and outstretched arm create movement and tension across the dark space.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A8741F;">Interpret:</span> One reading is that the light is the call itself. It enters with the gesture and lands on the one ordinary man being chosen, suggesting that a sacred summons can reach anyone, mid-task, without warning.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A33D1F;">Judge:</span> It succeeds powerfully. By staging a holy moment in a shadowy everyday room and letting light do the pointing, Caravaggio makes the instant feel urgent and personal, which is exactly what the Baroque set out to do.</div>
+        </div>
+
+        <div class="optima-widget ow-select">
+            <div class="widget-kicker">&#9989; CHECK YOUR UNDERSTANDING</div>
+            <div class="widget-row" data-correct="c">
+                <div class="widget-row-prompt">The extreme version of light-and-dark contrast that buries most of the scene in near-black and pierces it with a shaft of light is called&hellip;</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="No. Naturalism describes showing ordinary, real-looking figures, not the lighting technique.">naturalism</button>
+                    <button data-choice="b" data-fb="No. A diagonal composition is the slanted arrangement that creates movement; it is not the deep-shadow lighting.">diagonal composition</button>
+                    <button data-choice="c" data-fb="Correct. Tenebrism is the extreme chiaroscuro of near-black shadow pierced by a hard shaft of light.">tenebrism</button>
+                </div>
+            </div>
+            <div class="widget-row" data-correct="a">
+                <div class="widget-row-prompt">Caravaggio's figures often look like ordinary working people with weathered faces and bare feet. This quality is called&hellip;</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="Correct. Naturalism is the use of real, unidealized, ordinary-looking figures.">naturalism</button>
+                    <button data-choice="b" data-fb="No. Chiaroscuro is the contrast of light and dark, not the look of the figures themselves.">chiaroscuro</button>
+                    <button data-choice="c" data-fb="No. The Baroque is the whole style and period; the term for lifelike, ordinary figures is naturalism.">the Baroque</button>
+                </div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
+
+        <div style="background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 14px 0;">
+            <div style="font-size: 11px; color: #A33D1F; margin-bottom: 8px;">&#9888;&#65039; WORTH KNOWING &middot; AI &amp; &ldquo;DRAMATIC LIGHTING&rdquo;</div>
+            <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">Image generators can apply &ldquo;dramatic lighting&rdquo; or a &ldquo;chiaroscuro&rdquo; filter in seconds, and the result can look striking. But for Caravaggio the lighting was an argument: the shaft that singles out Matthew tells you who is being called and when. AI can place light where the contrast looks best; it does not decide what the light should <em>mean</em>. When you set up your own Chiaroscuro Challenge, you choose what the light reveals, and that choice is the point.</div>
+        </div>
+    </div>
+
+    <!-- Vocabulary -->
+    <div class="vocab-box">
+        <div class="vocab-title">&#128214; VOCABULARY FROM THIS LESSON</div>
+        <table class="vocab-table"><tbody>
+            <tr><td>Baroque</td><td>The European style of about 1600 to 1750 marked by drama, movement, and intense emotion.</td></tr>
+            <tr><td>Chiaroscuro</td><td>The treatment of strong contrast between light and dark to model form (Italian for &ldquo;light-dark&rdquo;).</td></tr>
+            <tr><td>Tenebrism</td><td>Extreme chiaroscuro: near-black shadow pierced by a hard shaft of light, as in Caravaggio.</td></tr>
+            <tr><td>Naturalism</td><td>Depicting figures as real, ordinary-looking people rather than idealized ones.</td></tr>
+            <tr><td>Diagonal composition</td><td>A slanted arrangement of light, line, or figures that creates movement and tension.</td></tr>
+        </tbody></table>
+    </div>
+
+    <!-- Now You Try -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="now-box" style="margin-top: 0;">
+            <div class="now-kicker">&#9999;&#65039; NOW YOU TRY &middot; IN YOUR NOTEBOOK</div>
+            <div class="accent-body">Plan your Chiaroscuro Challenge. Choose one object or one person you can light from a single source (a desk lamp, a phone flashlight, a window). Sketch or note where the light will fall and what it will leave in shadow. Then decide: what do you want the light to point to, and why? Write one sentence naming the &ldquo;most important thing&rdquo; your light will reveal. This becomes your Chiaroscuro Drawing or Photography Challenge.</div>
+        </div>
+    </div>
+
+    <!-- What You'll Do Next -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU&rsquo;LL DO NEXT</div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Lesson 8.02</strong> and <strong>8.03</strong></div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Meet Bernini's sculpture in motion, then Versailles and the Rococo.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Baroque Analysis</strong> (assignment)</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Write a full four-step analysis of The Calling of Saint Matthew.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Chiaroscuro Challenge</strong> (creation) and <strong>Unit 8 Quiz</strong></div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Make your own light-and-dark study, then take the short auto-graded quiz.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wrap-up -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128170; WHY THIS MATTERS</div>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Caravaggio changed what a painting could do. By turning light into a spotlight and ordinary people into actors in a sacred drama, he made viewers feel they were present at the decisive moment. That control of light and emotion is the heart of the Baroque, and it still shapes how films, photographers, and stage designers point our attention today. Next, you will see Bernini do something just as bold in stone.</p>
+    </div>
+
+</div>
+
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 18px 34px; text-align: center;">
+    <div style="font-size: 18px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> &middot; ART HISTORY &amp; CRITICISM &middot; Semester 2 &middot; Student Lesson Page</div>
+    <div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 8.01 &middot; Caravaggio and the Theater of Light</div>
+    <div style="font-size: 12px; color: rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      w.querySelectorAll('textarea').forEach(function (t) { t.value = ''; });
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || 'Right.') : (sBtn.dataset.fb || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

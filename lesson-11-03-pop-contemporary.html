@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Art History &amp; Criticism &mdash; Lesson 11.03</title>
+<style>
+    body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
+    .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    img { max-width: 100%; height: auto; display: block; }
+    .look-box { background: #E6F4F3; border-left: 5px solid #14807A; border-top: 3px solid #2BB6AC; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .look-kicker { font-size: 11px; color: #0E635E; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .now-box { background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .now-kicker { font-size: 11px; color: #A33D1F; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .accent-body { font-size: 17px; color: #0E1C42; line-height: 1.6; }
+    .linkout { display: block; background: #E6F4F3; border-left: 5px solid #14807A; border-top: 3px solid #2BB6AC; border-radius: 6px; padding: 14px 20px; margin: 12px 0; text-decoration: none; }
+    .linkout-kicker { font-size: 11px; color: #0E635E; letter-spacing: 0.5px; margin-bottom: 6px; font-weight: 600; }
+    .linkout-work { font-size: 16px; color: #0E1C42; font-weight: 700; }
+    .linkout-museum { font-size: 14px; color: #0E635E; margin-top: 4px; }
+    .linkout-go { font-size: 14px; color: #14807A; font-weight: 700; margin-top: 8px; }
+    .spotlight { border: 2px solid #0E1C42; border-radius: 10px; padding: 18px; margin: 18px 0; }
+    .spotlight-title { font-size: 12px; font-weight: 700; color: #0E1C42; letter-spacing: 0.5px; margin-bottom: 6px; }
+    .spotlight-work { font-weight: 700; color: #0E1C42; font-size: 16px; }
+    .spotlight-loc { color: #777; font-size: 13px; margin-bottom: 12px; }
+    .daij-row { font-size: 16px; color: #1a2340; line-height: 1.6; margin-bottom: 9px; }
+    .daij-label { font-weight: 700; margin-right: 6px; }
+    .vocab-box { background: #F4F6FA; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px 18px; margin: 18px 0; }
+    .vocab-title { font-size: 11px; font-weight: 700; color: #c7922c; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .vocab-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .vocab-table td { padding: 6px 0; color: #1a2340; vertical-align: top; border-top: 1px solid #E2E8F2; line-height: 1.55; }
+    .vocab-table td:first-child { font-weight: 700; color: #0E1C42; width: 160px; padding-right: 12px; }
+    .optima-widget { background: linear-gradient(135deg, #E6F4F3 0%, #F4FBFA 100%); border: 1px solid #BFE3DF; border-left: 5px solid #14807A; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .widget-kicker { font-size: 11px; color: #0E635E; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+    .widget-options button:hover { background: #F4F6FA; border-color: #2BB6AC; }
+    .widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+    .widget-options button.correct { background: #E6F4F3; border-color: #14807A; color: #0E635E; }
+    .widget-options button.incorrect { background: #FCEDE8; border-color: #D85C38; color: #A33D1F; }
+    .widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+    .widget-feedback.show { display: block; }
+    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+    .row-feedback.correct { background: #E6F4F3; border-left: 3px solid #14807A; color: #0E635E; }
+    .row-feedback.incorrect { background: #FCEDE8; border-left: 3px solid #D85C38; color: #A33D1F; }
+    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 10px; }
+    .widget-reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;">
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+        <div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width: 50px; height: 40px; object-fit: contain;" /></div>
+        <div>
+            <div style="font-size: 28px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+            <div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
+        </div>
+    </div>
+    <div style="font-size: 36px; color: #ffffff; margin-bottom: 6px;">ART HISTORY &amp; CRITICISM</div>
+</div>
+
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Semester / Unit</div>
+        <div style="font-size: 17px; color: #0e1c42;">S2 &middot; Unit 11</div>
+        <div style="font-size: 12px; color: #666;">Modern &amp; Contemporary Art</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+        <div style="font-size: 17px; color: #0e1c42;">Lesson 11.03</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+        <div style="font-size: 17px; color: #0e1c42; font-style: italic;">Pop Art &amp; Contemporary Questions</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Module Theme</div>
+        <div style="font-size: 16px; color: #0e1c42;">Breaking the Frame</div>
+    </div>
+</div>
+
+<div style="padding: 24px 34px;">
+
+    <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">LESSON 11.03</div>
+        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">Pop Art &amp; Contemporary Questions</div>
+        <div style="font-size: 16px; color: #666;">Interactive Lesson</div>
+    </div>
+
+    <div style="background: #E6F4F3; border-left: 5px solid #14807A; border-radius: 6px; padding: 12px 18px; margin-bottom: 20px;">
+        <div style="font-size: 15px; color: #0E635E; line-height: 1.6;"><strong>A note on the artwork in this unit.</strong> The works in Unit 11 are still under copyright, so we do not reproduce them here. Instead, each one is a link to the official museum or foundation page where you can view it. Open every link as you read. The diagrams on this page are original and generic; they illustrate ideas, not any specific artwork.</div>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
+        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">Can a soup can or a comic strip be fine art, and who gets to decide what art even is?</div>
+        <div style="font-size: 18px; color: #1a2340; line-height: 1.65;">Abstract Expressionism reached for deep, private feeling. The next generation reacted by turning to the most public, mass-produced images imaginable: advertising, comics, celebrity, the supermarket shelf. <strong>Pop Art</strong> blurred the line between fine art and everyday culture, and the contemporary art that followed has kept asking the hardest question of all: what counts as art?</div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#127919; BY THE END OF THIS LESSON YOU WILL BE ABLE TO&hellip;</div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> explain how Pop Art used mass culture, advertising, and repetition.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> describe the range of contemporary art (installation, new media, identity, global art).</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> use the four-step method on works that ask "what is art?" and reflect on the whole year.</div>
+        </div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128203; WHAT YOU NEED FOR THIS LESSON</div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">A notebook or an open Word document; this lesson completes your preparation for the unit deliverables</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">An internet connection to open the museum links; the works are viewed on their official pages, not shown here</div>
+        </div>
+    </div>
+
+    <!-- PART 1 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 1 &middot; LOOK FIRST</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~12 MIN</span></div>
+
+        <div class="look-box">
+            <div class="look-kicker">&#128064; LOOK CLOSELY &middot; OPEN THE LINK, THEN COME BACK</div>
+            <div class="accent-body">Open the first link and look. You will see something you might find in any grocery store, painted and repeated like a printed label. It looks like an advertisement, yet it hangs in a museum. Why would an artist choose the most ordinary, mass-produced image in the world?</div>
+        </div>
+
+        <a class="linkout" href="https://www.moma.org/collection/works/79809" target="_blank" rel="noopener">
+            <div class="linkout-kicker">&#128279; VIEW ON THE MUSEUM SITE</div>
+            <div class="linkout-work">Andy Warhol, <em>Campbell&rsquo;s Soup Cans</em> (1962)</div>
+            <div class="linkout-museum">The Museum of Modern Art (MoMA), New York</div>
+            <div class="linkout-go">Open in a new tab to view the work &rsaquo;</div>
+        </a>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 14px 0 10px 0;"><strong>Pop Art</strong>, which rose in Britain and the United States in the late 1950s and 1960s, took its subjects straight from <strong>mass culture</strong>: advertising, packaging, comic strips, movie stars, the things ordinary people saw every day. <strong>Andy Warhol</strong> painted soup cans and celebrities and repeated them like factory products. <strong>Roy Lichtenstein</strong> blew up panels from comic books, dots and all, into large paintings. The effect was deliberately cool and impersonal, the opposite of Abstract Expressionism's hot, private feeling.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Why? Pop artists held a mirror up to a society flooded with images and advertising. By <strong>repetition</strong>, they made the familiar strange and asked uncomfortable questions: is a famous face just another product? When an image is everywhere, does it still mean anything? They also practiced <strong>appropriation</strong>: taking existing images from culture and re-presenting them as art.</p>
+    </div>
+
+    <!-- PART 2 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 2 &middot; REPETITION AS A MIRROR</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~14 MIN</span></div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Repetition is the heart of the Pop method. Seeing the same mass-produced image over and over, exactly as a factory or an advertiser would print it, drains away the awe we expect from "art" and points instead at how images work in everyday life.</p>
+
+                <!-- Legible explanation: the Pop repetition method -->
+        <div style="background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 8px; padding: 14px 20px; margin: 12px 0;">
+            <div style="font-size: 12px; font-weight: 700; color: #A33D1F; letter-spacing: 0.3px; margin-bottom: 6px;">WHY POP ART REPEATS AN IMAGE</div>
+            <div style="font-size: 16px; color: #0E1C42; line-height: 1.6;">Print the same mass-produced image over and over, exactly as a factory or an advertiser would, and the awe we expect from &ldquo;art&rdquo; drains away. What is left points instead at how images actually work in everyday life: familiar, repeated, and everywhere.</div>
+        </div>
+
+        <div class="optima-widget ow-reflect">
+            <div class="widget-kicker">&#128172; QUICK CHECK-IN &middot; NO WRONG ANSWER</div>
+            <div class="widget-question">Think about the images you see most often today. Which kind do you think a Pop artist working now would be most drawn to?</div>
+            <div class="widget-options">
+                <button data-response="A strong instinct. Logos and packaging are exactly what the original Pop artists used; today's brands and app icons are their direct descendants.">brand logos and product packaging</button>
+                <button data-response="Sharp choice. The endless scroll of social media feeds, with the same image reposted thousands of times, is a perfect modern echo of Pop repetition.">social media feeds and memes</button>
+                <button data-response="Good thinking. Celebrity images, now generated and shared at massive scale, raise the same Pop question: is a famous face just another product?">celebrity and influencer photos</button>
+                <button data-response="A thoughtful answer. Whatever image saturates daily life is fair game for Pop; the method is to take what is everywhere and make us look at it again.">an image of my own choosing</button>
+            </div>
+            <div class="widget-feedback"></div>
+            <button class="widget-reset">Reset</button>
+        </div>
+    </div>
+
+    <!-- PART 3 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 3 &middot; CONTEMPORARY: ART WITHOUT A SINGLE STYLE</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~16 MIN</span></div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">From the late twentieth century to now, <strong>contemporary</strong> art has had no single dominant style. Instead it expanded what art can even be. An <strong>installation</strong> turns a whole room or space into the artwork, so the viewer walks inside it. <strong>New media</strong> art uses video, sound, computers, and now AI. Much contemporary art centers on <strong>identity</strong>, exploring race, gender, culture, and personal history, and the art world has become genuinely <strong>global</strong>, with major voices from every continent rather than only Europe and North America.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Running through all of it is one persistent question, first sharpened a century ago when an artist presented an ordinary manufactured object as sculpture: <em>what is art, and who decides?</em> Contemporary works keep testing the boundary, and that testing is itself part of their meaning.</p>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Open these works on the museum sites:</p>
+
+        <a class="linkout" href="https://www.tate.org.uk/art/artworks/hatoum-light-sentence-t07585" target="_blank" rel="noopener">
+            <div class="linkout-kicker">&#128279; VIEW ON THE MUSEUM SITE</div>
+            <div class="linkout-work">Mona Hatoum, <em>Light Sentence</em> (1992)</div>
+            <div class="linkout-museum">Tate, London (an installation)</div>
+            <div class="linkout-go">Open in a new tab to view the work &rsaquo;</div>
+        </a>
+
+        <a class="linkout" href="https://www.moma.org/collection/works/81630" target="_blank" rel="noopener">
+            <div class="linkout-kicker">&#128279; VIEW ON THE MUSEUM SITE</div>
+            <div class="linkout-work">Marcel Duchamp, <em>Fountain</em> (1917, replica 1964)</div>
+            <div class="linkout-museum">The Museum of Modern Art (MoMA) / Tate collections</div>
+            <div class="linkout-go">Open in a new tab to view the work &rsaquo;</div>
+        </a>
+
+                <!-- Legible explanation: the question contemporary art asks -->
+        <div style="background: #E6F4F3; border-left: 5px solid #14807A; border-top: 3px solid #2BB6AC; border-radius: 8px; padding: 14px 20px; margin: 12px 0;">
+            <div style="font-size: 12px; font-weight: 700; color: #0E635E; letter-spacing: 0.3px; margin-bottom: 6px;">THE QUESTION THAT WILL NOT GO AWAY</div>
+            <div style="font-size: 16px; color: #0E1C42; line-height: 1.6;">Take an everyday object and place it in a gallery, and people begin to treat it as art. So who decides? Contemporary art keeps asking where the line sits between an ordinary object and a work of art, and whether the museum, the artist, or the viewer draws it.</div>
+        </div>
+
+        <div class="spotlight">
+            <div class="spotlight-title">&#128269; ARTWORK SPOTLIGHT</div>
+            <div class="spotlight-work">Marcel Duchamp, <em>Fountain</em> (1917, replica 1964)</div>
+            <div class="spotlight-loc">View it first on the museum site (link above), then read and apply the four-step method</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E635E;">Describe:</span> Open the link and look. A standard, mass-produced porcelain fixture is turned on its back, signed with a name and a date, and placed on a pedestal as sculpture. The artist made none of it by hand.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E1C42;">Analyze:</span> The "art" is not in the carving or the brushwork, because there is none. It is in the <strong>choice</strong>: selecting an object, renaming it, and placing it in the gallery. The smooth white <strong>form</strong> even looks deliberate once it is framed as art.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A8741F;">Interpret:</span> One reading is that the work argues the artist's idea and decision can matter more than skill, and that the gallery itself, not the object, confers the status of art.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A33D1F;">Judge:</span> Judge it by its aim, to challenge the definition of art. Whether or not you find it beautiful, it provokes exactly the debate it intended, which is a kind of success. You are free to argue it goes too far; defend your verdict with evidence.</div>
+        </div>
+
+        <div class="optima-widget ow-select">
+            <div class="widget-kicker">&#9989; CHECK YOUR UNDERSTANDING</div>
+            <div class="widget-row" data-correct="b">
+                <div class="widget-row-prompt">Pop artists took their subjects mainly from&hellip;</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="No. Pop turned away from private dreams; that was the Surrealists.">private dreams and the unconscious</button>
+                    <button data-choice="b" data-fb="Correct. Pop Art drew on mass culture: advertising, packaging, comics, and celebrity.">advertising, comics, and mass culture</button>
+                    <button data-choice="c" data-fb="No. Pop reacted against the deep personal emotion of Abstract Expressionism.">deep personal emotion only</button>
+                </div>
+            </div>
+            <div class="widget-row" data-correct="c">
+                <div class="widget-row-prompt">An installation is a work of art that&hellip;</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="No. Hanging a flat picture on a wall is a painting, not an installation.">hangs flat on a single wall</button>
+                    <button data-choice="b" data-fb="No. Installations are not defined by being copies; they transform a space.">is always a copy of another work</button>
+                    <button data-choice="c" data-fb="Correct. An installation turns a whole space or room into the artwork, which the viewer enters.">turns a whole space into the artwork you walk inside</button>
+                </div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
+
+        <div style="background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 14px 0;">
+            <div style="font-size: 11px; color: #A33D1F; margin-bottom: 8px;">&#9888;&#65039; WORTH KNOWING &middot; AI ASKS POP ART&rsquo;S QUESTIONS</div>
+            <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">AI image generators raise exactly the questions Pop Art raised. When a tool copies and recombines millions of existing images into a new one, who is the artist: the person who typed the prompt, the engineers, or the artists whose work was used? What counts as original when the image is assembled from other images? Pop made appropriation and repetition into art and forced these debates decades before AI existed. Studying Pop gives you the vocabulary to think clearly about the newest images of all.</div>
+        </div>
+    </div>
+
+    <!-- Vocabulary -->
+    <div class="vocab-box">
+        <div class="vocab-title">&#128214; VOCABULARY FROM THIS LESSON</div>
+        <table class="vocab-table"><tbody>
+            <tr><td>Pop Art</td><td>A 1950s and 1960s movement that drew on advertising, comics, and mass culture.</td></tr>
+            <tr><td>Mass culture</td><td>The shared images and products of everyday consumer life: ads, packaging, celebrity.</td></tr>
+            <tr><td>Appropriation</td><td>Taking an existing image from culture and re-presenting it as art.</td></tr>
+            <tr><td>Installation</td><td>A work that turns a whole space or room into art the viewer enters.</td></tr>
+            <tr><td>Contemporary</td><td>Art of the recent past to the present, marked by many styles, media, and global voices.</td></tr>
+        </tbody></table>
+    </div>
+
+    <!-- Now You Try -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="now-box" style="margin-top: 0;">
+            <div class="now-kicker">&#9999;&#65039; NOW YOU TRY &middot; IN YOUR NOTEBOOK</div>
+            <div class="accent-body">Choose one everyday image from your own life (a logo, an emoji, a snack package). In your notebook, sketch it repeated four to six times in a grid, Pop-style. Then write one sentence answering: by repeating it, what do you make a viewer notice that they would normally ignore? This is the thinking behind your Movement-Inspired Artwork.</div>
+        </div>
+    </div>
+
+    <!-- What You'll Do Next -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU&rsquo;LL DO NEXT</div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Student-Selected Modern Artwork Analysis</strong> (assignment)</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Choose a modern or contemporary work, link it, and write a full four-step analysis.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Modern vs. Contemporary Art</strong> (discussion)</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Compare two phases of recent art and take a position.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Movement-Inspired Artwork</strong> (creation) and <strong>Unit 11 Quiz</strong></div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Make an original work inspired by a movement's ideas, then take the short auto-graded quiz.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wrap-up -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128170; WHY THIS MATTERS</div>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">This lesson closes the whole year. You began with handprints on a cave wall and end with a question artists are still arguing: what is art, and who decides? The lesson of the last century is that art never settles. It keeps redefining itself, and each new form, including the AI images of your own time, has to be met fresh. The good news is that you now hold the tools to meet any of them. Describe what is there, analyze how it works, interpret what it means, and judge it on its own terms. With four-step analysis, no new work can leave you speechless. You can always begin to see.</p>
+    </div>
+
+</div>
+
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 18px 34px; text-align: center;">
+    <div style="font-size: 18px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> &middot; ART HISTORY &amp; CRITICISM &middot; Semester 2 &middot; Student Lesson Page</div>
+    <div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 11.03 &middot; Pop Art &amp; Contemporary Questions</div>
+    <div style="font-size: 12px; color: rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || 'Right.') : (sBtn.dataset.fb || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

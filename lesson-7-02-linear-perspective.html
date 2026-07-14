@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Art History &amp; Criticism &mdash; Lesson 7.02</title>
+<style>
+    body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
+    .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    img { max-width: 100%; height: auto; display: block; }
+    .artfig { margin: 16px 0; }
+    .artfig img { border: 1px solid #D0D9E8; border-radius: 6px; }
+    .artcap { font-size: 13px; color: #666; line-height: 1.5; margin-top: 6px; }
+    .artcap strong { color: #0E1C42; font-style: italic; font-weight: 600; }
+    .art2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 640px) { .art2 { grid-template-columns: 1fr; } }
+    .look-box { background: #E6F4F3; border-left: 5px solid #14807A; border-top: 3px solid #2BB6AC; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .look-kicker { font-size: 11px; color: #0E635E; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .now-box { background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .now-kicker { font-size: 11px; color: #A33D1F; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .accent-body { font-size: 17px; color: #0E1C42; line-height: 1.6; }
+    .spotlight { border: 2px solid #0E1C42; border-radius: 10px; padding: 18px; margin: 18px 0; }
+    .spotlight-title { font-size: 12px; font-weight: 700; color: #0E1C42; letter-spacing: 0.5px; margin-bottom: 6px; }
+    .spotlight-work { font-weight: 700; color: #0E1C42; font-size: 16px; }
+    .spotlight-loc { color: #777; font-size: 13px; margin-bottom: 12px; }
+    .daij-row { font-size: 16px; color: #1a2340; line-height: 1.6; margin-bottom: 9px; }
+    .daij-label { font-weight: 700; margin-right: 6px; }
+    .vocab-box { background: #F4F6FA; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px 18px; margin: 18px 0; }
+    .vocab-title { font-size: 11px; font-weight: 700; color: #c7922c; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .vocab-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .vocab-table td { padding: 6px 0; color: #1a2340; vertical-align: top; border-top: 1px solid #E2E8F2; line-height: 1.55; }
+    .vocab-table td:first-child { font-weight: 700; color: #0E1C42; width: 165px; padding-right: 12px; }
+    .optima-widget { background: linear-gradient(135deg, #E6F4F3 0%, #F4FBFA 100%); border: 1px solid #BFE3DF; border-left: 5px solid #14807A; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .widget-kicker { font-size: 11px; color: #0E635E; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+    .widget-options button:hover { background: #F4F6FA; border-color: #2BB6AC; }
+    .widget-options button.correct { background: #E6F4F3; border-color: #14807A; color: #0E635E; }
+    .widget-options button.incorrect { background: #FCEDE8; border-color: #D85C38; color: #A33D1F; }
+    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+    .row-feedback.correct { background: #E6F4F3; border-left: 3px solid #14807A; color: #0E635E; }
+    .row-feedback.incorrect { background: #FCEDE8; border-left: 3px solid #D85C38; color: #A33D1F; }
+    .ow-flip-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px 18px; cursor: pointer; text-align: center; min-height: 64px; display: flex; align-items: center; justify-content: center; }
+    .ow-flip .ow-flip-back { display: none; color: #1a2340; font-size: 14px; line-height: 1.5; }
+    .ow-flip .ow-flip-front { color: #0E1C42; font-weight: 700; font-size: 15px; }
+    .ow-flip.flipped .ow-flip-front { display: none; }
+    .ow-flip.flipped .ow-flip-back { display: block; }
+    @media (max-width: 640px) { .ow-flip-grid { grid-template-columns: 1fr; } }
+    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 10px; }
+    .widget-reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;">
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+        <div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width: 50px; height: 40px; object-fit: contain;" /></div>
+        <div>
+            <div style="font-size: 28px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+            <div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
+        </div>
+    </div>
+    <div style="font-size: 36px; color: #ffffff; margin-bottom: 6px;">ART HISTORY &amp; CRITICISM</div>
+</div>
+
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Semester / Unit</div>
+        <div style="font-size: 17px; color: #0e1c42;">S2 &middot; Unit 7</div>
+        <div style="font-size: 12px; color: #666;">Renaissance Art</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+        <div style="font-size: 17px; color: #0e1c42;">Lesson 7.02</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+        <div style="font-size: 17px; color: #0e1c42; font-style: italic;">Space on a Flat Surface: Linear Perspective</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Module Theme</div>
+        <div style="font-size: 16px; color: #0e1c42;">The Rebirth of the Human</div>
+    </div>
+</div>
+
+<div style="padding: 24px 34px;">
+
+    <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">LESSON 7.02</div>
+        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">Space on a Flat Surface: Linear Perspective</div>
+        <div style="font-size: 16px; color: #666;">Interactive Lesson</div>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
+        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">How can a flat wall be made to open like a window into a room you could walk into?</div>
+        <div style="font-size: 18px; color: #1a2340; line-height: 1.65;">Medieval painters stacked figures up the panel to show distance, and the result looks flat to modern eyes. Renaissance artists worked out the geometry that fools the eye into seeing real depth. Once you know the rule, you can see it everywhere, and you can draw it yourself.</div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#127919; BY THE END OF THIS LESSON YOU WILL BE ABLE TO&hellip;</div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> define linear perspective and identify the horizon line, vanishing point, and orthogonals.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> explain how one-point perspective and foreshortening create the illusion of deep space.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> sketch a one-point perspective box and prepare for the One-Point Perspective Drawing.</div>
+        </div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128203; WHAT YOU NEED FOR THIS LESSON</div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">Paper, a pencil, and a ruler or any straight edge; this lesson sets up your One-Point Perspective Drawing</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">The terms from Lesson 7.01 (humanism, naturalism) for context on why depth mattered</div>
+        </div>
+    </div>
+
+    <!-- PART 1 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 1 &middot; LOOK FIRST</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~12 MIN</span></div>
+
+        <div class="look-box">
+            <div class="look-kicker">&#128064; LOOK CLOSELY &middot; FOLLOW THE FLOOR INTO THE DISTANCE</div>
+            <div class="accent-body">Look at this great hall of philosophers. The figures stand on a floor that seems to run far back, under arches that shrink into the distance. Lay a finger on the edges of the building and the floor tiles. Notice how all those lines seem to aim toward a single spot, just behind the two men at the center. That spot is the secret of the whole illusion.</div>
+        </div>
+
+        <div class="artfig">
+            <img src="images/raphael-school-of-athens.jpg" alt="Raphael, The School of Athens" />
+            <div class="artcap"><strong>The School of Athens</strong>, Raphael, c. 1510&ndash;1512. Apostolic Palace, Vatican. Public domain.</div>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 14px 0 10px 0;">Raphael gathered the great thinkers of antiquity into one imagined hall. What makes the space feel real is not just the figures but the architecture receding behind them. The vaulted ceiling, the floor, and the building all pull back toward the center, so we feel we could walk past Plato and Aristotle into the rooms beyond. This is <strong>linear perspective</strong> at work: a geometric system for drawing depth.</p>
+    </div>
+
+    <!-- PART 2 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 2 &middot; THE RULE OF DEEP SPACE</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~16 MIN</span></div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">In <strong>linear perspective</strong>, first worked out in Florence in the early 1400s, you start with a <strong>horizon line</strong>, which sits at the viewer's eye level. On that line you place a <strong>vanishing point</strong>. Then every edge that runs away from the viewer, the sides of a floor, a wall, or a row of columns, is drawn as a line that aims straight at that point. Those receding edges are called <strong>orthogonals</strong>. Because they all converge on one point, the system here is called <strong>one-point perspective</strong>. Objects also get smaller as they near the vanishing point, which is why distant things look small.</p>
+
+        <!-- Concept visual: one-point perspective grid -->
+        <div style="background: #FAFBFD; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px; margin: 12px 0; text-align: center;">
+            <svg viewBox="0 0 360 220" width="100%" style="max-width: 420px; height: auto;" role="img" aria-label="A one-point perspective diagram: a floor of receding lines converging on a single vanishing point on the horizon line">
+                <rect x="1" y="1" width="358" height="218" fill="#ffffff" stroke="#D0D9E8"/>
+                <!-- horizon line -->
+                <line x1="10" y1="80" x2="350" y2="80" stroke="#14807A" stroke-width="2"/>
+                <text x="14" y="73" font-family="Segoe UI, sans-serif" font-size="11" fill="#0E635E">horizon line (eye level)</text>
+                <!-- vanishing point -->
+                <circle cx="180" cy="80" r="5" fill="#D85C38"/>
+                <text x="188" y="76" font-family="Segoe UI, sans-serif" font-size="11" fill="#A33D1F">vanishing point</text>
+                <!-- orthogonals (floor) -->
+                <line x1="20" y1="210" x2="180" y2="80" stroke="#D85C38" stroke-width="1.5"/>
+                <line x1="90" y1="210" x2="180" y2="80" stroke="#D85C38" stroke-width="1.5"/>
+                <line x1="180" y1="210" x2="180" y2="80" stroke="#D85C38" stroke-width="1.5"/>
+                <line x1="270" y1="210" x2="180" y2="80" stroke="#D85C38" stroke-width="1.5"/>
+                <line x1="340" y1="210" x2="180" y2="80" stroke="#D85C38" stroke-width="1.5"/>
+                <text x="40" y="205" font-family="Segoe UI, sans-serif" font-size="10" fill="#A33D1F">orthogonals</text>
+                <!-- horizontal cross-lines (receding floor tiles) -->
+                <line x1="20" y1="210" x2="340" y2="210" stroke="#0E1C42" stroke-width="1.2"/>
+                <line x1="55" y1="170" x2="305" y2="170" stroke="#0E1C42" stroke-width="1.2"/>
+                <line x1="85" y1="138" x2="275" y2="138" stroke="#0E1C42" stroke-width="1.2"/>
+                <line x1="108" y1="113" x2="252" y2="113" stroke="#0E1C42" stroke-width="1.2"/>
+                <line x1="126" y1="95" x2="234" y2="95" stroke="#0E1C42" stroke-width="1.2"/>
+            </svg>
+            <div style="font-size: 13px; color: #666; margin-top: 6px;">Receding edges (orthogonals, in coral) all aim at one vanishing point on the horizon line. Evenly spaced tiles (navy) crowd closer as they recede, so the floor reads as deep space.</div>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">A related trick is <strong>foreshortening</strong>: when an object points toward you, its near parts look large and its far parts look compressed, so a pointing arm or an outstretched leg appears to thrust into or out of the picture. Together, these tools let Renaissance painters build a believable world inside a frame.</p>
+
+        <div class="optima-widget ow-select">
+            <div class="widget-kicker">&#9989; CHECK YOUR UNDERSTANDING</div>
+            <div class="widget-row" data-correct="b">
+                <div class="widget-row-prompt">In one-point perspective, the orthogonals all meet at the&hellip;</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="No. The corners of the canvas are just the frame; the receding lines aim at a single chosen point.">four corners of the canvas</button>
+                    <button data-choice="b" data-fb="Correct. All receding edges converge on the single vanishing point sitting on the horizon line.">single vanishing point on the horizon line</button>
+                    <button data-choice="c" data-fb="No. The signature is the artist's mark; it has nothing to do with the geometry of depth.">artist's signature at the bottom</button>
+                </div>
+            </div>
+            <div class="widget-row" data-correct="c">
+                <div class="widget-row-prompt">The horizon line in linear perspective is placed at&hellip;</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="No. The top edge is just the frame; the horizon line is set wherever the viewer's eye level is.">the very top of the picture, always</button>
+                    <button data-choice="b" data-fb="No. The horizon line is a level line for the eye, not a vertical line down the middle.">straight down the center, vertically</button>
+                    <button data-choice="c" data-fb="Correct. The horizon line represents the viewer's eye level, and the vanishing point sits on it.">the viewer's eye level</button>
+                </div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
+    </div>
+
+    <!-- PART 3 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 3 &middot; READ THE PAINTING</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~15 MIN</span></div>
+
+        <div class="spotlight">
+            <div class="spotlight-title">&#128269; ARTWORK SPOTLIGHT</div>
+            <div class="spotlight-work">The School of Athens (c. 1510&ndash;1512)</div>
+            <div class="spotlight-loc">Raphael &middot; Apostolic Palace, Vatican (High Renaissance)</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E635E;">Describe:</span> A crowd of philosophers stands and sits across a vast vaulted hall. Two central figures walk forward beneath a series of receding arches; statues stand in niches on either side.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E1C42;">Analyze:</span> <strong>Linear perspective</strong> drives the design: the architecture's <strong>orthogonals</strong> converge on a <strong>vanishing point</strong> right between the two central thinkers, so the deepest <strong>space</strong> frames the most important figures.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A8741F;">Interpret:</span> The geometry is also an argument. By placing the vanishing point behind Plato and Aristotle, Raphael makes the structure of the room point to the structure of knowledge itself.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A33D1F;">Judge:</span> It succeeds as a showpiece of the High Renaissance: perspective, balance, and meaning fuse so that the method serves the message rather than showing off.</div>
+        </div>
+
+        <div class="optima-widget ow-flip-wrap">
+            <div class="widget-kicker">&#128064; FLIP TO CHECK &middot; CLICK EACH CARD</div>
+            <div class="widget-question">Cover the terms above. Can you recall each one? Click a card to flip it.</div>
+            <div class="ow-flip-grid">
+                <div class="ow-flip"><div class="ow-flip-front">Linear perspective</div><div class="ow-flip-back">A geometric system for drawing deep space on a flat surface.</div></div>
+                <div class="ow-flip"><div class="ow-flip-front">Vanishing point</div><div class="ow-flip-back">The single point on the horizon where all orthogonals converge.</div></div>
+                <div class="ow-flip"><div class="ow-flip-front">Horizon line</div><div class="ow-flip-back">A level line at the viewer's eye level where the vanishing point sits.</div></div>
+                <div class="ow-flip"><div class="ow-flip-front">Orthogonals</div><div class="ow-flip-back">Receding edges that aim straight at the vanishing point.</div></div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
+
+        <div style="background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 14px 0;">
+            <div style="font-size: 11px; color: #A33D1F; margin-bottom: 8px;">&#9888;&#65039; WORTH KNOWING &middot; AI &amp; A LEARNABLE SYSTEM</div>
+            <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">Perspective is a precise, learnable geometric system; that is exactly why the Renaissance could spread it from one workshop to all of Europe. An AI tool can generate an image that looks like it has perspective, and it sometimes gets the geometry wrong, with lines that do not actually converge. Drawing a perspective grid by hand is different: it builds the spatial reasoning that lets you judge whether any image, made by a person or a machine, is constructed correctly. The skill is in the doing.</div>
+        </div>
+    </div>
+
+    <!-- Vocabulary -->
+    <div class="vocab-box">
+        <div class="vocab-title">&#128214; VOCABULARY FROM THIS LESSON</div>
+        <table class="vocab-table"><tbody>
+            <tr><td>Linear perspective</td><td>A geometric system for creating the illusion of deep space on a flat surface.</td></tr>
+            <tr><td>Vanishing point</td><td>The single point on the horizon where all receding lines converge.</td></tr>
+            <tr><td>Horizon line</td><td>A level line at the viewer's eye level on which the vanishing point sits.</td></tr>
+            <tr><td>Orthogonals</td><td>The receding edges of objects that aim toward the vanishing point.</td></tr>
+            <tr><td>Foreshortening</td><td>Shortening an object that points toward the viewer so it seems to thrust into space.</td></tr>
+        </tbody></table>
+    </div>
+
+    <!-- Now You Try -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="now-box" style="margin-top: 0;">
+            <div class="now-kicker">&#9999;&#65039; NOW YOU TRY &middot; ON PAPER</div>
+            <div class="accent-body">Try the rule yourself. Draw a light horizon line across your page and mark one vanishing point on it. Draw a simple box (a cube or an open room) somewhere off-center, then run each receding edge as an orthogonal back to that single point with your ruler. Watch the box turn solid. Keep this sketch; you will build on it for your One-Point Perspective Drawing.</div>
+        </div>
+    </div>
+
+    <!-- What You'll Do Next -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU&rsquo;LL DO NEXT</div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>One-Point Perspective Drawing</strong> (creation)</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Draw a room or street in correct one-point perspective and save it to your portfolio.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Lesson 7.03 &middot; Michelangelo</strong></div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Turn from deep space to the idealized human body in sculpture and fresco.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wrap-up -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128170; WHY THIS MATTERS</div>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Linear perspective is one of the most influential ideas in the history of art. It gave painters a way to build a convincing world inside a frame, and it shaped how Europeans pictured space for the next five hundred years. With deep space mastered, Renaissance artists turned to the figure that would fill it: the perfected human body, which is where Michelangelo takes us next.</p>
+    </div>
+
+</div>
+
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 18px 34px; text-align: center;">
+    <div style="font-size: 18px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> &middot; ART HISTORY &amp; CRITICISM &middot; Semester 2 &middot; Student Lesson Page</div>
+    <div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 7.02 &middot; Space on a Flat Surface: Linear Perspective</div>
+    <div style="font-size: 12px; color: rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || 'Right.') : (sBtn.dataset.fb || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Art History &amp; Criticism &mdash; Lesson 4.01</title>
+<style>
+    body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
+    .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    img { max-width: 100%; height: auto; display: block; }
+    .artfig { margin: 16px 0; }
+    .artfig img { border: 1px solid #D0D9E8; border-radius: 6px; }
+    .artcap { font-size: 13px; color: #666; line-height: 1.5; margin-top: 6px; }
+    .artcap strong { color: #0E1C42; font-style: italic; font-weight: 600; }
+    .art3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+    @media (max-width: 720px) { .art3 { grid-template-columns: 1fr; } }
+    .look-box { background: #E6F4F3; border-left: 5px solid #14807A; border-top: 3px solid #2BB6AC; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .look-kicker { font-size: 11px; color: #0E635E; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .now-box { background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .now-kicker { font-size: 11px; color: #A33D1F; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .accent-body { font-size: 17px; color: #0E1C42; line-height: 1.6; }
+    .spotlight { border: 2px solid #0E1C42; border-radius: 10px; padding: 18px; margin: 18px 0; }
+    .spotlight-title { font-size: 12px; font-weight: 700; color: #0E1C42; letter-spacing: 0.5px; margin-bottom: 6px; }
+    .spotlight-work { font-weight: 700; color: #0E1C42; font-size: 16px; }
+    .spotlight-loc { color: #777; font-size: 13px; margin-bottom: 12px; }
+    .daij-row { font-size: 16px; color: #1a2340; line-height: 1.6; margin-bottom: 9px; }
+    .daij-label { font-weight: 700; margin-right: 6px; }
+    .vocab-box { background: #F4F6FA; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px 18px; margin: 18px 0; }
+    .vocab-title { font-size: 11px; font-weight: 700; color: #c7922c; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .vocab-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .vocab-table td { padding: 6px 0; color: #1a2340; vertical-align: top; border-top: 1px solid #E2E8F2; line-height: 1.55; }
+    .vocab-table td:first-child { font-weight: 700; color: #0E1C42; width: 150px; padding-right: 12px; }
+    .optima-widget { background: linear-gradient(135deg, #E6F4F3 0%, #F4FBFA 100%); border: 1px solid #BFE3DF; border-left: 5px solid #14807A; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .widget-kicker { font-size: 11px; color: #0E635E; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+    .widget-options button:hover { background: #F4F6FA; border-color: #2BB6AC; }
+    .widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+    .widget-options button.correct { background: #E6F4F3; border-color: #14807A; color: #0E635E; }
+    .widget-options button.incorrect { background: #FCEDE8; border-color: #D85C38; color: #A33D1F; }
+    .widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+    .widget-feedback.show { display: block; }
+    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+    .row-feedback.correct { background: #E6F4F3; border-left: 3px solid #14807A; color: #0E635E; }
+    .row-feedback.incorrect { background: #FCEDE8; border-left: 3px solid #D85C38; color: #A33D1F; }
+    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 10px; }
+    .widget-reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;">
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+        <div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width: 50px; height: 40px; object-fit: contain;" /></div>
+        <div>
+            <div style="font-size: 28px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+            <div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
+        </div>
+    </div>
+    <div style="font-size: 36px; color: #ffffff; margin-bottom: 6px;">ART HISTORY &amp; CRITICISM</div>
+</div>
+
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Semester / Unit</div>
+        <div style="font-size: 17px; color: #0e1c42;">S1 &middot; Unit 4</div>
+        <div style="font-size: 12px; color: #666;">Ancient Greece</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+        <div style="font-size: 17px; color: #0e1c42;">Lesson 4.01</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+        <div style="font-size: 17px; color: #0e1c42; font-style: italic;">The Human Figure: Archaic to Hellenistic Sculpture</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Module Theme</div>
+        <div style="font-size: 16px; color: #0e1c42;">The Birth of Naturalism</div>
+    </div>
+</div>
+
+<div style="padding: 24px 34px;">
+
+    <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">LESSON 4.01</div>
+        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">The Human Figure: Archaic to Hellenistic Sculpture</div>
+        <div style="font-size: 16px; color: #666;">Interactive Lesson</div>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
+        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">How did Greek sculptors learn, in just two centuries, to carve stone that looks like it could breathe?</div>
+        <div style="font-size: 18px; color: #1a2340; line-height: 1.65;">Egyptian art held to one set of rules for 3,000 years. Greek sculpture changed faster than any art before it, moving from stiff, frozen figures to bodies caught mid-motion. Watching that change is watching the birth of naturalism in Western art.</div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#127919; BY THE END OF THIS LESSON YOU WILL BE ABLE TO&hellip;</div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> distinguish the Archaic, Classical, and Hellenistic styles of Greek sculpture.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> define contrapposto and explain why it was a breakthrough.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> compare the Greek figure with the Egyptian figure I studied in Unit 3.</div>
+        </div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128203; WHAT YOU NEED FOR THIS LESSON</div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">A notebook or an open Word document for the &ldquo;Now You Try&rdquo; near the end of this lesson</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">Your notes on Egyptian conventions (hierarchical scale, composite view) from Unit 3</div>
+        </div>
+    </div>
+
+    <!-- PART 1 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 1 &middot; LOOK FIRST</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~14 MIN</span></div>
+
+        <div class="look-box">
+            <div class="look-kicker">&#128064; LOOK CLOSELY &middot; WATCH THE BODIES CHANGE</div>
+            <div class="accent-body">Look at the three figures below in order, left to right. How does the weight sit in each body? Which one could be standing at attention, which could be at ease, and which looks caught in motion? You are watching about 400 years of change.</div>
+        </div>
+
+        <div class="art3">
+            <div class="artfig">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Marble_statue_of_a_kouros_%28youth%29_MET_DT263.jpg" alt="Archaic Greek kouros" />
+                <div class="artcap"><strong>Marble statue of a kouros</strong>, Archaic, c. 590&ndash;580 BC. The Metropolitan Museum of Art (CC0). Retrieved from Wikimedia Commons.</div>
+            </div>
+            <div class="artfig">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Female_funerary_statue_(Large_Herculaneum_Woman)_at_the_National_Archaeological_Museum_on_27_March_2018.jpg" alt="A Large Herculaneum Woman statue, a draped female figure" />
+                <div class="artcap"><strong>&ldquo;Large Herculaneum Woman&rdquo; type</strong>, Roman copy of a Greek original of c. 320 BC. National Archaeological Museum, Athens. Photograph by George E. Koronaios, licensed CC BY-SA 4.0, via Wikimedia Commons.</div>
+            </div>
+            <div class="artfig">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Louvre_Victoire_de_Samothrace_(Winged_Victory)_(9812038073).jpg" alt="The Winged Victory of Samothrace" />
+                <div class="artcap"><strong>Winged Victory of Samothrace (Nike)</strong>, Hellenistic, c. 200&ndash;180 BC. Mus&eacute;e du Louvre, Paris. Photograph by Gary Todd, released to the public domain (CC0), via Wikimedia Commons.</div>
+            </div>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 14px 0 10px 0;">Greek sculpture moved through three great phases. The <strong>Archaic</strong> period (c. 600&ndash;480 BC) gave us the <strong>kouros</strong>, a standing nude youth. Look how it stands: rigidly frontal, arms locked at the sides, one foot forward but no weight shifted, a faint fixed &ldquo;Archaic smile.&rdquo; It is no accident that this looks a little Egyptian; early Greek sculptors learned from Egypt, and the blocky, four-square stance is the proof.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">The <strong>Classical</strong> period (c. 480&ndash;323 BC) broke the figure free. Sculptors discovered <strong>contrapposto</strong>: the body&rsquo;s weight rests on one leg, the hips and shoulders tilt in answer, and the whole figure relaxes into a gentle S-curve, as a real person stands. Then the <strong>Hellenistic</strong> period (c. 323&ndash;31 BC) pushed further into drama and motion: the Nike lands on the prow of a ship, wings beating, drapery whipping in the sea wind. Stillness, then balance, then movement.</p>
+    </div>
+
+    <!-- PART 2 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 2 &middot; THE BREAKTHROUGH OF CONTRAPPOSTO</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~16 MIN</span></div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">The single most important idea here is <strong>contrapposto</strong> (Italian for &ldquo;counterpoise&rdquo;). When you stand naturally, you rest your weight on one leg. That engaged leg straightens and its hip rises; the other leg bends and its hip drops; your shoulders tilt the opposite way to balance. The body becomes a set of gentle opposing curves instead of a rigid post. Greek Classical sculptors were the first to carve this convincingly, and it changed art forever.</p>
+
+        <!-- Legible sequence: how the Greek figure loosened over three periods -->
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0;">
+            <div style="flex: 1; min-width: 200px; background: #F4F6FA; border-left: 5px solid #6b7a99; border-radius: 8px; padding: 14px 16px;">
+                <div style="font-size: 12px; font-weight: 700; color: #4a5878; letter-spacing: 0.3px; margin-bottom: 6px;">ARCHAIC</div>
+                <div style="font-size: 15px; color: #1a2340; line-height: 1.5;"><strong>Rigid and frontal.</strong> The figure stands stiff and symmetrical, weight even on both feet, like a column.</div>
+            </div>
+            <div style="flex: 1; min-width: 200px; background: #E6F4F3; border-left: 5px solid #14807A; border-radius: 8px; padding: 14px 16px;">
+                <div style="font-size: 12px; font-weight: 700; color: #0E635E; letter-spacing: 0.3px; margin-bottom: 6px;">CLASSICAL</div>
+                <div style="font-size: 15px; color: #1a2340; line-height: 1.5;"><strong>Contrapposto.</strong> Weight shifts onto one leg, so hips and shoulders tilt into a relaxed, lifelike S-curve.</div>
+            </div>
+            <div style="flex: 1; min-width: 200px; background: #FCEDE8; border-left: 5px solid #D85C38; border-radius: 8px; padding: 14px 16px;">
+                <div style="font-size: 12px; font-weight: 700; color: #A33D1F; letter-spacing: 0.3px; margin-bottom: 6px;">HELLENISTIC</div>
+                <div style="font-size: 15px; color: #1a2340; line-height: 1.5;"><strong>Full motion.</strong> Bodies twist, lunge, and stride, caught in dramatic action, as in the Winged Victory above.</div>
+            </div>
+        </div>
+
+        <div class="optima-widget ow-reflect">
+            <div class="widget-kicker">&#128172; QUICK CHECK-IN &middot; NO WRONG ANSWER</div>
+            <div class="widget-question">Egyptian figures stayed nearly the same for 3,000 years; Greek figures transformed in about 400. What might explain why Greek art changed so fast?</div>
+            <div class="widget-options">
+                <button data-response="A thoughtful read. Greek culture prized observation, competition, and individual achievement, so sculptors pushed one another to capture the real body ever more convincingly. Cultural values shape artistic change.">Greek culture valued observation and competition</button>
+                <button data-response="Reasonable. Egyptian art served an eternal, unchanging religious order, while Greek art increasingly celebrated the human being in this world, a goal that invites constant refinement.">Different beliefs about what art was for</button>
+                <button data-response="Fair. There is no single cause, and good historians hold several explanations at once. What matters is that you are linking the rate of change to the culture, not just to the artists&rsquo; skill.">Probably several reasons together</button>
+            </div>
+            <div class="widget-feedback"></div>
+            <button class="widget-reset">Reset</button>
+        </div>
+    </div>
+
+    <!-- PART 3 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 3 &middot; WATCH IT WORK</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~15 MIN</span></div>
+
+        <div class="spotlight">
+            <div class="spotlight-title">&#128269; ARTWORK SPOTLIGHT</div>
+            <div class="spotlight-work">Marble statue of a kouros (c. 590&ndash;580 BC)</div>
+            <div class="spotlight-loc">The Metropolitan Museum of Art, New York</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E635E;">Describe:</span> A life-size nude young man stands facing forward, arms straight at his sides, fists closed, left foot stepping slightly ahead. The pose is stiff and symmetrical.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E1C42;">Analyze:</span> The figure is built on a rigid vertical axis with near-perfect <strong>symmetry</strong> and <strong>balance</strong>; the body is blocky <strong>form</strong> with little sense of weight shifting. The advanced foot adds no real motion.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A8741F;">Interpret:</span> The frontal, four-square stance closely echoes Egyptian figures, which is no surprise: early Greek sculptors learned from Egypt. One reading is that we are watching Greek art at its starting line, before it broke free.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A33D1F;">Judge:</span> For its moment it is a triumph of ambition: a freestanding life-size human in stone. Set beside the later Nike, though, you can measure exactly how far Greek sculpture still had to travel.</div>
+        </div>
+
+        <div class="optima-widget ow-select">
+            <div class="widget-kicker">&#9989; NAME THAT STYLE</div>
+            <div class="widget-row" data-correct="c">
+                <div class="widget-row-prompt">A figure with whipping drapery, beating wings, and a strong sense of motion is most likely&hellip;</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="No. Archaic figures are rigid and still, not dynamic.">Archaic</button>
+                    <button data-choice="b" data-fb="Closer, but Classical figures are calm and balanced; this level of drama and motion is later.">Classical</button>
+                    <button data-choice="c" data-fb="Correct. Drama, movement, and emotion are hallmarks of the Hellenistic period, as in the Nike of Samothrace.">Hellenistic</button>
+                </div>
+            </div>
+            <div class="widget-row" data-correct="b">
+                <div class="widget-row-prompt">Contrapposto, the relaxed shift of weight onto one leg, first appears in the&hellip;</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="No. Archaic kouroi stand rigidly, with weight evenly planted.">Archaic period</button>
+                    <button data-choice="b" data-fb="Correct. Classical sculptors discovered contrapposto, freeing the figure into a natural S-curve.">Classical period</button>
+                    <button data-choice="c" data-fb="Hellenistic art built on contrapposto, but the breakthrough itself was Classical.">Hellenistic period</button>
+                </div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
+
+        <div style="background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 14px 0;">
+            <div style="font-size: 11px; color: #A33D1F; margin-bottom: 8px;">&#9888;&#65039; WORTH KNOWING &middot; AI &amp; STYLE LABELS</div>
+            <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">An AI image tool can often guess &ldquo;Archaic&rdquo; or &ldquo;Hellenistic&rdquo; from a photo, because it has seen many labeled examples. But it is pattern-matching, not reasoning from the body itself, and it can be confidently wrong on a borderline or damaged work. It <em>cannot</em> explain <em>why</em> a stance reads as Classical the way you now can, by pointing to the weight shift. That &ldquo;because&rdquo; is the part that is yours.</div>
+        </div>
+    </div>
+
+    <!-- Vocabulary -->
+    <div class="vocab-box">
+        <div class="vocab-title">&#128214; VOCABULARY FROM THIS LESSON</div>
+        <table class="vocab-table"><tbody>
+            <tr><td>Kouros</td><td>An Archaic Greek statue of a standing nude youth; rigid, frontal, Egyptian-influenced.</td></tr>
+            <tr><td>Archaic</td><td>The early Greek phase (c. 600&ndash;480 BC) of stiff, symmetrical, frontal figures.</td></tr>
+            <tr><td>Classical</td><td>The phase (c. 480&ndash;323 BC) of balanced naturalism, idealized bodies, and contrapposto.</td></tr>
+            <tr><td>Contrapposto</td><td>A natural standing pose with weight on one leg, creating a gentle S-curve in the body.</td></tr>
+            <tr><td>Hellenistic</td><td>The later phase (c. 323&ndash;31 BC) of drama, movement, and strong emotion.</td></tr>
+            <tr><td>Naturalism</td><td>Representing the body and world as they really appear to the eye.</td></tr>
+        </tbody></table>
+    </div>
+
+    <!-- Now You Try -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="now-box" style="margin-top: 0;">
+            <div class="now-kicker">&#9999;&#65039; NOW YOU TRY &middot; IN YOUR NOTEBOOK</div>
+            <div class="accent-body">Put the kouros and the Egyptian figures from Unit 3 side by side in your mind. Write three sentences: one naming what they share (and why), and two naming how the Greek figure begins to break away. This is the exact thinking you will expand in your Egyptian vs. Greek sculpture discussion later this unit.</div>
+        </div>
+    </div>
+
+    <!-- What You'll Do Next -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU&rsquo;LL DO NEXT</div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Lesson 4.02 &middot; Order in Stone: The Parthenon</strong></div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">You will turn from the figure to the building, and meet the temple that defines Classical architecture.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Egyptian vs. Greek Sculpture</strong> (discussion)</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Compare how the two cultures carved the human body, and what each was trying to achieve.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wrap-up -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128170; WHY THIS MATTERS</div>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">The Greek discovery that art could show the human body as it truly moves and stands is one of the hinge moments of Western art. Sculptors from Rome to the Renaissance to today still measure themselves against it. When you learn to see contrapposto, you hold a key that unlocks two thousand years of art that followed.</p>
+    </div>
+
+</div>
+
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 18px 34px; text-align: center;">
+    <div style="font-size: 18px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> &middot; ART HISTORY &amp; CRITICISM &middot; Semester 1 &middot; Student Lesson Page</div>
+    <div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 4.01 &middot; The Human Figure: Archaic to Hellenistic Sculpture</div>
+    <div style="font-size: 12px; color: rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || 'Right.') : (sBtn.dataset.fb || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

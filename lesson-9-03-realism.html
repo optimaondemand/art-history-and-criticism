@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Art History &amp; Criticism &mdash; Lesson 9.03</title>
+<style>
+    body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
+    .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    img { max-width: 100%; height: auto; display: block; }
+    .artfig { margin: 16px 0; }
+    .artfig img { border: 1px solid #D0D9E8; border-radius: 6px; }
+    .artcap { font-size: 13px; color: #666; line-height: 1.5; margin-top: 6px; }
+    .artcap strong { color: #0E1C42; font-style: italic; font-weight: 600; }
+    .art2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 640px) { .art2 { grid-template-columns: 1fr; } }
+    .look-box { background: #E6F4F3; border-left: 5px solid #14807A; border-top: 3px solid #2BB6AC; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .look-kicker { font-size: 11px; color: #0E635E; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .now-box { background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .now-kicker { font-size: 11px; color: #A33D1F; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .accent-body { font-size: 17px; color: #0E1C42; line-height: 1.6; }
+    .spotlight { border: 2px solid #0E1C42; border-radius: 10px; padding: 18px; margin: 18px 0; }
+    .spotlight-title { font-size: 12px; font-weight: 700; color: #0E1C42; letter-spacing: 0.5px; margin-bottom: 6px; }
+    .spotlight-work { font-weight: 700; color: #0E1C42; font-size: 16px; }
+    .spotlight-loc { color: #777; font-size: 13px; margin-bottom: 12px; }
+    .daij-row { font-size: 16px; color: #1a2340; line-height: 1.6; margin-bottom: 9px; }
+    .daij-label { font-weight: 700; margin-right: 6px; }
+    .vocab-box { background: #F4F6FA; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px 18px; margin: 18px 0; }
+    .vocab-title { font-size: 11px; font-weight: 700; color: #c7922c; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .vocab-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .vocab-table td { padding: 6px 0; color: #1a2340; vertical-align: top; border-top: 1px solid #E2E8F2; line-height: 1.55; }
+    .vocab-table td:first-child { font-weight: 700; color: #0E1C42; width: 165px; padding-right: 12px; }
+    .optima-widget { background: linear-gradient(135deg, #E6F4F3 0%, #F4FBFA 100%); border: 1px solid #BFE3DF; border-left: 5px solid #14807A; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .widget-kicker { font-size: 11px; color: #0E635E; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+    .widget-options button:hover { background: #F4F6FA; border-color: #2BB6AC; }
+    .widget-options button.correct { background: #E6F4F3; border-color: #14807A; color: #0E635E; }
+    .widget-options button.incorrect { background: #FCEDE8; border-color: #D85C38; color: #A33D1F; }
+    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+    .row-feedback.correct { background: #E6F4F3; border-left: 3px solid #14807A; color: #0E635E; }
+    .row-feedback.incorrect { background: #FCEDE8; border-left: 3px solid #D85C38; color: #A33D1F; }
+    .ow-flip-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px 18px; cursor: pointer; text-align: center; min-height: 64px; display: flex; align-items: center; justify-content: center; }
+    .ow-flip .ow-flip-back { display: none; color: #1a2340; font-size: 14px; line-height: 1.5; }
+    .ow-flip .ow-flip-front { color: #0E1C42; font-weight: 700; font-size: 15px; }
+    .ow-flip.flipped .ow-flip-front { display: none; }
+    .ow-flip.flipped .ow-flip-back { display: block; }
+    @media (max-width: 640px) { .ow-flip-grid { grid-template-columns: 1fr; } }
+    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 10px; }
+    .widget-reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;">
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+        <div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width: 50px; height: 40px; object-fit: contain;" /></div>
+        <div>
+            <div style="font-size: 28px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+            <div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
+        </div>
+    </div>
+    <div style="font-size: 36px; color: #ffffff; margin-bottom: 6px;">ART HISTORY &amp; CRITICISM</div>
+</div>
+
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Semester / Unit</div>
+        <div style="font-size: 17px; color: #0e1c42;">S2 &middot; Unit 9</div>
+        <div style="font-size: 12px; color: #666;">Neoclassicism, Romanticism &amp; Realism</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+        <div style="font-size: 17px; color: #0e1c42;">Lesson 9.03</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+        <div style="font-size: 17px; color: #0e1c42; font-style: italic;">Realism: The Dignity of Ordinary Life</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Module Theme</div>
+        <div style="font-size: 16px; color: #0e1c42;">Reason, Passion, and Real Life</div>
+    </div>
+</div>
+
+<div style="padding: 24px 34px;">
+
+    <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">LESSON 9.03</div>
+        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">Realism: The Dignity of Ordinary Life</div>
+        <div style="font-size: 16px; color: #666;">Interactive Lesson</div>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
+        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">If heroes and storms can fill a giant canvas, why not two ordinary men breaking stones by the road?</div>
+        <div style="font-size: 18px; color: #1a2340; line-height: 1.65;">Realism made a quiet but radical claim: that everyday working people, painted plainly and at life size, were worthy of serious art. No gods, no drama, no flattering polish. Just the honest truth of labor and the poor, treated with the dignity once reserved for kings.</div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#127919; BY THE END OF THIS LESSON YOU WILL BE ABLE TO&hellip;</div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> define Realism and explain its rejection of idealization.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> explain why painting ordinary labor at life size was a form of social commentary.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> read Courbet's <em>The Stone Breakers</em> with the four-step method.</div>
+        </div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128203; WHAT YOU NEED FOR THIS LESSON</div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">A notebook or an open Word document; this lesson sets up your Realism analysis and Historical Narrative Sketch</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">The two earlier lessons (Neoclassicism's order, Romanticism's drama) for contrast</div>
+        </div>
+    </div>
+
+    <!-- PART 1 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 1 &middot; LOOK FIRST</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~12 MIN</span></div>
+
+        <div class="look-box">
+            <div class="look-kicker">&#128064; LOOK CLOSELY &middot; BEFORE YOU READ ON</div>
+            <div class="accent-body">Look at the painting below. Two laborers break and carry stones along a road. We never see their faces clearly; their clothes are patched; the work looks heavy and dull. There is no hero and no storm. Notice the size: Courbet painted these men life-size, as large as the saints and generals in a museum. What does that scale alone seem to say about them?</div>
+        </div>
+
+        <div class="artfig">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gustave_Courbet_-_The_Stonebreakers_-_WGA05457.jpg" alt="Gustave Courbet, The Stone Breakers" />
+            <div class="artcap"><strong>Gustave Courbet, The Stone Breakers</strong>, 1849. Public domain (the original was destroyed in the 1945 bombing of Dresden; this is a photographic record).</div>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 14px 0 10px 0;"><strong>Realism</strong> was a movement of the mid-1800s that set out to paint the world as it actually is, especially the lives of ordinary working people, without flattery or drama. Its leader, Gustave Courbet, said he could not paint an angel because he had never seen one. He wanted only what was real and in front of him.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">That goal meant rejecting <strong>idealization</strong>, the long habit of making subjects more beautiful, noble, or perfect than life. Earlier art smoothed away wrinkles and dirt; Realism left them in. Courbet chose <strong>everyday subject matter</strong>, a road crew, and refused to prettify it. The honesty was the point.</p>
+    </div>
+
+    <!-- PART 2 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 2 &middot; SIZE, HONESTY, AND SOCIAL TRUTH</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~16 MIN</span></div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">For centuries, the biggest, most serious paintings were reserved for the most important subjects: religion, myth, kings, great battles. Peasants and workers, if they appeared at all, were small, charming, or comic. Courbet broke the rule. By painting laborers life-size, on a canvas as grand as a history painting, he insisted that their work and their hardship were just as worthy of attention. That choice was a quiet but unmistakable form of <strong>social commentary</strong>: it asked viewers to take the poor seriously.</p>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Jean-Fran&ccedil;ois Millet worked in the same spirit. His <em>Gleaners</em> shows three women bent low, gathering the few grains left in a field after the harvest, one of the hardest and lowest forms of rural labor. Millet does not mock them or make them pretty. He gives them the slow, monumental weight of figures in a sacred painting. Honesty, here, is also a kind of respect.</p>
+
+        <div class="artfig">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Jean-Fran%C3%A7ois_Millet_-_Gleaners_-_Google_Art_Project_2.jpg" alt="Jean-Francois Millet, The Gleaners" />
+            <div class="artcap"><strong>Jean-Fran&ccedil;ois Millet, The Gleaners</strong>, 1857. Mus&eacute;e d'Orsay, Paris. Public domain.</div>
+        </div>
+
+        <!-- Concept visual: hierarchy of subjects overturned -->
+        <div style="background: #FAFBFD; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px; margin: 12px 0; text-align: center;">
+            <svg viewBox="0 0 340 150" width="100%" style="max-width: 380px; height: auto;" role="img" aria-label="Diagram showing the old subject hierarchy reversed by Realism">
+                <rect x="1" y="1" width="338" height="148" fill="#ffffff" stroke="#D0D9E8"/>
+                <text x="170" y="22" font-family="Segoe UI, sans-serif" font-size="11" fill="#0E1C42" text-anchor="middle">Who deserves a giant, serious canvas?</text>
+                <!-- old -->
+                <rect x="35" y="40" width="110" height="22" fill="#cdd6ea"/>
+                <text x="90" y="55" font-family="Segoe UI, sans-serif" font-size="10" fill="#0E1C42" text-anchor="middle">kings, gods, saints</text>
+                <rect x="55" y="68" width="70" height="16" fill="#e3e9f3"/>
+                <text x="90" y="80" font-family="Segoe UI, sans-serif" font-size="9" fill="#6b7a99" text-anchor="middle">workers: small</text>
+                <text x="90" y="108" font-family="Segoe UI, sans-serif" font-size="10" fill="#0E635E" text-anchor="middle">old hierarchy</text>
+                <!-- arrow -->
+                <text x="170" y="70" font-family="Segoe UI, sans-serif" font-size="18" fill="#C7922C" text-anchor="middle">&#8594;</text>
+                <!-- new -->
+                <rect x="200" y="40" width="110" height="44" fill="#0E1C42"/>
+                <text x="255" y="66" font-family="Segoe UI, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">ordinary workers,</text>
+                <text x="255" y="80" font-family="Segoe UI, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">life size</text>
+                <text x="255" y="108" font-family="Segoe UI, sans-serif" font-size="10" fill="#A33D1F" text-anchor="middle">Realism's reversal</text>
+            </svg>
+            <div style="font-size: 13px; color: #666; margin-top: 6px;">Realism overturns the old rule about whose life is big enough to deserve serious, life-size painting.</div>
+        </div>
+
+        <div class="optima-widget ow-select">
+            <div class="widget-kicker">&#9989; CHECK YOUR UNDERSTANDING</div>
+            <div class="widget-row" data-correct="b">
+                <div class="widget-row-prompt">Realism rejected &ldquo;idealization,&rdquo; which means it refused to&hellip;</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="No. Realists embraced ordinary subjects; they did not avoid them.">paint ordinary people at all</button>
+                    <button data-choice="b" data-fb="Correct. Idealization makes subjects more beautiful or noble than life; Realism left in the dirt, wear, and plainness.">make its subjects prettier or nobler than real life</button>
+                    <button data-choice="c" data-fb="No. Realists worked from the visible world, not imagination alone.">use any models or references</button>
+                </div>
+            </div>
+            <div class="widget-row" data-correct="c">
+                <div class="widget-row-prompt">Painting laborers at life size on a grand canvas was a form of social commentary because it&hellip;</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="No. The scale was the opposite of mockery; it granted importance.">made fun of working people</button>
+                    <button data-choice="b" data-fb="No. Realism is plain and honest, not dramatic in the Romantic sense.">added storms and intense drama</button>
+                    <button data-choice="c" data-fb="Correct. Giving the poor the scale once reserved for kings and saints insisted that their lives mattered.">claimed the poor deserved the same serious attention as kings</button>
+                </div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 10px 0 0 0;">Many viewers at the time were uneasy, even offended. They expected art to lift them somewhere finer; Realism held a mirror up to the world they walked through and would rather not see. That discomfort was a sign the new movement was working.</p>
+    </div>
+
+    <!-- PART 3 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 3 &middot; READ IT CLOSELY</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~15 MIN</span></div>
+
+        <div class="spotlight">
+            <div class="spotlight-title">&#128269; ARTWORK SPOTLIGHT</div>
+            <div class="spotlight-work">The Stone Breakers (1849)</div>
+            <div class="spotlight-loc">Gustave Courbet &middot; original destroyed 1945 (Realism)</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E635E;">Describe:</span> Two figures work beside a road: an older man kneels to break large stones with a hammer, and a younger one hauls a heavy basket of broken rock. Their clothes are torn and patched, their faces turned away or in shadow. A dull bank of earth fills most of the background.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E1C42;">Analyze:</span> The figures are <strong>life-size</strong> and pressed close to the picture surface, so the viewer cannot keep a comfortable distance. Muted, earthy <strong>color</strong> and a plain, near-flat setting refuse drama. Hidden faces turn the men into types of all such labor, not individuals.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A8741F;">Interpret:</span> One reading: by giving heavy, monotonous labor the scale and seriousness of grand history painting, Courbet argues that this work and these workers deserve our full attention, and gently indicts a society that lets such hardship pass unseen.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A33D1F;">Judge:</span> It succeeds. The refusal to flatter or dramatize is exactly what makes it powerful; the painting is honest, and that honesty still confronts the viewer.</div>
+        </div>
+
+        <div class="optima-widget ow-flip-wrap">
+            <div class="widget-kicker">&#128064; FLIP TO CHECK &middot; CLICK EACH CARD</div>
+            <div class="widget-question">Cover the lesson above. Can you recall each Realism idea? Click a card to flip it.</div>
+            <div class="ow-flip-grid">
+                <div class="ow-flip"><div class="ow-flip-front">Realism</div><div class="ow-flip-back">The mid-1800s movement that painted the world honestly, especially ordinary working people.</div></div>
+                <div class="ow-flip"><div class="ow-flip-front">Rejecting idealization</div><div class="ow-flip-back">Refusing to make subjects prettier or nobler than they really are.</div></div>
+                <div class="ow-flip"><div class="ow-flip-front">Everyday subject matter</div><div class="ow-flip-back">Choosing common life, like a road crew or gleaners, as serious subjects.</div></div>
+                <div class="ow-flip"><div class="ow-flip-front">Social commentary</div><div class="ow-flip-back">Using scale and honesty to insist the poor deserve serious attention.</div></div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
+
+        <div style="background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 14px 0;">
+            <div style="font-size: 11px; color: #A33D1F; margin-bottom: 8px;">&#9888;&#65039; WORTH KNOWING &middot; AI &amp; THE HABIT OF POLISH</div>
+            <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">AI image tools are trained to please, so they tend to smooth, brighten, and idealize by default, the very habit Realism set out to break. Asked for &ldquo;a worker,&rdquo; they often return a clean, heroic figure rather than tired, patched, ordinary reality. Knowing this is useful: it shows that choosing honesty over flattery is a deliberate decision a person makes, not something a polish-seeking tool does on its own.</div>
+        </div>
+    </div>
+
+    <!-- Vocabulary -->
+    <div class="vocab-box">
+        <div class="vocab-title">&#128214; VOCABULARY FROM THIS LESSON</div>
+        <table class="vocab-table"><tbody>
+            <tr><td>Realism</td><td>The mid-1800s movement that painted the world honestly, focusing on ordinary working people without drama or flattery.</td></tr>
+            <tr><td>Idealization</td><td>Making a subject more beautiful, noble, or perfect than life; Realism deliberately rejected it.</td></tr>
+            <tr><td>Everyday subject matter</td><td>Common, unglamorous life (labor, the poor, the ordinary) treated as worthy of serious art.</td></tr>
+            <tr><td>Social commentary</td><td>Using a work to make viewers see and reconsider conditions in their own society.</td></tr>
+        </tbody></table>
+    </div>
+
+    <!-- Now You Try -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="now-box" style="margin-top: 0;">
+            <div class="now-kicker">&#9999;&#65039; NOW YOU TRY &middot; IN YOUR NOTEBOOK</div>
+            <div class="accent-body">Plan your Historical Narrative Sketch. Think of one ordinary scene from real life today, a worker, a chore, a quiet street, that almost never gets painted seriously. In a few lines, describe how you would compose it the Realist way: plain colors, life-scale presence, no flattery. Note one detail you would leave in that a flattering picture would erase. This becomes the seed of your studio piece.</div>
+        </div>
+    </div>
+
+    <!-- What You'll Do Next -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU&rsquo;LL DO NEXT</div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>The Stone Breakers Analysis</strong> (assignment)</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Write a full four-step analysis of Courbet's painting. This is the unit's main graded piece.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Romanticism vs. Realism</strong> (discussion)</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Take a position on what truth about life each movement was reaching for.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Historical Narrative Sketch</strong> (creation) and <strong>Unit 9 Quiz</strong></div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Make your own Realist-spirited sketch, then take the short auto-graded quiz.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wrap-up -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128170; WHY THIS MATTERS</div>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Three movements, three answers to how art should meet the world: with reason and order, with passion and awe, and with plain honesty about real life. Realism opened art to modern life; next, the Impressionists will go outdoors to catch how that life actually looks to the eye, in light and color.</p>
+    </div>
+
+</div>
+
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 18px 34px; text-align: center;">
+    <div style="font-size: 18px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> &middot; ART HISTORY &amp; CRITICISM &middot; Semester 2 &middot; Student Lesson Page</div>
+    <div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 9.03 &middot; Realism: The Dignity of Ordinary Life</div>
+    <div style="font-size: 12px; color: rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || 'Right.') : (sBtn.dataset.fb || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

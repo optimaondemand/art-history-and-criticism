@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Art History &amp; Criticism &mdash; Lesson 3.03</title>
+<style>
+    body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
+    .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    img { max-width: 100%; height: auto; display: block; }
+    .artfig { margin: 16px 0; }
+    .artfig img { border: 1px solid #D0D9E8; border-radius: 6px; }
+    .artcap { font-size: 13px; color: #666; line-height: 1.5; margin-top: 6px; }
+    .artcap strong { color: #0E1C42; font-style: italic; font-weight: 600; }
+    .look-box { background: #E6F4F3; border-left: 5px solid #14807A; border-top: 3px solid #2BB6AC; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .look-kicker { font-size: 11px; color: #0E635E; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .now-box { background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .now-kicker { font-size: 11px; color: #A33D1F; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .accent-body { font-size: 17px; color: #0E1C42; line-height: 1.6; }
+    .spotlight { border: 2px solid #0E1C42; border-radius: 10px; padding: 18px; margin: 18px 0; }
+    .spotlight-title { font-size: 12px; font-weight: 700; color: #0E1C42; letter-spacing: 0.5px; margin-bottom: 6px; }
+    .spotlight-work { font-weight: 700; color: #0E1C42; font-size: 16px; }
+    .spotlight-loc { color: #777; font-size: 13px; margin-bottom: 12px; }
+    .daij-row { font-size: 16px; color: #1a2340; line-height: 1.6; margin-bottom: 9px; }
+    .daij-label { font-weight: 700; margin-right: 6px; }
+    .vocab-box { background: #F4F6FA; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px 18px; margin: 18px 0; }
+    .vocab-title { font-size: 11px; font-weight: 700; color: #c7922c; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .vocab-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .vocab-table td { padding: 6px 0; color: #1a2340; vertical-align: top; border-top: 1px solid #E2E8F2; line-height: 1.55; }
+    .vocab-table td:first-child { font-weight: 700; color: #0E1C42; width: 170px; padding-right: 12px; }
+    .optima-widget { background: linear-gradient(135deg, #E6F4F3 0%, #F4FBFA 100%); border: 1px solid #BFE3DF; border-left: 5px solid #14807A; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .widget-kicker { font-size: 11px; color: #0E635E; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+    .widget-options button:hover { background: #F4F6FA; border-color: #2BB6AC; }
+    .widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+    .widget-options button.correct { background: #E6F4F3; border-color: #14807A; color: #0E635E; }
+    .widget-options button.incorrect { background: #FCEDE8; border-color: #D85C38; color: #A33D1F; }
+    .widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+    .widget-feedback.show { display: block; }
+    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+    .row-feedback.correct { background: #E6F4F3; border-left: 3px solid #14807A; color: #0E635E; }
+    .row-feedback.incorrect { background: #FCEDE8; border-left: 3px solid #D85C38; color: #A33D1F; }
+    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 10px; }
+    .widget-reset:hover { background: #FDF3E3; }
+    .scale-demo { display: flex; align-items: flex-end; justify-content: center; gap: 28px; padding: 16px; }
+    .scale-fig { background: #14807A; border-radius: 4px 4px 0 0; width: 40px; }
+    .scale-label { font-size: 12px; color: #0E1C42; text-align: center; margin-top: 6px; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;">
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+        <div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width: 50px; height: 40px; object-fit: contain;" /></div>
+        <div>
+            <div style="font-size: 28px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+            <div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
+        </div>
+    </div>
+    <div style="font-size: 36px; color: #ffffff; margin-bottom: 6px;">ART HISTORY &amp; CRITICISM</div>
+</div>
+
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Semester / Unit</div>
+        <div style="font-size: 17px; color: #0e1c42;">S1 &middot; Unit 3</div>
+        <div style="font-size: 12px; color: #666;">Ancient Egypt &amp; Mesopotamia</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+        <div style="font-size: 17px; color: #0e1c42;">Lesson 3.03</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+        <div style="font-size: 17px; color: #0e1c42; font-style: italic;">Reading Power: Hierarchical Scale &amp; the Palette of Narmer</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Module Theme</div>
+        <div style="font-size: 16px; color: #0e1c42;">Art for Gods &amp; Kings</div>
+    </div>
+</div>
+
+<div style="padding: 24px 34px;">
+
+    <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">LESSON 3.03</div>
+        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">Reading Power: Hierarchical Scale &amp; the Palette of Narmer</div>
+        <div style="font-size: 16px; color: #666;">Interactive Lesson</div>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
+        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">Before writing was widespread, how could a picture announce to everyone exactly who was in charge?</div>
+        <div style="font-size: 18px; color: #1a2340; line-height: 1.65;">Egyptian artists followed a strict visual code for more than 3,000 years. Once you learn its rules, a carving like the Palette of Narmer reads almost like a sentence: this king, by the will of the gods, rules a united land.</div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#127919; BY THE END OF THIS LESSON YOU WILL BE ABLE TO&hellip;</div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> define hierarchical scale, register, and composite view.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> read the Palette of Narmer using these Egyptian conventions.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> explain how artistic conventions carry meaning, preparing for my Palette of Narmer analysis.</div>
+        </div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128203; WHAT YOU NEED FOR THIS LESSON</div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">A notebook or an open Word document; this lesson sets up your graded Palette of Narmer analysis</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">Your four-step analysis notes from Lesson 1.02</div>
+        </div>
+    </div>
+
+    <!-- PART 1 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 1 &middot; LOOK FIRST</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~12 MIN</span></div>
+
+        <div class="look-box">
+            <div class="look-kicker">&#128064; LOOK CLOSELY &middot; FIND THE BIGGEST FIGURE</div>
+            <div class="accent-body">Scan the carving below. Which single figure is largest? What is he doing, and to whom? Notice how the surface is divided into horizontal bands. Do not worry yet about what it all means; just map what is where.</div>
+        </div>
+
+        <div class="artfig">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Narmer_Palette.jpg" alt="The Palette of Narmer" />
+            <div class="artcap"><strong>Palette of Narmer</strong>, Early Dynastic Period, c. 3100 BC. Greywacke, about 64 cm tall. Egyptian Museum, Cairo. Faithful reproduction of a public-domain work, via Wikimedia Commons. Public domain.</div>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 14px 0 10px 0;">This carved slab of greywacke, about two feet tall, is one of the earliest historical artworks we can read. It celebrates <strong>King Narmer</strong>, who around 3100 BC united Upper and Lower Egypt into one kingdom. On one side he wears the crown of Upper Egypt, on the other the crown of Lower Egypt, a picture of the two lands joined under one ruler. It stands at the very start of 3,000 years of Egyptian art that would follow nearly the same rules.</p>
+    </div>
+
+    <!-- PART 2 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 2 &middot; THE RULES OF EGYPTIAN ART</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~18 MIN</span></div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Egyptian artists were not trying to show how a scene looked to the eye. They were trying to show what was <em>true</em> and <em>permanent</em>. To do that, they used a fixed visual code. Three rules matter most here.</p>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 8px 0;"><strong>Hierarchical scale:</strong> the more important a figure, the larger it is drawn, regardless of real-life size or distance. The king towers over his enemies and servants not because he stood closer, but because he mattered most.</p>
+
+        <!-- Concept visual: hierarchical scale -->
+        <div style="background: #FAFBFD; border: 1px solid #D0D9E8; border-radius: 8px; padding: 8px; margin: 12px 0;">
+            <div class="scale-demo">
+                <div><div class="scale-fig" style="height: 120px;"></div><div class="scale-label">King<br/>(most important)</div></div>
+                <div><div class="scale-fig" style="height: 64px; background:#9c8463;"></div><div class="scale-label">Official</div></div>
+                <div><div class="scale-fig" style="height: 40px; background:#b3bccc;"></div><div class="scale-label">Enemy /<br/>servant</div></div>
+            </div>
+            <div style="font-size: 13px; color: #666; margin-top: 2px; text-align:center;">Hierarchical scale: size shows importance, not distance. The most powerful figure is the biggest.</div>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 10px 0 8px 0;"><strong>Registers:</strong> the surface is divided into horizontal bands, like lines on a page, so scenes are organized and read in order rather than floating freely. <strong>Composite view:</strong> the human body is shown from its clearest angle for each part, the head in profile but the eye from the front, the shoulders frontal but the legs and feet in profile. The result is a body assembled from its most recognizable views, a figure built for clarity, not for a snapshot.</p>
+
+        <div class="optima-widget ow-reflect">
+            <div class="widget-kicker">&#128172; QUICK CHECK-IN &middot; NO WRONG ANSWER</div>
+            <div class="widget-question">Egyptians kept these same rules for roughly 3,000 years, far longer than any style since. Why might a civilization want its art to change so little?</div>
+            <div class="widget-options">
+                <button data-response="A strong read. For Egyptians, stability was sacred: unchanging art mirrored an unchanging, eternal order. The conventions were not a limit to escape but a way to picture permanence.">To express permanence and eternal order</button>
+                <button data-response="Reasonable. A fixed code also made images instantly readable across centuries; anyone could identify the king by his scale and crown. Consistency was communication.">To keep images clear and readable</button>
+                <button data-response="Fair to wonder. It can look like a lack of imagination to modern eyes, but the sameness was a deliberate choice tied to belief, not a failure of skill.">Maybe they just never thought to change</button>
+            </div>
+            <div class="widget-feedback"></div>
+            <button class="widget-reset">Reset</button>
+        </div>
+    </div>
+
+    <!-- PART 3 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 3 &middot; WATCH IT WORK</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~15 MIN</span></div>
+
+        <div class="spotlight">
+            <div class="spotlight-title">&#128269; ARTWORK SPOTLIGHT</div>
+            <div class="spotlight-work">Palette of Narmer (c. 3100 BC)</div>
+            <div class="spotlight-loc">Egyptian Museum, Cairo</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E635E;">Describe:</span> A large central figure in a tall crown raises a mace over a smaller kneeling man he grips by the hair. Tiny figures and signs fill the spaces; the back is divided into horizontal bands.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E1C42;">Analyze:</span> The king is drawn far larger by <strong>hierarchical scale</strong>, his body in <strong>composite view</strong>; the scene sits in ordered <strong>registers</strong>. Size, placement, and the raised arm all create <strong>emphasis</strong> on the king&rsquo;s power.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A8741F;">Interpret:</span> The whole design announces one message: Narmer, favored by the gods, has conquered and united the land. One reading is that this is propaganda in stone, the founding image of the Egyptian state.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A33D1F;">Judge:</span> It succeeds with remarkable economy. Using only size, pose, and arrangement, with no need for the viewer to read words, it makes royal power unmistakable. The conventions it sets will guide Egyptian art for millennia.</div>
+        </div>
+
+        <div class="optima-widget ow-select">
+            <div class="widget-kicker">&#9989; READ THE CONVENTIONS</div>
+            <div class="widget-row" data-correct="b">
+                <div class="widget-row-prompt">In hierarchical scale, the king is the largest figure because&hellip;</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="No. Egyptian art is not showing real distance or perspective; size is not about how close he stood.">he is standing closest to the viewer</button>
+                    <button data-choice="b" data-fb="Correct. Size signals importance, not distance. The most powerful figure is drawn the largest.">he is the most important figure</button>
+                    <button data-choice="c" data-fb="No. Hierarchical scale is a rule about importance, not a mistake or a lack of skill.">the artist could not judge proportion</button>
+                </div>
+            </div>
+            <div class="widget-row" data-correct="a">
+                <div class="widget-row-prompt">&ldquo;The head is in profile but the eye is shown from the front.&rdquo; This describes&hellip;</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="Correct. Showing each body part from its clearest angle is the composite view.">composite view</button>
+                    <button data-choice="b" data-fb="No. A register is a horizontal band that organizes the scene, not a way of drawing the body.">a register</button>
+                    <button data-choice="c" data-fb="No. Hierarchical scale is about size showing importance, not about angles of the body.">hierarchical scale</button>
+                </div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
+
+        <div style="background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 14px 0;">
+            <div style="font-size: 11px; color: #A33D1F; margin-bottom: 8px;">&#9888;&#65039; WORTH KNOWING &middot; AI &amp; READING SYMBOLS</div>
+            <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">An AI tool can list the standard facts about the Palette of Narmer, because many people have written them down. But it can also state contested details (exactly who some figures are, what every sign means) as if they were settled, when scholars still debate them. It <em>cannot</em> weigh the evidence or flag where the reading is uncertain. On your analysis, describe what you can actually see first, then interpret with care.</div>
+        </div>
+    </div>
+
+    <!-- Vocabulary -->
+    <div class="vocab-box">
+        <div class="vocab-title">&#128214; VOCABULARY FROM THIS LESSON</div>
+        <table class="vocab-table"><tbody>
+            <tr><td>Hierarchical scale</td><td>Drawing more important figures larger, regardless of real size or distance.</td></tr>
+            <tr><td>Register</td><td>A horizontal band that organizes figures into ordered rows, like lines on a page.</td></tr>
+            <tr><td>Composite view</td><td>Showing each part of the body from its clearest angle (profile head, frontal eye and shoulders, profile legs).</td></tr>
+            <tr><td>Convention</td><td>An agreed rule or standard way of representing things that a culture follows over time.</td></tr>
+            <tr><td>Palette of Narmer</td><td>A c. 3100 BC carved slab celebrating King Narmer&rsquo;s unification of Upper and Lower Egypt.</td></tr>
+        </tbody></table>
+    </div>
+
+    <!-- Now You Try -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="now-box" style="margin-top: 0;">
+            <div class="now-kicker">&#9999;&#65039; NOW YOU TRY &middot; IN YOUR NOTEBOOK</div>
+            <div class="accent-body">Look once more at the Palette of Narmer. Write one <strong>Describe</strong> sentence about the largest figure, then one <strong>Analyze</strong> sentence naming a convention (hierarchical scale, register, or composite view) and saying how it works here. Keep this note: it is the first draft of your graded Palette of Narmer analysis.</div>
+        </div>
+    </div>
+
+    <!-- What You'll Do Next -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU&rsquo;LL DO NEXT</div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Palette of Narmer Analysis</strong> (assignment)</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Write a full four-step analysis of the Palette, using the Egyptian conventions you just learned.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Egyptian vs. Mesopotamian</strong> (discussion)</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Compare the art and architecture of the two great river civilizations.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Egyptian Cartouche Design</strong> (creation activity)</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Design your own name in an Egyptian-style cartouche using their conventions.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">4</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Unit 3 Quiz</strong> and closing reflection</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">A short auto-graded quiz, plus a brief reflection survey.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wrap-up -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128170; WHY THIS MATTERS</div>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Every culture you study has visual conventions, rules so familiar to its own people that they feel like the only way to make a picture. Learning to spot those rules, and to ask what they were for, is how an art historian reads any image, from a 5,000-year-old palette to an advertisement today. Egypt is where you first learn to do it.</p>
+    </div>
+
+</div>
+
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 18px 34px; text-align: center;">
+    <div style="font-size: 18px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> &middot; ART HISTORY &amp; CRITICISM &middot; Semester 1 &middot; Student Lesson Page</div>
+    <div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 3.03 &middot; Reading Power: Hierarchical Scale &amp; the Palette of Narmer</div>
+    <div style="font-size: 12px; color: rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || 'Right.') : (sBtn.dataset.fb || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

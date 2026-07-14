@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Art History &amp; Criticism &mdash; Lesson 1.02</title>
+<style>
+    body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
+    .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    img { max-width: 100%; height: auto; display: block; }
+    .artfig { margin: 16px 0; }
+    .artfig img { border: 1px solid #D0D9E8; border-radius: 6px; }
+    .artcap { font-size: 13px; color: #666; line-height: 1.5; margin-top: 6px; }
+    .artcap strong { color: #0E1C42; font-style: italic; font-weight: 600; }
+    .look-box { background: #E6F4F3; border-left: 5px solid #14807A; border-top: 3px solid #2BB6AC; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .look-kicker { font-size: 11px; color: #0E635E; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .now-box { background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .now-kicker { font-size: 11px; color: #A33D1F; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .accent-body { font-size: 17px; color: #0E1C42; line-height: 1.6; }
+    .daij-step { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 12px; }
+    .daij-letter { min-width: 40px; height: 40px; border-radius: 8px; color: #fff; font-size: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .daij-body { font-size: 17px; color: #1a2340; line-height: 1.6; }
+    .daij-body strong { color: #0E1C42; }
+    /* Spotlight */
+    .spotlight { border: 2px solid #0E1C42; border-radius: 10px; padding: 18px; margin: 18px 0; }
+    .spotlight-title { font-size: 12px; font-weight: 700; color: #0E1C42; letter-spacing: 0.5px; margin-bottom: 6px; }
+    .spotlight-work { font-weight: 700; color: #0E1C42; font-size: 16px; }
+    .spotlight-loc { color: #777; font-size: 13px; margin-bottom: 12px; }
+    .daij-row { font-size: 16px; color: #1a2340; line-height: 1.6; margin-bottom: 9px; }
+    .daij-label { font-weight: 700; margin-right: 6px; }
+    /* Vocabulary box */
+    .vocab-box { background: #F4F6FA; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px 18px; margin: 18px 0; }
+    .vocab-title { font-size: 11px; font-weight: 700; color: #c7922c; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .vocab-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .vocab-table td { padding: 6px 0; color: #1a2340; vertical-align: top; border-top: 1px solid #E2E8F2; line-height: 1.55; }
+    .vocab-table td:first-child { font-weight: 700; color: #0E1C42; width: 150px; padding-right: 12px; }
+    /* Widget CSS */
+    .optima-widget { background: linear-gradient(135deg, #E6F4F3 0%, #F4FBFA 100%); border: 1px solid #BFE3DF; border-left: 5px solid #14807A; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .widget-kicker { font-size: 11px; color: #0E635E; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+    .widget-options button:hover { background: #F4F6FA; border-color: #2BB6AC; }
+    .widget-options button.correct { background: #E6F4F3; border-color: #14807A; color: #0E635E; }
+    .widget-options button.incorrect { background: #FCEDE8; border-color: #D85C38; color: #A33D1F; }
+    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+    .row-feedback.correct { background: #E6F4F3; border-left: 3px solid #14807A; color: #0E635E; }
+    .row-feedback.incorrect { background: #FCEDE8; border-left: 3px solid #D85C38; color: #A33D1F; }
+    .ow-flip-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px 18px; cursor: pointer; text-align: center; min-height: 70px; display: flex; align-items: center; justify-content: center; }
+    .ow-flip .ow-flip-back { display: none; color: #1a2340; font-size: 14px; line-height: 1.5; }
+    .ow-flip .ow-flip-front { color: #0E1C42; font-weight: 700; font-size: 16px; }
+    .ow-flip.flipped .ow-flip-front { display: none; }
+    .ow-flip.flipped .ow-flip-back { display: block; }
+    @media (max-width: 640px) { .ow-flip-grid { grid-template-columns: 1fr; } }
+    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 10px; }
+    .widget-reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;">
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+        <div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width: 50px; height: 40px; object-fit: contain;" /></div>
+        <div>
+            <div style="font-size: 28px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+            <div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
+        </div>
+    </div>
+    <div style="font-size: 36px; color: #ffffff; margin-bottom: 6px;">ART HISTORY &amp; CRITICISM</div>
+</div>
+
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Semester / Unit</div>
+        <div style="font-size: 17px; color: #0e1c42;">S1 &middot; Unit 1</div>
+        <div style="font-size: 12px; color: #666;">Introduction to Art History &amp; Criticism</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+        <div style="font-size: 17px; color: #0e1c42;">Lesson 1.02</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+        <div style="font-size: 17px; color: #0e1c42; font-style: italic;">Two Ways of Seeing &amp; the DAIJ Method</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Module Theme</div>
+        <div style="font-size: 16px; color: #0e1c42;">The Critic&rsquo;s Method</div>
+    </div>
+</div>
+
+<div style="padding: 24px 34px;">
+
+    <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">LESSON 1.02</div>
+        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">Two Ways of Seeing &amp; the DAIJ Method</div>
+        <div style="font-size: 16px; color: #666;">Interactive Lesson</div>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
+        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">How do you earn the right to say whether a work of art is any good?</div>
+        <div style="font-size: 18px; color: #1a2340; line-height: 1.65;">In Lesson 1.01 you learned the vocabulary of looking. Now you will learn the discipline of <em>responding</em>: a four-step method critics use so that judgment comes last, after careful looking, instead of first.</div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#127919; BY THE END OF THIS LESSON YOU WILL BE ABLE TO&hellip;</div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> distinguish the questions of art history from the questions of art criticism.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> name and order the four steps of the DAIJ method.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> apply DAIJ to a single artwork in my own words.</div>
+        </div>
+    </div>
+
+    <!-- Materials -->
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128203; WHAT YOU NEED FOR THIS LESSON</div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">A notebook or an open Word document for the &ldquo;Now You Try&rdquo; DAIJ practice</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">Your vocabulary from Lesson 1.01 (the Elements of Art and Principles of Design) close at hand</div>
+        </div>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 1 &middot; TWO WAYS OF SEEING</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~10 MIN</span></div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Imagine two people standing in front of the same painting. The first asks: <em>Who painted this, and when? What was happening in the world that made someone want to paint it? What earlier art is it answering?</em> That is the <strong>art historian</strong>. The second asks: <em>What is going on in this picture? How is it built? What is it trying to make me feel or think, and does it succeed?</em> That is the <strong>art critic</strong>. Same painting, two jobs.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 12px 0;">The two depend on each other. A critic who knows nothing of a work&rsquo;s history can misread it; a historian who cannot describe what is actually on the canvas is only doing paperwork. This course trains you in both, and they meet in one discipline: <strong>you describe before you explain, and explain before you judge.</strong></p>
+
+        <div style="display: flex; gap: 14px; flex-wrap: wrap; margin: 6px 0 4px 0;">
+            <div style="flex: 1; min-width: 240px; background: #EEF1F8; border-radius: 8px; padding: 14px 16px;">
+                <div style="font-size: 13px; font-weight: 700; color: #0E1C42; margin-bottom: 6px;">ART HISTORY asks&hellip;</div>
+                <div style="font-size: 15px; color: #1a2340; line-height: 1.55;">Who? When? Where? For whom? Why then? What came before it, and what did it change?</div>
+            </div>
+            <div style="flex: 1; min-width: 240px; background: #EEF1F8; border-radius: 8px; padding: 14px 16px;">
+                <div style="font-size: 13px; font-weight: 700; color: #0E1C42; margin-bottom: 6px;">ART CRITICISM asks&hellip;</div>
+                <div style="font-size: 15px; color: #1a2340; line-height: 1.55;">What do I see? How is it organized? What does it mean? Is it successful, and on what evidence?</div>
+            </div>
+        </div>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 2 &middot; THE DAIJ METHOD</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~18 MIN</span></div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 14px 0;">Critics need a method so that snap judgments (&ldquo;I like it,&rdquo; &ldquo;that&rsquo;s ugly&rdquo;) do not arrive before any looking has happened. The classic method has four steps, in this order. The order is the whole point: you earn your judgment by first proving you looked.</p>
+
+        <div class="daij-step">
+            <div class="daij-letter" style="background: #14807A;">D</div>
+            <div class="daij-body"><strong>Describe.</strong> What do you see? List only what is literally there: the subject, the figures, the objects, the setting. No opinions yet, no meanings. Just the facts a camera would catch.</div>
+        </div>
+        <div class="daij-step">
+            <div class="daij-letter" style="background: #0E1C42;">A</div>
+            <div class="daij-body"><strong>Analyze.</strong> How is the work organized? Name the two or three Elements of Art and Principles of Design that are really driving it, and say how. This is where Lesson 1.01&rsquo;s vocabulary goes to work.</div>
+        </div>
+        <div class="daij-step">
+            <div class="daij-letter" style="background: #C7922C;">I</div>
+            <div class="daij-body"><strong>Interpret.</strong> What is the artist trying to say? Now you offer meaning, mood, or message, but every claim must point back to something in your Describe and Analyze steps. Interpretation without evidence is just guessing.</div>
+        </div>
+        <div class="daij-step">
+            <div class="daij-letter" style="background: #D85C38;">J</div>
+            <div class="daij-body"><strong>Judge.</strong> Does the work succeed at what it set out to do, and how do you know? Your judgment rests on everything above it. This is the last step, never the first.</div>
+        </div>
+
+        <!-- Flip-card widget (engine rotated from Lesson 1.01's select widget) -->
+        <div class="optima-widget ow-flip-wrap">
+            <div class="widget-kicker">&#128064; FLIP TO CHECK &middot; CLICK EACH CARD</div>
+            <div class="widget-question">Cover the steps above. Can you recall what each DAIJ step asks? Click a card to flip it.</div>
+            <div class="ow-flip-grid">
+                <div class="ow-flip"><div class="ow-flip-front">Describe</div><div class="ow-flip-back">What is literally there? Subject, figures, setting. No meaning yet.</div></div>
+                <div class="ow-flip"><div class="ow-flip-front">Analyze</div><div class="ow-flip-back">How is it organized? Name the Elements and Principles at work.</div></div>
+                <div class="ow-flip"><div class="ow-flip-front">Interpret</div><div class="ow-flip-back">What is the artist saying? Tie every claim to the evidence.</div></div>
+                <div class="ow-flip"><div class="ow-flip-front">Judge</div><div class="ow-flip-back">Does it succeed, and how do you know? This comes last.</div></div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 3 &middot; WATCH IT WORK</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~22 MIN</span></div>
+
+        <div class="look-box">
+            <div class="look-kicker">&#128064; LOOK CLOSELY &middot; ONE FULL MINUTE</div>
+            <div class="accent-body">Before you read the model response, look at the painting on your own. Who is in it? What are their bodies doing? Where is the light? Try to stay on <em>Describe</em> before your mind jumps ahead to what it &ldquo;means.&rdquo;</div>
+        </div>
+
+        <div class="artfig">
+            <img src="images/david-oath-of-the-horatii.jpg" alt="Oath of the Horatii by Jacques-Louis David" />
+            <div class="artcap"><strong>Oath of the Horatii</strong>, Jacques-Louis David, 1784. Oil on canvas, Mus&eacute;e du Louvre, Paris. Public domain.</div>
+        </div>
+
+        <!-- Spotlight DAIJ (worked example; bolding here is teaching, not a giveaway practice answer) -->
+        <div class="spotlight">
+            <div class="spotlight-title">&#128269; ARTWORK SPOTLIGHT &middot; DAIJ (worked example)</div>
+            <div class="spotlight-work">Oath of the Horatii, Jacques-Louis David (1784)</div>
+            <div class="spotlight-loc">Mus&eacute;e du Louvre, Paris</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E635E;">Describe:</span> Three young men stretch their arms toward three swords held up by an older man at the center. Behind him, women and children sink together in grief. The setting is a plain stone courtyard with three round arches.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E1C42;">Analyze:</span> David splits the picture in two. The men are all straight <strong>lines</strong>, rigid arms and legs, while the women are soft curves, creating sharp <strong>contrast</strong>. Each group sits under its own arch, and the swords fall at the exact center, so <strong>emphasis</strong> lands on the oath itself.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A8741F;">Interpret:</span> The hard, straight men and the collapsing women suggest a conflict between public duty and private love. David seems to argue that loyalty to country can demand a terrible cost at home.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A33D1F;">Judge:</span> It succeeds. Every choice, the splitting line, the contrast of bodies, the centered swords, drives the one idea home, and the painting is impossible to misread.</div>
+        </div>
+
+        <div class="optima-widget ow-select">
+            <div class="widget-kicker">&#9989; WHICH STEP IS THIS?</div>
+            <div class="widget-question">Each statement below belongs to one DAIJ step. Click the correct step.</div>
+            <div class="widget-row" data-correct="d">
+                <div class="widget-row-prompt">&ldquo;Three men reach toward three swords; women weep on the right.&rdquo;</div>
+                <div class="widget-options">
+                    <button data-choice="d" data-fb="Yes. This is pure Describe: only what is literally visible, no meaning attached.">Describe</button>
+                    <button data-choice="i" data-fb="Not yet. There is no meaning claimed here, just visible facts. That is Describe.">Interpret</button>
+                    <button data-choice="j" data-fb="No judgment is offered here, only what is visible. That is Describe.">Judge</button>
+                </div>
+            </div>
+            <div class="widget-row" data-correct="a">
+                <div class="widget-row-prompt">&ldquo;Straight lines in the men contrast with soft curves in the women.&rdquo;</div>
+                <div class="widget-options">
+                    <button data-choice="d" data-fb="Close, but naming line and contrast is about how the work is organized. That is Analyze.">Describe</button>
+                    <button data-choice="a" data-fb="Correct. Naming Elements and Principles and how they work is the Analyze step.">Analyze</button>
+                    <button data-choice="i" data-fb="No meaning is claimed yet, just structure. That is Analyze.">Interpret</button>
+                </div>
+            </div>
+            <div class="widget-row" data-correct="j">
+                <div class="widget-row-prompt">&ldquo;It succeeds, because every choice drives the one idea home.&rdquo;</div>
+                <div class="widget-options">
+                    <button data-choice="i" data-fb="This states whether the work works and why, which is a verdict. That is Judge.">Interpret</button>
+                    <button data-choice="j" data-fb="Correct. A reasoned verdict resting on the earlier steps is the Judge step.">Judge</button>
+                    <button data-choice="d" data-fb="This is an evaluation, not a description. That is Judge.">Describe</button>
+                </div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
+
+        <div style="background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 14px 0;">
+            <div style="font-size: 11px; color: #A33D1F; margin-bottom: 8px;">&#9888;&#65039; WORTH KNOWING &middot; AI &amp; INTERPRETATION</div>
+            <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">An AI chatbot will happily produce a full DAIJ paragraph in seconds, and it will sound confident. But it sometimes invents details that are not in the painting and meanings no scholar holds, because it predicts likely-sounding text rather than looking at the actual image in front of you. It <em>cannot</em> verify its own claims against the work, and on this assignment, that verifying (pointing to what is really there) is exactly the skill being graded. Use your own eyes first.</div>
+        </div>
+    </div>
+
+    <!-- VOCABULARY BOX -->
+    <div class="vocab-box">
+        <div class="vocab-title">&#128214; VOCABULARY FROM THIS LESSON</div>
+        <table class="vocab-table"><tbody>
+            <tr><td>DAIJ</td><td>The four-step critique method: Describe, Analyze, Interpret, Judge, in that order.</td></tr>
+            <tr><td>Describe</td><td>Naming only what is literally in the work, with no meaning or opinion.</td></tr>
+            <tr><td>Analyze</td><td>Naming how the work is organized through its Elements and Principles.</td></tr>
+            <tr><td>Interpret</td><td>Proposing what the work means, with every claim tied to visual evidence.</td></tr>
+            <tr><td>Judge</td><td>Deciding whether the work succeeds, based on the three steps before it.</td></tr>
+        </tbody></table>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="now-box" style="margin-top: 0;">
+            <div class="now-kicker">&#9999;&#65039; NOW YOU TRY &middot; IN YOUR NOTEBOOK</div>
+            <div class="accent-body">Look at the painting below for one full minute, then write one sentence for each DAIJ step. Stay disciplined: keep all meaning out of your Describe sentence, and make sure your Judge sentence rests on what you said in the first three. A hint for your Analyze step: pay attention to where the light falls and where it leaves the room dark. <strong>Keep this in your notebook. It is practice, not a submission, so there is nothing to turn in here.</strong> It warms you up for the graded Formal Analysis assignment.</div>
+        </div>
+        <div class="artfig">
+            <img src="images/caravaggio-calling-of-st-matthew.jpg" alt="The Calling of Saint Matthew by Caravaggio" />
+            <div class="artcap"><strong>The Calling of Saint Matthew</strong>, Caravaggio (Michelangelo Merisi da Caravaggio), 1599&ndash;1600. Oil on canvas, Contarelli Chapel, San Luigi dei Francesi, Rome. Public domain.</div>
+        </div>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU&rsquo;LL DO NEXT</div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Formal Analysis of a Selected Artwork</strong> (assignment)</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">You will choose one work from a short list and write a full DAIJ analysis of it in a Word document.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Two Ways of Seeing</strong> (discussion)</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">You will sort real questions into history and criticism, then respond to a classmate.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Unit 1 Quiz</strong> and closing reflection</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">A short auto-graded quiz on the vocabulary and method, plus a brief reflection survey.</div>
+            </div>
+        </div>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128170; WHY THIS MATTERS</div>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">DAIJ is the spine of this entire course. Every analysis, every comparison, every museum journal you write this year will move through these four steps. Holding back your judgment until you have truly looked is a kind of patience and honesty, and it is the habit this method is here to build. Master the discipline now, with two clear paintings, and you will be ready when the works get stranger, older, and harder to read.</p>
+    </div>
+
+</div>
+
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 18px 34px; text-align: center;">
+    <div style="font-size: 18px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> &middot; ART HISTORY &amp; CRITICISM &middot; Semester 1 &middot; Student Lesson Page</div>
+    <div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 1.02 &middot; Two Ways of Seeing &amp; the DAIJ Method</div>
+    <div style="font-size: 12px; color: rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || 'Right.') : (sBtn.dataset.fb || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

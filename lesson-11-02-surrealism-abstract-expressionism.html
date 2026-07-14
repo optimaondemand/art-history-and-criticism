@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Art History &amp; Criticism &mdash; Lesson 11.02</title>
+<style>
+    body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
+    .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    img { max-width: 100%; height: auto; display: block; }
+    .look-box { background: #E6F4F3; border-left: 5px solid #14807A; border-top: 3px solid #2BB6AC; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .look-kicker { font-size: 11px; color: #0E635E; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .now-box { background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .now-kicker { font-size: 11px; color: #A33D1F; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .accent-body { font-size: 17px; color: #0E1C42; line-height: 1.6; }
+    .linkout { display: block; background: #E6F4F3; border-left: 5px solid #14807A; border-top: 3px solid #2BB6AC; border-radius: 6px; padding: 14px 20px; margin: 12px 0; text-decoration: none; }
+    .linkout-kicker { font-size: 11px; color: #0E635E; letter-spacing: 0.5px; margin-bottom: 6px; font-weight: 600; }
+    .linkout-work { font-size: 16px; color: #0E1C42; font-weight: 700; }
+    .linkout-museum { font-size: 14px; color: #0E635E; margin-top: 4px; }
+    .linkout-go { font-size: 14px; color: #14807A; font-weight: 700; margin-top: 8px; }
+    .spotlight { border: 2px solid #0E1C42; border-radius: 10px; padding: 18px; margin: 18px 0; }
+    .spotlight-title { font-size: 12px; font-weight: 700; color: #0E1C42; letter-spacing: 0.5px; margin-bottom: 6px; }
+    .spotlight-work { font-weight: 700; color: #0E1C42; font-size: 16px; }
+    .spotlight-loc { color: #777; font-size: 13px; margin-bottom: 12px; }
+    .daij-row { font-size: 16px; color: #1a2340; line-height: 1.6; margin-bottom: 9px; }
+    .daij-label { font-weight: 700; margin-right: 6px; }
+    .vocab-box { background: #F4F6FA; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px 18px; margin: 18px 0; }
+    .vocab-title { font-size: 11px; font-weight: 700; color: #c7922c; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .vocab-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .vocab-table td { padding: 6px 0; color: #1a2340; vertical-align: top; border-top: 1px solid #E2E8F2; line-height: 1.55; }
+    .vocab-table td:first-child { font-weight: 700; color: #0E1C42; width: 195px; padding-right: 12px; }
+    .optima-widget { background: linear-gradient(135deg, #E6F4F3 0%, #F4FBFA 100%); border: 1px solid #BFE3DF; border-left: 5px solid #14807A; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .widget-kicker { font-size: 11px; color: #0E635E; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+    .widget-options button:hover { background: #F4F6FA; border-color: #2BB6AC; }
+    .widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+    .widget-options button.correct { background: #E6F4F3; border-color: #14807A; color: #0E635E; }
+    .widget-options button.incorrect { background: #FCEDE8; border-color: #D85C38; color: #A33D1F; }
+    .widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+    .widget-feedback.show { display: block; }
+    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+    .row-feedback.correct { background: #E6F4F3; border-left: 3px solid #14807A; color: #0E635E; }
+    .row-feedback.incorrect { background: #FCEDE8; border-left: 3px solid #D85C38; color: #A33D1F; }
+    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 10px; }
+    .widget-reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;">
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+        <div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width: 50px; height: 40px; object-fit: contain;" /></div>
+        <div>
+            <div style="font-size: 28px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+            <div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
+        </div>
+    </div>
+    <div style="font-size: 36px; color: #ffffff; margin-bottom: 6px;">ART HISTORY &amp; CRITICISM</div>
+</div>
+
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Semester / Unit</div>
+        <div style="font-size: 17px; color: #0e1c42;">S2 &middot; Unit 11</div>
+        <div style="font-size: 12px; color: #666;">Modern &amp; Contemporary Art</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+        <div style="font-size: 17px; color: #0e1c42;">Lesson 11.02</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+        <div style="font-size: 17px; color: #0e1c42; font-style: italic;">The Inner World: Surrealism &amp; Abstract Expressionism</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Module Theme</div>
+        <div style="font-size: 16px; color: #0e1c42;">Breaking the Frame</div>
+    </div>
+</div>
+
+<div style="padding: 24px 34px;">
+
+    <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">LESSON 11.02</div>
+        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">The Inner World: Surrealism &amp; Abstract Expressionism</div>
+        <div style="font-size: 16px; color: #666;">Interactive Lesson</div>
+    </div>
+
+    <div style="background: #E6F4F3; border-left: 5px solid #14807A; border-radius: 6px; padding: 12px 18px; margin-bottom: 20px;">
+        <div style="font-size: 15px; color: #0E635E; line-height: 1.6;"><strong>A note on the artwork in this unit.</strong> The works in Unit 11 are still under copyright, so we do not reproduce them here. Instead, each one is a link to the official museum or foundation page where you can view it. Open every link as you read. The diagrams on this page are original and generic; they illustrate ideas, not any specific artwork.</div>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
+        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">If art no longer has to copy the outside world, can it show the inside of the mind instead?</div>
+        <div style="font-size: 18px; color: #1a2340; line-height: 1.65;">Once Cubism and abstraction broke the old window onto reality, two movements turned the gaze inward. The <strong>Surrealists</strong> painted the strange logic of dreams and the unconscious. The <strong>Abstract Expressionists</strong> went further still, putting raw feeling and the act of painting itself onto the canvas. Both ask art to reveal what cannot be seen with the eyes.</div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#127919; BY THE END OF THIS LESSON YOU WILL BE ABLE TO&hellip;</div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> explain how Surrealism uses dreams, the unconscious, and uncanny juxtaposition.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> describe Abstract Expressionism, contrasting action painting with the color field.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> apply the four-step method to a work that has no recognizable subject.</div>
+        </div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128203; WHAT YOU NEED FOR THIS LESSON</div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">A notebook or an open Word document; this lesson continues building toward your modern analysis</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">An internet connection to open the museum links; the works are viewed on their official pages, not shown here</div>
+        </div>
+    </div>
+
+    <!-- PART 1 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 1 &middot; LOOK FIRST</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~12 MIN</span></div>
+
+        <div class="look-box">
+            <div class="look-kicker">&#128064; LOOK CLOSELY &middot; OPEN THE LINK, THEN COME BACK</div>
+            <div class="accent-body">Open the first link and look. Each object is painted with crisp, believable detail, yet together they make no ordinary sense, the way a dream feels real while you are in it and impossible afterward. What makes the scene feel both convincing and wrong at once?</div>
+        </div>
+
+        <a class="linkout" href="https://www.moma.org/collection/works/79018" target="_blank" rel="noopener">
+            <div class="linkout-kicker">&#128279; VIEW ON THE MUSEUM SITE</div>
+            <div class="linkout-work">Salvador Dal&iacute;, <em>The Persistence of Memory</em> (1931)</div>
+            <div class="linkout-museum">The Museum of Modern Art (MoMA), New York</div>
+            <div class="linkout-go">Open in a new tab to view the work &rsaquo;</div>
+        </a>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 14px 0 10px 0;"><strong>Surrealism</strong>, launched in Paris in the 1920s, took its cue from new theories of the mind. If much of human thought happens below awareness, in <strong>the unconscious</strong>, then dreams are a window onto a deeper truth. <strong>Salvador Dal&iacute;</strong> and <strong>Ren&eacute; Magritte</strong> painted that dream-world with sharp, lifelike realism, which is exactly what makes it unsettling. The detail says "this is real," while the impossible content says "this cannot be."</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Their key tool was <strong>juxtaposition</strong>: placing familiar things in unfamiliar combinations so the ordinary turns strange, or uncanny. A clock should be hard; here it droops. A pipe is painted, then labeled "this is not a pipe." The shock is the point. It pries the mind open.</p>
+    </div>
+
+    <!-- PART 2 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 2 &middot; THE UNCANNY JUXTAPOSITION</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~15 MIN</span></div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">The Surrealist engine is simple to diagram. Take two things that each make sense on their own, then put them together in a way that does not. Neither object is strange; the <em>pairing</em> is. That collision is what feels uncanny.</p>
+
+                <!-- Legible explanation: Surrealist juxtaposition -->
+        <div style="background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 8px; padding: 14px 20px; margin: 12px 0;">
+            <div style="font-size: 12px; font-weight: 700; color: #A33D1F; letter-spacing: 0.3px; margin-bottom: 6px;">HOW JUXTAPOSITION WORKS</div>
+            <div style="font-size: 16px; color: #0E1C42; line-height: 1.6;">Take two ordinary things that each make sense on their own, then put them together in a way that does not. A clock is normal. A tree branch is normal. A clock left to melt and droop over a branch is a dream. Neither object is strange; the <em>pairing</em> is, and that collision is what feels uncanny.</div>
+        </div>
+
+        <div class="optima-widget ow-flip-wrap">
+            <div class="widget-kicker">&#128064; FLIP TO CHECK &middot; CLICK EACH CARD</div>
+            <div class="widget-question">Cover the text above. Can you recall each idea? Click a card to flip it.</div>
+            <div class="ow-flip-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+                <div class="ow-flip" style="background:#fff;border:1px solid #D0D9E8;border-radius:8px;padding:16px 18px;cursor:pointer;text-align:center;min-height:64px;display:flex;align-items:center;justify-content:center;"><div class="ow-flip-front" style="color:#0E1C42;font-weight:700;font-size:15px;">Surrealism</div><div class="ow-flip-back" style="display:none;color:#1a2340;font-size:14px;line-height:1.5;">A 1920s movement painting dreams and the unconscious in lifelike detail.</div></div>
+                <div class="ow-flip" style="background:#fff;border:1px solid #D0D9E8;border-radius:8px;padding:16px 18px;cursor:pointer;text-align:center;min-height:64px;display:flex;align-items:center;justify-content:center;"><div class="ow-flip-front" style="color:#0E1C42;font-weight:700;font-size:15px;">The unconscious</div><div class="ow-flip-back" style="display:none;color:#1a2340;font-size:14px;line-height:1.5;">The hidden part of the mind below awareness, which Surrealists tried to reveal.</div></div>
+                <div class="ow-flip" style="background:#fff;border:1px solid #D0D9E8;border-radius:8px;padding:16px 18px;cursor:pointer;text-align:center;min-height:64px;display:flex;align-items:center;justify-content:center;"><div class="ow-flip-front" style="color:#0E1C42;font-weight:700;font-size:15px;">Juxtaposition</div><div class="ow-flip-back" style="display:none;color:#1a2340;font-size:14px;line-height:1.5;">Placing familiar things in unfamiliar combinations to make the ordinary uncanny.</div></div>
+                <div class="ow-flip" style="background:#fff;border:1px solid #D0D9E8;border-radius:8px;padding:16px 18px;cursor:pointer;text-align:center;min-height:64px;display:flex;align-items:center;justify-content:center;"><div class="ow-flip-front" style="color:#0E1C42;font-weight:700;font-size:15px;">Dal&iacute; &amp; Magritte</div><div class="ow-flip-back" style="display:none;color:#1a2340;font-size:14px;line-height:1.5;">Two leading Surrealists who painted impossible scenes with sharp realism.</div></div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
+    </div>
+
+    <!-- PART 3 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 3 &middot; GESTURE AND FEELING</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~16 MIN</span></div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">After World War II, the center of new art shifted to New York, where <strong>Abstract Expressionism</strong> took shape. These artists abandoned recognizable subjects entirely and asked the canvas to hold pure feeling. The movement had two broad approaches. In <strong>action painting</strong>, the gesture of the artist's whole body became the subject: <strong>Jackson Pollock</strong> laid huge canvases on the floor and dripped and flung paint, so the finished work records his movement, energy, and decisions in real time.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">The other approach was the <strong>color field</strong>: vast, simple expanses of color meant to surround the viewer and produce a deep, almost meditative emotion. <strong>Mark Rothko</strong> stacked soft-edged rectangles of glowing color, made large enough to fill your vision, so that standing before one feels less like looking at a picture than entering a mood.</p>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Open these works on the museum sites:</p>
+
+        <a class="linkout" href="https://www.moma.org/collection/works/78386" target="_blank" rel="noopener">
+            <div class="linkout-kicker">&#128279; VIEW ON THE MUSEUM SITE</div>
+            <div class="linkout-work">Jackson Pollock, <em>One: Number 31, 1950</em> (1950)</div>
+            <div class="linkout-museum">The Museum of Modern Art (MoMA), New York</div>
+            <div class="linkout-go">Open in a new tab to view the work &rsaquo;</div>
+        </a>
+
+        <a class="linkout" href="https://www.nga.gov/artworks/61329-no-1-royal-red-and-blue" target="_blank" rel="noopener">
+            <div class="linkout-kicker">&#128279; VIEW ON THE MUSEUM SITE</div>
+            <div class="linkout-work">Mark Rothko, <em>No. 1 (Royal Red and Blue)</em> (1954)</div>
+            <div class="linkout-museum">National Gallery of Art, Washington (collection record)</div>
+            <div class="linkout-go">Open in a new tab to view the work &rsaquo;</div>
+        </a>
+
+                <!-- Legible comparison: action painting vs color field -->
+        <div style="display: flex; gap: 14px; flex-wrap: wrap; margin: 12px 0;">
+            <div style="flex: 1; min-width: 240px; background: #FCEDE8; border-left: 5px solid #D85C38; border-radius: 8px; padding: 14px 18px;">
+                <div style="font-size: 12px; font-weight: 700; color: #A33D1F; letter-spacing: 0.3px; margin-bottom: 6px;">ACTION PAINTING</div>
+                <div style="font-size: 16px; color: #0E1C42; line-height: 1.55;">The artist&rsquo;s whole-body gesture is the subject. Pollock dripped and flung paint so the finished canvas records his movement and energy in real time.</div>
+            </div>
+            <div style="flex: 1; min-width: 240px; background: #E6F4F3; border-left: 5px solid #14807A; border-radius: 8px; padding: 14px 18px;">
+                <div style="font-size: 12px; font-weight: 700; color: #0E635E; letter-spacing: 0.3px; margin-bottom: 6px;">COLOR FIELD</div>
+                <div style="font-size: 16px; color: #0E1C42; line-height: 1.55;">Vast, simple expanses of color meant to surround you. Rothko stacked soft-edged rectangles large enough to fill your vision and produce a deep, quiet mood.</div>
+            </div>
+        </div>
+
+        <div class="spotlight">
+            <div class="spotlight-title">&#128269; ARTWORK SPOTLIGHT</div>
+            <div class="spotlight-work">Jackson Pollock, <em>One: Number 31, 1950</em> (1950)</div>
+            <div class="spotlight-loc">View it first on the MoMA site (link above), then read and apply the four-step method</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E635E;">Describe:</span> Open the link and look. A very large canvas is covered edge to edge in tangled, looping skeins of poured and flung paint, in blacks, whites, browns, and grays, with no figure, object, or horizon anywhere.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E1C42;">Analyze:</span> The whole surface is active <strong>line</strong> and <strong>movement</strong>. There is no single focal point; the eye keeps traveling. The varied speed and weight of the marks record the artist's gestures, so the painting reads as a map of motion and energy.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A8741F;">Interpret:</span> The subject is the act of making itself. One reading is that the work captures a state of pure energy and freedom, a self set loose, with the viewer invited to feel that motion rather than recognize a scene.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A33D1F;">Judge:</span> Judge it by its own aim, to make the gesture visible and felt. If the surface conveys real energy and holds together as a whole rather than looking like an accident, it succeeds on its own terms.</div>
+        </div>
+
+        <div class="optima-widget ow-select">
+            <div class="widget-kicker">&#9989; CHECK YOUR UNDERSTANDING</div>
+            <div class="widget-row" data-correct="b">
+                <div class="widget-row-prompt">Surrealism makes ordinary objects feel uncanny mainly by&hellip;</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="No. Surrealist works are often crisply realistic; blurring is not the method.">blurring every object</button>
+                    <button data-choice="b" data-fb="Correct. Placing familiar things in impossible combinations (juxtaposition) makes the ordinary strange.">putting familiar things in impossible combinations</button>
+                    <button data-choice="c" data-fb="No. Many Surrealist works use full color; that is not what creates the strangeness.">removing all color</button>
+                </div>
+            </div>
+            <div class="widget-row" data-correct="c">
+                <div class="widget-row-prompt">In Pollock's action painting, the finished work mainly records&hellip;</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="No. There is no recognizable landscape; the work has no subject scene.">a realistic landscape</button>
+                    <button data-choice="b" data-fb="No. A color field uses large simple bands of color; that is Rothko's approach, not Pollock's.">large calm bands of color</button>
+                    <button data-choice="c" data-fb="Correct. The looping, flung marks record the artist's gestures, energy, and movement in real time.">the artist's gestures and movement</button>
+                </div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
+
+        <div style="background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 14px 0;">
+            <div style="font-size: 11px; color: #A33D1F; margin-bottom: 8px;">&#9888;&#65039; WORTH KNOWING &middot; INTENTION VERSUS ACCIDENT</div>
+            <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">AI image generators often produce uncanny, dreamlike results: melting features, impossible spaces, things that almost make sense. They do this by recombining patterns from their training data, not on purpose. The Surrealists pursued the dream <em>deliberately</em>, to reveal something about the human mind. The look can be similar; the difference is intention. As you analyze, ask not only "is it strange?" but "did someone mean this strangeness, and what for?"</div>
+        </div>
+    </div>
+
+    <!-- Vocabulary -->
+    <div class="vocab-box">
+        <div class="vocab-title">&#128214; VOCABULARY FROM THIS LESSON</div>
+        <table class="vocab-table"><tbody>
+            <tr><td>Surrealism</td><td>A 1920s movement that painted dreams and the unconscious, often in lifelike detail.</td></tr>
+            <tr><td>The unconscious</td><td>The hidden part of the mind below everyday awareness, which Surrealists tried to reveal.</td></tr>
+            <tr><td>Juxtaposition</td><td>Placing familiar things in unfamiliar combinations so the ordinary becomes uncanny.</td></tr>
+            <tr><td>Abstract Expressionism</td><td>A postwar movement using pure abstraction to express raw feeling and the act of painting.</td></tr>
+            <tr><td>Action painting</td><td>A style in which the artist's physical gesture (dripping, flinging paint) becomes the subject.</td></tr>
+            <tr><td>Color field</td><td>Large, simple expanses of color meant to surround the viewer and produce deep emotion.</td></tr>
+        </tbody></table>
+    </div>
+
+    <!-- Now You Try -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="now-box" style="margin-top: 0;">
+            <div class="now-kicker">&#9999;&#65039; NOW YOU TRY &middot; IN YOUR NOTEBOOK</div>
+            <div class="accent-body">Write down two ordinary objects from your room. Then describe, in one or two sentences, an impossible Surrealist image that combines them (for example, a staircase made of water, a lamp that grows leaves). Next, note one emotion you would want a color field painting to give a viewer, and which two colors you would use to create it. This sharpens how you will read abstract works in your analysis.</div>
+        </div>
+    </div>
+
+    <!-- What You'll Do Next -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU&rsquo;LL DO NEXT</div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Lesson 11.03: Pop Art and Contemporary Questions</strong></div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">From the inner world to the world of advertising, mass culture, and the question "what is art?"</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Movement-Inspired Artwork</strong> (creation) and the unit deliverables</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Make an original work inspired by a movement's ideas, then complete your analysis, discussion, and quiz.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wrap-up -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128170; WHY THIS MATTERS</div>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Surrealism and Abstract Expressionism prove that art can carry what the eye never sees: the logic of a dream, the energy of a body, the weight of a mood. Learning to find meaning in a work with no recognizable subject is one of the hardest and most valuable skills in this course. It forces you to read form, color, and gesture as evidence, exactly the discipline that four-step analysis builds. Carry that skill into the final movements ahead.</p>
+    </div>
+
+</div>
+
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 18px 34px; text-align: center;">
+    <div style="font-size: 18px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> &middot; ART HISTORY &amp; CRITICISM &middot; Semester 2 &middot; Student Lesson Page</div>
+    <div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 11.02 &middot; The Inner World: Surrealism &amp; Abstract Expressionism</div>
+    <div style="font-size: 12px; color: rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); c.querySelector('.ow-flip-front').style.display=''; c.querySelector('.ow-flip-back').style.display='none'; });
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) {
+      var front = flip.querySelector('.ow-flip-front');
+      var back = flip.querySelector('.ow-flip-back');
+      var nowFlipped = back.style.display === 'none' || back.style.display === '';
+      if (nowFlipped) { front.style.display = 'none'; back.style.display = 'block'; flip.classList.add('flipped'); }
+      else { front.style.display = ''; back.style.display = 'none'; flip.classList.remove('flipped'); }
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || 'Right.') : (sBtn.dataset.fb || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

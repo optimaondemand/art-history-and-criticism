@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Art History &amp; Criticism &mdash; Lesson 4.02</title>
+<style>
+    body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
+    .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    img { max-width: 100%; height: auto; display: block; }
+    .artfig { margin: 16px 0; }
+    .artfig img { border: 1px solid #D0D9E8; border-radius: 6px; }
+    .artcap { font-size: 13px; color: #666; line-height: 1.5; margin-top: 6px; }
+    .artcap strong { color: #0E1C42; font-style: italic; font-weight: 600; }
+    .look-box { background: #E6F4F3; border-left: 5px solid #14807A; border-top: 3px solid #2BB6AC; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .look-kicker { font-size: 11px; color: #0E635E; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .now-box { background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .now-kicker { font-size: 11px; color: #A33D1F; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .accent-body { font-size: 17px; color: #0E1C42; line-height: 1.6; }
+    .spotlight { border: 2px solid #0E1C42; border-radius: 10px; padding: 18px; margin: 18px 0; }
+    .spotlight-title { font-size: 12px; font-weight: 700; color: #0E1C42; letter-spacing: 0.5px; margin-bottom: 6px; }
+    .spotlight-work { font-weight: 700; color: #0E1C42; font-size: 16px; }
+    .spotlight-loc { color: #777; font-size: 13px; margin-bottom: 12px; }
+    .daij-row { font-size: 16px; color: #1a2340; line-height: 1.6; margin-bottom: 9px; }
+    .daij-label { font-weight: 700; margin-right: 6px; }
+    .vocab-box { background: #F4F6FA; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px 18px; margin: 18px 0; }
+    .vocab-title { font-size: 11px; font-weight: 700; color: #c7922c; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .vocab-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .vocab-table td { padding: 6px 0; color: #1a2340; vertical-align: top; border-top: 1px solid #E2E8F2; line-height: 1.55; }
+    .vocab-table td:first-child { font-weight: 700; color: #0E1C42; width: 150px; padding-right: 12px; }
+    .optima-widget { background: linear-gradient(135deg, #E6F4F3 0%, #F4FBFA 100%); border: 1px solid #BFE3DF; border-left: 5px solid #14807A; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .widget-kicker { font-size: 11px; color: #0E635E; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+    .widget-options button:hover { background: #F4F6FA; border-color: #2BB6AC; }
+    .widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+    .widget-options button.correct { background: #E6F4F3; border-color: #14807A; color: #0E635E; }
+    .widget-options button.incorrect { background: #FCEDE8; border-color: #D85C38; color: #A33D1F; }
+    .widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+    .widget-feedback.show { display: block; }
+    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+    .row-feedback.correct { background: #E6F4F3; border-left: 3px solid #14807A; color: #0E635E; }
+    .row-feedback.incorrect { background: #FCEDE8; border-left: 3px solid #D85C38; color: #A33D1F; }
+    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 10px; }
+    .widget-reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;">
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+        <div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width: 50px; height: 40px; object-fit: contain;" /></div>
+        <div>
+            <div style="font-size: 28px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+            <div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
+        </div>
+    </div>
+    <div style="font-size: 36px; color: #ffffff; margin-bottom: 6px;">ART HISTORY &amp; CRITICISM</div>
+</div>
+
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Semester / Unit</div>
+        <div style="font-size: 17px; color: #0e1c42;">S1 &middot; Unit 4</div>
+        <div style="font-size: 12px; color: #666;">Ancient Greece</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+        <div style="font-size: 17px; color: #0e1c42;">Lesson 4.02</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+        <div style="font-size: 17px; color: #0e1c42; font-style: italic;">Order in Stone: The Parthenon</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Module Theme</div>
+        <div style="font-size: 16px; color: #0e1c42;">The Birth of Naturalism</div>
+    </div>
+</div>
+
+<div style="padding: 24px 34px;">
+
+    <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">LESSON 4.02</div>
+        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">Order in Stone: The Parthenon</div>
+        <div style="font-size: 16px; color: #666;">Interactive Lesson</div>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
+        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">How can a building made of straight stone and simple columns feel perfectly, almost living, balanced?</div>
+        <div style="font-size: 18px; color: #1a2340; line-height: 1.65;">The same Classical Greece that discovered contrapposto in the body sought perfect proportion in architecture. The Parthenon is the result: a temple so carefully measured that for 2,500 years it has stood as the model of harmony in stone.</div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#127919; BY THE END OF THIS LESSON YOU WILL BE ABLE TO&hellip;</div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> identify the parts of a Greek temple and the Doric order.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> explain how proportion and optical refinements give the Parthenon its harmony.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> apply the four-step method to the Parthenon, preparing for my analysis assignment.</div>
+        </div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128203; WHAT YOU NEED FOR THIS LESSON</div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">A notebook or an open Word document; this lesson sets up your graded Parthenon analysis</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">Your four-step analysis notes, and the post-and-lintel idea from Stonehenge in Unit 2</div>
+        </div>
+    </div>
+
+    <!-- PART 1 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 1 &middot; LOOK FIRST</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~12 MIN</span></div>
+
+        <div class="look-box">
+            <div class="look-kicker">&#128064; LOOK CLOSELY &middot; FEEL THE BALANCE</div>
+            <div class="accent-body">Before reading on, just look. Count the columns across the front. Notice how the building feels steady and complete, not heavy, not flimsy. Where does your eye rest? Try to name one reason it feels so balanced.</div>
+        </div>
+
+        <div class="artfig">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/The_Parthenon_in_Athens.jpg" alt="The Parthenon on the Acropolis in Athens" />
+            <div class="artcap"><strong>The Parthenon</strong>, Acropolis, Athens, 447&ndash;432 BC. Architects Iktinos and Kallikrates; sculpture directed by Phidias. Photograph by Steve Swayne, 1978, licensed under CC BY 2.0. Retrieved from Wikimedia Commons.</div>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 14px 0 10px 0;">The Parthenon crowns the <strong>Acropolis</strong>, the rocky height above Athens. It was built between 447 and 432 BC, at the peak of Athenian power under the leader Pericles, as a temple to <strong>Athena</strong>, the city&rsquo;s patron goddess. The architects were Iktinos and Kallikrates; the great sculptor Phidias oversaw its carvings. Like Stonehenge, it stands on the oldest principle of building, <strong>post-and-lintel</strong>: upright columns carrying horizontal beams. But where Stonehenge is rough and mysterious, the Parthenon is refined to the millimeter.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">It is built in the <strong>Doric order</strong>, the oldest and plainest of the Greek architectural systems: sturdy columns with simple cushion-like tops and no base, rising to a banded zone above. The whole design is governed by <strong>proportion</strong>, fixed mathematical ratios between the parts, so that nothing feels too tall, too wide, or out of place.</p>
+    </div>
+
+    <!-- PART 2 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 2 &middot; THE PARTS &amp; THE TRICKS OF THE EYE</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~18 MIN</span></div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 8px 0;">A Doric temple has a clear vocabulary of parts. <strong>Columns</strong> carry the weight. Across their tops runs the <strong>entablature</strong>, the horizontal band of beams. At each short end, the roof makes a triangular gable called the <strong>pediment</strong>, which the Greeks filled with sculpture. Learn these three words and you can describe almost any Classical building.</p>
+
+        <!-- Concept visual: Doric temple diagram -->
+        <div style="background: #FAFBFD; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px; margin: 12px 0; text-align: center;">
+            <svg viewBox="0 0 360 220" width="100%" style="max-width: 420px; height: auto;" role="img" aria-label="Diagram of a Doric temple front: pediment, entablature, and columns">
+                <rect x="1" y="1" width="358" height="218" fill="#ffffff" stroke="#D0D9E8"/>
+                <!-- pediment -->
+                <polygon points="40,70 320,70 180,22" fill="#e3cfb4" stroke="#9c8463"/>
+                <!-- entablature -->
+                <rect x="40" y="70" width="280" height="26" fill="#d8c0a2" stroke="#9c8463"/>
+                <!-- columns -->
+                <g fill="#cdb393" stroke="#9c8463">
+                    <rect x="55" y="96" width="26" height="92"/>
+                    <rect x="115" y="96" width="26" height="92"/>
+                    <rect x="175" y="96" width="26" height="92"/>
+                    <rect x="235" y="96" width="26" height="92"/>
+                    <rect x="279" y="96" width="26" height="92"/>
+                </g>
+                <!-- stylobate -->
+                <rect x="40" y="188" width="280" height="14" fill="#b8a888" stroke="#9c8463"/>
+                <!-- labels -->
+                <text x="330" y="46" font-family="Segoe UI, sans-serif" font-size="11" fill="#A33D1F" text-anchor="start">pediment</text>
+                <text x="330" y="86" font-family="Segoe UI, sans-serif" font-size="11" fill="#0E635E" text-anchor="start">entablature</text>
+                <text x="330" y="145" font-family="Segoe UI, sans-serif" font-size="11" fill="#0E1C42" text-anchor="start">columns</text>
+            </svg>
+            <div style="font-size: 13px; color: #666; margin-top: 6px;">A Doric temple front: columns carry the entablature; the triangular pediment crowns each end.</div>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 8px 0 10px 0;">Here is the astonishing part: almost nothing on the Parthenon is actually straight. The Greeks knew that perfectly straight lines, at this scale, look slightly bent or sagging to the human eye. So they made tiny <strong>optical refinements</strong> to correct the illusion. The columns swell gently in the middle (a curve called <em>entasis</em>) so they do not appear pinched. The floor bows up slightly in the center. The corner columns lean inward and stand a little closer together. Every &ldquo;straight&rdquo; line is a subtle curve, calculated so the whole building <em>looks</em> flawlessly straight. The harmony you feel is the result of these hidden corrections.</p>
+
+        <div class="optima-widget ow-reflect">
+            <div class="widget-kicker">&#128172; QUICK CHECK-IN &middot; NO WRONG ANSWER</div>
+            <div class="widget-question">The builders bent the lines so the eye would see them as straight. What does that effort tell you about Classical Greek values?</div>
+            <div class="widget-options">
+                <button data-response="A strong read. The Greeks pursued an ideal harmony that satisfies human perception, not just the ruler. Beauty, for them, was something measurable and worth enormous trouble to achieve.">They prized ideal, measured harmony</button>
+                <button data-response="Reasonable. It shows deep confidence in human reason: they trusted mathematics and observation to perfect what the eye experiences. The same spirit drove their science and philosophy.">They trusted reason and mathematics</button>
+                <button data-response="Fair. It is also simply astonishing craftsmanship, evidence of how much skill and care they were willing to invest in a single building. Several of these can be true at once.">Extraordinary care and craftsmanship</button>
+            </div>
+            <div class="widget-feedback"></div>
+            <button class="widget-reset">Reset</button>
+        </div>
+    </div>
+
+    <!-- PART 3 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 3 &middot; WATCH IT WORK</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~15 MIN</span></div>
+
+        <div class="spotlight">
+            <div class="spotlight-title">&#128269; ARTWORK SPOTLIGHT</div>
+            <div class="spotlight-work">The Parthenon (447&ndash;432 BC)</div>
+            <div class="spotlight-loc">Acropolis, Athens</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E635E;">Describe:</span> A rectangular marble temple stands on a stepped base, ringed by sturdy fluted columns that carry a banded horizontal zone, with a triangular gable at each end.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E1C42;">Analyze:</span> The design is governed by <strong>proportion</strong> and near-perfect <strong>balance</strong>; the steady rhythm of columns creates <strong>pattern</strong>, while hidden curves (entasis, the bowed floor) correct the eye so the whole reads as flawlessly regular.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A8741F;">Interpret:</span> The temple makes a claim in stone: that order, reason, and human-made harmony can approach the divine. One reading is that it is Athens itself, confident and rational, built in marble.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A33D1F;">Judge:</span> It succeeds so completely that it became the standard. For 2,500 years, &ldquo;Classical&rdquo; has meant the balance this building achieved.</div>
+        </div>
+
+        <div class="optima-widget ow-select">
+            <div class="widget-kicker">&#9989; CHECK YOUR UNDERSTANDING</div>
+            <div class="widget-row" data-correct="b">
+                <div class="widget-row-prompt">The slight outward curve of a column, made so it does not look pinched, is called&hellip;</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="No. The pediment is the triangular gable at the end of the roof, not a column curve.">a pediment</button>
+                    <button data-choice="b" data-fb="Correct. Entasis is the gentle swelling of the column, one of the Parthenon&rsquo;s optical refinements.">entasis</button>
+                    <button data-choice="c" data-fb="No. Contrapposto is a pose of the human body, from Lesson 4.01, not an architectural curve.">contrapposto</button>
+                </div>
+            </div>
+            <div class="widget-row" data-correct="a">
+                <div class="widget-row-prompt">What basic structural method holds the Parthenon up, the same one used at Stonehenge?</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="Correct. Post-and-lintel: vertical columns carrying horizontal beams, exactly as at Stonehenge.">post-and-lintel</button>
+                    <button data-choice="b" data-fb="No. The Greeks used post-and-lintel here; the arch and dome are mainly Roman developments you meet in Unit 5.">the arch and dome</button>
+                    <button data-choice="c" data-fb="No. Mud-brick was Mesopotamian; the Parthenon is cut marble on a post-and-lintel frame.">mud-brick tiers</button>
+                </div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
+
+        <div style="background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 14px 0;">
+            <div style="font-size: 11px; color: #A33D1F; margin-bottom: 8px;">&#9888;&#65039; WORTH KNOWING &middot; AI &amp; THE WHITE-MARBLE MYTH</div>
+            <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">We picture Greek temples and statues as pure white marble, and AI image tools, trained on those modern photos, will happily generate more gleaming white ruins. But scholars have shown the Greeks painted their temples and sculptures in bright colors; the white we see is paint lost to time. AI <em>cannot</em> correct a popular misconception baked into its training images. Knowing the real history lets you see past the myth.</div>
+        </div>
+    </div>
+
+    <!-- Vocabulary -->
+    <div class="vocab-box">
+        <div class="vocab-title">&#128214; VOCABULARY FROM THIS LESSON</div>
+        <table class="vocab-table"><tbody>
+            <tr><td>Acropolis</td><td>The high, rocky citadel above Athens, crowned by the Parthenon.</td></tr>
+            <tr><td>Doric order</td><td>The oldest, plainest Greek architectural system: sturdy columns with simple tops and no base.</td></tr>
+            <tr><td>Column</td><td>The vertical support that carries the weight of the entablature.</td></tr>
+            <tr><td>Entablature</td><td>The horizontal band of beams resting across the tops of the columns.</td></tr>
+            <tr><td>Pediment</td><td>The triangular gable at each end of the roof, often filled with sculpture.</td></tr>
+            <tr><td>Entasis</td><td>The slight outward swelling of a column that corrects the eye so it looks straight.</td></tr>
+            <tr><td>Proportion</td><td>The harmonious mathematical relationship between the parts of a design.</td></tr>
+        </tbody></table>
+    </div>
+
+    <!-- Now You Try -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="now-box" style="margin-top: 0;">
+            <div class="now-kicker">&#9999;&#65039; NOW YOU TRY &middot; IN YOUR NOTEBOOK</div>
+            <div class="accent-body">Begin your Parthenon analysis now. Write two <strong>Describe</strong> sentences (only what you see, using the words column, entablature, pediment) and one <strong>Analyze</strong> sentence about how proportion or pattern creates the building&rsquo;s balance. Keep this; it is the first draft of your graded assignment.</div>
+        </div>
+    </div>
+
+    <!-- What You'll Do Next -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU&rsquo;LL DO NEXT</div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Lesson 4.03 &middot; Stories on Clay: Greek Vase Painting</strong></div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">You will see how Greek painters told whole stories on the curved surface of a pot.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Parthenon Analysis</strong> (assignment)</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Write a full four-step analysis of the Parthenon using the vocabulary from this lesson.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wrap-up -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128170; WHY THIS MATTERS</div>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Look at a bank, a courthouse, or a museum with columns and a triangular pediment, and you are looking at the Parthenon&rsquo;s descendants. Classical Greek architecture became the visual language of dignity and order across the Western world. Learning to read it here lets you read buildings you walk past every day.</p>
+    </div>
+
+</div>
+
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 18px 34px; text-align: center;">
+    <div style="font-size: 18px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> &middot; ART HISTORY &amp; CRITICISM &middot; Semester 1 &middot; Student Lesson Page</div>
+    <div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 4.02 &middot; Order in Stone: The Parthenon</div>
+    <div style="font-size: 12px; color: rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || 'Right.') : (sBtn.dataset.fb || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

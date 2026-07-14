@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Art History &amp; Criticism &mdash; Lesson 8.03</title>
+<style>
+    body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
+    .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    img { max-width: 100%; height: auto; display: block; }
+    .artfig { margin: 16px 0; }
+    .artfig img { border: 1px solid #D0D9E8; border-radius: 6px; }
+    .artcap { font-size: 13px; color: #666; line-height: 1.5; margin-top: 6px; }
+    .artcap strong { color: #0E1C42; font-style: italic; font-weight: 600; }
+    .art2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 640px) { .art2 { grid-template-columns: 1fr; } }
+    .look-box { background: #E6F4F3; border-left: 5px solid #14807A; border-top: 3px solid #2BB6AC; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .look-kicker { font-size: 11px; color: #0E635E; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .now-box { background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .now-kicker { font-size: 11px; color: #A33D1F; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .accent-body { font-size: 17px; color: #0E1C42; line-height: 1.6; }
+    .spotlight { border: 2px solid #0E1C42; border-radius: 10px; padding: 18px; margin: 18px 0; }
+    .spotlight-title { font-size: 12px; font-weight: 700; color: #0E1C42; letter-spacing: 0.5px; margin-bottom: 6px; }
+    .spotlight-work { font-weight: 700; color: #0E1C42; font-size: 16px; }
+    .spotlight-loc { color: #777; font-size: 13px; margin-bottom: 12px; }
+    .daij-row { font-size: 16px; color: #1a2340; line-height: 1.6; margin-bottom: 9px; }
+    .daij-label { font-weight: 700; margin-right: 6px; }
+    .vocab-box { background: #F4F6FA; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px 18px; margin: 18px 0; }
+    .vocab-title { font-size: 11px; font-weight: 700; color: #c7922c; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .vocab-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .vocab-table td { padding: 6px 0; color: #1a2340; vertical-align: top; border-top: 1px solid #E2E8F2; line-height: 1.55; }
+    .vocab-table td:first-child { font-weight: 700; color: #0E1C42; width: 165px; padding-right: 12px; }
+    .compare-table { width: 100%; border-collapse: collapse; font-size: 15px; margin: 4px 0; }
+    .compare-table th { text-align: left; padding: 10px 12px; font-size: 13px; letter-spacing: 0.4px; }
+    .compare-table td { padding: 10px 12px; border-top: 1px solid #E2E8F2; color: #1a2340; line-height: 1.5; vertical-align: top; }
+    .compare-table td:first-child { font-weight: 700; color: #0E1C42; width: 130px; }
+    .optima-widget { background: linear-gradient(135deg, #E6F4F3 0%, #F4FBFA 100%); border: 1px solid #BFE3DF; border-left: 5px solid #14807A; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .widget-kicker { font-size: 11px; color: #0E635E; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+    .widget-options button:hover { background: #F4F6FA; border-color: #2BB6AC; }
+    .widget-options button.correct { background: #E6F4F3; border-color: #14807A; color: #0E635E; }
+    .widget-options button.incorrect { background: #FCEDE8; border-color: #D85C38; color: #A33D1F; }
+    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+    .row-feedback.correct { background: #E6F4F3; border-left: 3px solid #14807A; color: #0E635E; }
+    .row-feedback.incorrect { background: #FCEDE8; border-left: 3px solid #D85C38; color: #A33D1F; }
+    .ow-flip-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px 18px; cursor: pointer; text-align: center; min-height: 64px; display: flex; align-items: center; justify-content: center; }
+    .ow-flip .ow-flip-back { display: none; color: #1a2340; font-size: 14px; line-height: 1.5; }
+    .ow-flip .ow-flip-front { color: #0E1C42; font-weight: 700; font-size: 15px; }
+    .ow-flip.flipped .ow-flip-front { display: none; }
+    .ow-flip.flipped .ow-flip-back { display: block; }
+    @media (max-width: 640px) { .ow-flip-grid { grid-template-columns: 1fr; } }
+    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 10px; }
+    .widget-reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;">
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+        <div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width: 50px; height: 40px; object-fit: contain;" /></div>
+        <div>
+            <div style="font-size: 28px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+            <div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
+        </div>
+    </div>
+    <div style="font-size: 36px; color: #ffffff; margin-bottom: 6px;">ART HISTORY &amp; CRITICISM</div>
+</div>
+
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Semester / Unit</div>
+        <div style="font-size: 17px; color: #0e1c42;">S2 &middot; Unit 8</div>
+        <div style="font-size: 12px; color: #666;">Baroque &amp; Rococo</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+        <div style="font-size: 17px; color: #0e1c42;">Lesson 8.03</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+        <div style="font-size: 17px; color: #0e1c42; font-style: italic;">Versailles and the Rococo: Power and Pleasure</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Module Theme</div>
+        <div style="font-size: 16px; color: #0e1c42;">Drama, Light, and Spectacle</div>
+    </div>
+</div>
+
+<div style="padding: 24px 34px;">
+
+    <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">LESSON 8.03</div>
+        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">Versailles and the Rococo: Power and Pleasure</div>
+        <div style="font-size: 16px; color: #666;">Interactive Lesson</div>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
+        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">How can a building be an argument for a king's power, and what happens to art when the drama softens into pleasure?</div>
+        <div style="font-size: 18px; color: #1a2340; line-height: 1.65;">The Baroque did not only serve the church. Kings used its grandeur to project power. Louis XIV turned the Palace of Versailles into the most dazzling stage in Europe. Then a lighter, more playful style, the Rococo, took the same love of decoration indoors and made it intimate.</div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#127919; BY THE END OF THIS LESSON YOU WILL BE ABLE TO&hellip;</div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> explain how Baroque grandeur at Versailles served the absolute power of Louis XIV.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> describe the Rococo and how it differs from the Baroque.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> compare Baroque and Rococo on scale, mood, color, and subject.</div>
+        </div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128203; WHAT YOU NEED FOR THIS LESSON</div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">A notebook or an open Word document for your comparison notes</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">Caravaggio (Lesson 8.01) and Bernini (Lesson 8.02) fresh in mind for the Baroque side of the comparison</div>
+        </div>
+    </div>
+
+    <!-- PART 1 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 1 &middot; LOOK FIRST</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~12 MIN</span></div>
+
+        <div class="look-box">
+            <div class="look-kicker">&#128064; LOOK CLOSELY &middot; A BUILDING THAT BOASTS</div>
+            <div class="accent-body">Look at Versailles below. Notice the scale: the endless symmetrical front, the formal gardens stretching to the horizon, the sheer cost written into every surface. Ask yourself: who could build this, and what message does its size send to anyone who sees it? A building this grand is not just a home. It is a statement.</div>
+        </div>
+
+        <div class="artfig">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ch%C3%A2teau_de_Versailles_(vue_du_parc,_Versailles).JPG" alt="Ch&acirc;teau de Versailles" />
+            <div class="artcap"><strong>Ch&acirc;teau de Versailles</strong>, garden facade, mainly built 1678&ndash;1684 under Louis XIV. Versailles, France. Photograph by Antigone059, licensed CC BY-SA 3.0, via Wikimedia Commons.</div>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 14px 0 10px 0;">King <strong>Louis XIV</strong> of France ruled as an <strong>absolute</strong> monarch, claiming total authority answerable to no parliament. He called himself the &ldquo;Sun King&rdquo; and rebuilt a hunting lodge at Versailles into a vast palace where the nobility lived under his eye. Every fountain, mirror, and painted ceiling was designed to overwhelm visitors and to broadcast one idea: this king is glorious and his power has no limit.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">This is the Baroque used as <strong>propaganda</strong> of glory. The same drama and spectacle that Caravaggio gave a religious scene, Versailles gives to royal power. Art here is not neutral decoration; it is an argument about who should rule.</p>
+    </div>
+
+    <!-- PART 2 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 2 &middot; FROM GRANDEUR TO CHARM: THE ROCOCO</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~16 MIN</span></div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">After Louis XIV, taste shifted. In early 1700s France, the heavy grandeur of the Baroque gave way to the <strong>Rococo</strong>: lighter, smaller in scale, and devoted to pleasure rather than power. Rococo rooms drip with delicate <strong>ornamentation</strong>: curling shell-like shapes, gilded scrolls, mirrors, and pastel colors (soft pinks, blues, and creams). Its subjects are intimate and playful: garden parties, flirtation, music, and leisure among the aristocracy. Where the Baroque shouts, the Rococo whispers and sparkles.</p>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 8px 0;">The Rococo also lived in the <strong>decorative arts</strong>: furniture, porcelain, mirrors, and interior design, not only paintings and buildings. A whole room could be a single Rococo artwork. Here is how the two styles compare:</p>
+
+        <!-- Concept comparison: Baroque vs Rococo -->
+        <div style="background: #FAFBFD; border: 1px solid #D0D9E8; border-radius: 8px; padding: 10px 14px 14px 14px; margin: 12px 0; overflow-x: auto;">
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th style="background:#0E1C42; color:#fff; border-radius:6px 0 0 0; width:130px;">Compare</th>
+                        <th style="background:#14807A; color:#fff;">Baroque (c. 1600&ndash;1750)</th>
+                        <th style="background:#D85C38; color:#fff; border-radius:0 6px 0 0;">Rococo (c. 1700&ndash;1770)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Scale</td><td>Huge, grand, overwhelming</td><td>Small, intimate, room-sized</td></tr>
+                    <tr><td>Mood</td><td>Dramatic, powerful, serious</td><td>Light, playful, charming</td></tr>
+                    <tr><td>Color</td><td>Deep, strong contrasts of light and dark</td><td>Soft pastels: pink, blue, cream, gold</td></tr>
+                    <tr><td>Subject</td><td>Religion, royal power, heroic moments</td><td>Leisure, love, garden parties, the aristocracy at play</td></tr>
+                </tbody>
+            </table>
+            <div style="font-size: 13px; color: #666; margin-top: 8px;">Both styles love ornament and movement. The Baroque aims it at awe and power; the Rococo aims it at delight and intimacy.</div>
+        </div>
+
+        <div class="optima-widget ow-select">
+            <div class="widget-kicker">&#9989; CHECK YOUR UNDERSTANDING</div>
+            <div class="widget-row" data-correct="c">
+                <div class="widget-row-prompt">Versailles was built mainly to&hellip;</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="No. It was a royal palace, not a place of worship; its purpose was political, not religious.">serve as a public church for the city</button>
+                    <button data-choice="b" data-fb="No. Versailles was lavish on purpose; cost was part of the message, not a thing to hide.">be a plain, low-cost residence</button>
+                    <button data-choice="c" data-fb="Correct. Its scale and splendor were designed to display the absolute power and glory of Louis XIV.">project the absolute power and glory of Louis XIV</button>
+                </div>
+            </div>
+            <div class="widget-row" data-correct="a">
+                <div class="widget-row-prompt">Compared with the Baroque, the Rococo is best described as&hellip;</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="Correct. The Rococo is lighter, smaller in scale, pastel, playful, and intimate.">lighter, pastel, playful, and intimate</button>
+                    <button data-choice="b" data-fb="No. That describes the Baroque (grand, dark, dramatic). The Rococo softened all of these.">larger, darker, and more dramatic</button>
+                    <button data-choice="c" data-fb="No. The Rococo is highly decorative, not plain; its whole point is delicate ornament.">plain and free of ornament</button>
+                </div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
+    </div>
+
+    <!-- PART 3 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 3 &middot; WATCH IT WORK</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~15 MIN</span></div>
+
+        <div class="spotlight">
+            <div class="spotlight-title">&#128269; ARTWORK SPOTLIGHT</div>
+            <div class="spotlight-work">Ch&acirc;teau de Versailles (mainly 1678&ndash;1684)</div>
+            <div class="spotlight-loc">Built for Louis XIV &middot; Versailles, France (Baroque)</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E635E;">Describe:</span> An immense palace stretches in a long symmetrical front of repeating windows and columns. Vast formal gardens, fountains, and clipped paths extend toward the horizon. Inside, rooms glitter with gilding, painted ceilings, and a famous hall lined with mirrors.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E1C42;">Analyze:</span> Enormous <strong>scale</strong>, strict <strong>symmetry</strong>, and rich surface push the eye outward and upward. The grandeur and the controlled axis from the king's apartments through the gardens organize everything around one center: the monarch.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A8741F;">Interpret:</span> One reading is that the palace is an argument in stone and water. Its size, order, and cost are meant to convince every visitor that Louis XIV's power is natural, central, and beyond challenge.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A33D1F;">Judge:</span> As propaganda it succeeds completely. Versailles set the standard other European rulers tried to copy, which is the clearest sign that its message of glory was understood.</div>
+        </div>
+
+        <div class="optima-widget ow-flip-wrap">
+            <div class="widget-kicker">&#128064; FLIP TO CHECK &middot; CLICK EACH CARD</div>
+            <div class="widget-question">Cover the lesson above. Can you recall each term? Click a card to flip it.</div>
+            <div class="ow-flip-grid">
+                <div class="ow-flip"><div class="ow-flip-front">Absolutism</div><div class="ow-flip-back">Rule by a monarch with total, unchecked authority, as Louis XIV claimed.</div></div>
+                <div class="ow-flip"><div class="ow-flip-front">Rococo</div><div class="ow-flip-back">The light, ornamental, pastel, playful style of about 1700 to 1770.</div></div>
+                <div class="ow-flip"><div class="ow-flip-front">Ornamentation</div><div class="ow-flip-back">Decorative detail: scrolls, shell shapes, gilding, and pattern added to surfaces.</div></div>
+                <div class="ow-flip"><div class="ow-flip-front">The decorative arts</div><div class="ow-flip-back">Furniture, porcelain, mirrors, and interiors made as art, not just paintings or buildings.</div></div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
+
+        <div style="background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 14px 0;">
+            <div style="font-size: 11px; color: #A33D1F; margin-bottom: 8px;">&#9888;&#65039; WORTH KNOWING &middot; AI &amp; STYLE AS A LABEL</div>
+            <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">Ask an AI for a &ldquo;Rococo&rdquo; or &ldquo;Baroque&rdquo; image and it can copy the surface look: pastels and scrolls, or gold and shadow. What it cannot supply is why a society chose that look. Versailles was grand because a king wanted to display absolute power; the Rococo turned playful because taste and patrons changed. AI reproduces a style as a label; understanding art means knowing what the style was for.</div>
+        </div>
+    </div>
+
+    <!-- Vocabulary -->
+    <div class="vocab-box">
+        <div class="vocab-title">&#128214; VOCABULARY FROM THIS LESSON</div>
+        <table class="vocab-table"><tbody>
+            <tr><td>Absolutism</td><td>A system in which a monarch holds total, unchecked power, as Louis XIV claimed.</td></tr>
+            <tr><td>Rococo</td><td>The light, ornamental, pastel, playful style of about 1700 to 1770, focused on pleasure and intimacy.</td></tr>
+            <tr><td>Ornamentation</td><td>Decorative detail such as scrolls, shell shapes, and gilding added to surfaces.</td></tr>
+            <tr><td>The decorative arts</td><td>Useful and decorative objects (furniture, porcelain, mirrors, interiors) made and valued as art.</td></tr>
+        </tbody></table>
+    </div>
+
+    <!-- Now You Try -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="now-box" style="margin-top: 0;">
+            <div class="now-kicker">&#9999;&#65039; NOW YOU TRY &middot; IN YOUR NOTEBOOK</div>
+            <div class="accent-body">Think of a building, room, or space today that is designed to impress (a stadium, a lobby, a flagship store). In two or three sentences, describe what message its scale and decoration send, and to whom. Is it closer to the Baroque (power and awe) or the Rococo (charm and pleasure)? Name one feature that tells you. These notes will sharpen your Renaissance vs. Baroque discussion.</div>
+        </div>
+    </div>
+
+    <!-- What You'll Do Next -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU&rsquo;LL DO NEXT</div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Baroque Analysis</strong> (assignment)</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Write a full four-step analysis of The Calling of Saint Matthew.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Renaissance vs. Baroque Art</strong> (discussion)</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Compare the calm ideal of the Renaissance with the dramatic motion of the Baroque.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Chiaroscuro Challenge</strong> (creation) and <strong>Unit 8 Quiz</strong></div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Make your own light-and-dark study, then take the short auto-graded quiz.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wrap-up -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128170; WHY THIS MATTERS</div>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Baroque and Rococo served kings and churches: art that overwhelmed with power or delighted with pleasure. Next, revolutions will turn art toward reason, then raw emotion, then ordinary working life. As you move into Unit 9, watch the patron change: when artists no longer paint for popes and kings, the look of art changes with the people it is made for.</p>
+    </div>
+
+</div>
+
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 18px 34px; text-align: center;">
+    <div style="font-size: 18px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> &middot; ART HISTORY &amp; CRITICISM &middot; Semester 2 &middot; Student Lesson Page</div>
+    <div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 8.03 &middot; Versailles and the Rococo: Power and Pleasure</div>
+    <div style="font-size: 12px; color: rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || 'Right.') : (sBtn.dataset.fb || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

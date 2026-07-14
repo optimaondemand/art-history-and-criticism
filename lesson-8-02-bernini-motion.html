@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Art History &amp; Criticism &mdash; Lesson 8.02</title>
+<style>
+    body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
+    .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    img { max-width: 100%; height: auto; display: block; }
+    .artfig { margin: 16px 0; }
+    .artfig img { border: 1px solid #D0D9E8; border-radius: 6px; }
+    .artcap { font-size: 13px; color: #666; line-height: 1.5; margin-top: 6px; }
+    .artcap strong { color: #0E1C42; font-style: italic; font-weight: 600; }
+    .art2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 640px) { .art2 { grid-template-columns: 1fr; } }
+    .look-box { background: #E6F4F3; border-left: 5px solid #14807A; border-top: 3px solid #2BB6AC; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .look-kicker { font-size: 11px; color: #0E635E; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .now-box { background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .now-kicker { font-size: 11px; color: #A33D1F; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .accent-body { font-size: 17px; color: #0E1C42; line-height: 1.6; }
+    .spotlight { border: 2px solid #0E1C42; border-radius: 10px; padding: 18px; margin: 18px 0; }
+    .spotlight-title { font-size: 12px; font-weight: 700; color: #0E1C42; letter-spacing: 0.5px; margin-bottom: 6px; }
+    .spotlight-work { font-weight: 700; color: #0E1C42; font-size: 16px; }
+    .spotlight-loc { color: #777; font-size: 13px; margin-bottom: 12px; }
+    .daij-row { font-size: 16px; color: #1a2340; line-height: 1.6; margin-bottom: 9px; }
+    .daij-label { font-weight: 700; margin-right: 6px; }
+    .vocab-box { background: #F4F6FA; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px 18px; margin: 18px 0; }
+    .vocab-title { font-size: 11px; font-weight: 700; color: #c7922c; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .vocab-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .vocab-table td { padding: 6px 0; color: #1a2340; vertical-align: top; border-top: 1px solid #E2E8F2; line-height: 1.55; }
+    .vocab-table td:first-child { font-weight: 700; color: #0E1C42; width: 165px; padding-right: 12px; }
+    .optima-widget { background: linear-gradient(135deg, #E6F4F3 0%, #F4FBFA 100%); border: 1px solid #BFE3DF; border-left: 5px solid #14807A; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .widget-kicker { font-size: 11px; color: #0E635E; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+    .widget-options button:hover { background: #F4F6FA; border-color: #2BB6AC; }
+    .widget-options button.correct { background: #E6F4F3; border-color: #14807A; color: #0E635E; }
+    .widget-options button.incorrect { background: #FCEDE8; border-color: #D85C38; color: #A33D1F; }
+    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+    .row-feedback.correct { background: #E6F4F3; border-left: 3px solid #14807A; color: #0E635E; }
+    .row-feedback.incorrect { background: #FCEDE8; border-left: 3px solid #D85C38; color: #A33D1F; }
+    .ow-flip-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px 18px; cursor: pointer; text-align: center; min-height: 64px; display: flex; align-items: center; justify-content: center; }
+    .ow-flip .ow-flip-back { display: none; color: #1a2340; font-size: 14px; line-height: 1.5; }
+    .ow-flip .ow-flip-front { color: #0E1C42; font-weight: 700; font-size: 15px; }
+    .ow-flip.flipped .ow-flip-front { display: none; }
+    .ow-flip.flipped .ow-flip-back { display: block; }
+    @media (max-width: 640px) { .ow-flip-grid { grid-template-columns: 1fr; } }
+    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 10px; }
+    .widget-reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;">
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+        <div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width: 50px; height: 40px; object-fit: contain;" /></div>
+        <div>
+            <div style="font-size: 28px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+            <div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
+        </div>
+    </div>
+    <div style="font-size: 36px; color: #ffffff; margin-bottom: 6px;">ART HISTORY &amp; CRITICISM</div>
+</div>
+
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Semester / Unit</div>
+        <div style="font-size: 17px; color: #0e1c42;">S2 &middot; Unit 8</div>
+        <div style="font-size: 12px; color: #666;">Baroque &amp; Rococo</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+        <div style="font-size: 17px; color: #0e1c42;">Lesson 8.02</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+        <div style="font-size: 17px; color: #0e1c42; font-style: italic;">Bernini: Sculpture in Motion</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Module Theme</div>
+        <div style="font-size: 16px; color: #0e1c42;">Drama, Light, and Spectacle</div>
+    </div>
+</div>
+
+<div style="padding: 24px 34px;">
+
+    <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">LESSON 8.02</div>
+        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">Bernini: Sculpture in Motion</div>
+        <div style="font-size: 16px; color: #666;">Interactive Lesson</div>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
+        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">How do you carve a single second, the exact instant of greatest effort, out of a cold block of marble?</div>
+        <div style="font-size: 18px; color: #1a2340; line-height: 1.65;">Renaissance sculpture gave us calm, balanced, still bodies. Baroque sculpture wanted the opposite: action, strain, and emotion caught at its peak. Gian Lorenzo Bernini made marble look as if it could move, breathe, and even transform before your eyes.</div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#127919; BY THE END OF THIS LESSON YOU WILL BE ABLE TO&hellip;</div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> explain how Baroque sculpture captures the peak instant of action and emotion.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> contrast Bernini's twisting David with Michelangelo's still David and the Greek ideal.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> describe how Bernini made marble suggest motion, flesh, and transformation.</div>
+        </div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128203; WHAT YOU NEED FOR THIS LESSON</div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">A notebook or an open Word document for your comparison notes</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">Michelangelo's David (Unit 7) and the Greek ideal body (Unit 4) for comparison</div>
+        </div>
+    </div>
+
+    <!-- PART 1 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 1 &middot; LOOK FIRST</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~12 MIN</span></div>
+
+        <div class="look-box">
+            <div class="look-kicker">&#128064; LOOK CLOSELY &middot; CATCH HIM IN THE ACT</div>
+            <div class="accent-body">Look at Bernini's David below. He is not posing. His body is twisted, his weight loaded onto one leg, his sling drawn back, his mouth tight with effort. Try to feel the exact second the statue shows. What is about to happen? Now picture Michelangelo's David from Unit 7, standing calm and still before the fight. They tell the same story at very different moments.</div>
+        </div>
+
+        <div class="art2">
+            <div class="artfig">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bernini%27s_David_02.jpg" alt="Bernini, David" />
+                <div class="artcap"><strong>David</strong>, Gian Lorenzo Bernini, 1623, marble. Galleria Borghese, Rome. Photograph by Burkhard M&uuml;cke, licensed CC BY-SA 4.0, via Wikimedia Commons.</div>
+            </div>
+            <div class="artfig">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Michelangelo%27s_David_2015.jpg" alt="Michelangelo, David" />
+                <div class="artcap"><strong>David</strong>, Michelangelo, 1501&ndash;1504, marble (Unit 7). Galleria dell'Accademia, Florence. Photograph by Livioandronico2013, licensed CC BY-SA 4.0, via Wikimedia Commons.</div>
+            </div>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 14px 0 10px 0;">Bernini carves the <strong>decisive moment</strong>: David coils his whole body and is about to hurl the stone. Michelangelo, a century earlier, showed David before the action, calm and balanced in the Greek tradition of the ideal still body. The contrast captures the shift from Renaissance to Baroque. The Renaissance held a perfect pose; the Baroque seizes the peak of action.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Notice too that Bernini's David does not stand quietly inside an imaginary boundary. His twisting form reaches out into the space around him, almost daring an unseen Goliath (and you) to step closer. Baroque sculpture wants the viewer in the scene.</p>
+    </div>
+
+    <!-- PART 2 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 2 &middot; MARBLE THAT MOVES</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~16 MIN</span></div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Baroque sculpture is built on <strong>dynamism</strong>, the sense of energy and movement. Bernini achieves it by carving a body in mid-twist, with limbs that spiral and reach into the surrounding space, so you have to walk around the work to take it all in. He also displays astonishing <strong>virtuosity</strong>, technical skill so high it seems impossible. He makes cold marble look like soft skin, flying hair, and even fabric caught in a gust.</p>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">His <strong>Apollo and Daphne</strong> pushes this furthest. It freezes the instant the nymph Daphne, fleeing the god Apollo, begins to turn into a laurel tree. Her fingers sprout leaves, bark climbs her leg, her hair becomes branches. Bernini carved the single second of transformation, motion turning into a new form, out of solid stone.</p>
+
+        <div class="artfig">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Apollo_and_Daphne_by_Bernini_(Galleria_Borghese).jpg" alt="Bernini, Apollo and Daphne" />
+            <div class="artcap"><strong>Apollo and Daphne</strong>, Gian Lorenzo Bernini, 1622&ndash;1624, marble. Galleria Borghese, Rome. Photograph by James Anderson (before 1877), public domain, via Wikimedia Commons.</div>
+        </div>
+
+        <div class="optima-widget ow-flip-wrap">
+            <div class="widget-kicker">&#128064; FLIP TO CHECK &middot; CLICK EACH CARD</div>
+            <div class="widget-question">Cover the paragraphs above. Can you recall each idea of Baroque sculpture? Click a card to flip it.</div>
+            <div class="ow-flip-grid">
+                <div class="ow-flip"><div class="ow-flip-front">The decisive moment</div><div class="ow-flip-back">The single peak instant of action or emotion the sculpture freezes (David about to throw).</div></div>
+                <div class="ow-flip"><div class="ow-flip-front">Dynamism</div><div class="ow-flip-back">A sense of energy and movement; twisting, spiraling forms that reach into space.</div></div>
+                <div class="ow-flip"><div class="ow-flip-front">Virtuosity</div><div class="ow-flip-back">Technical skill so high it astonishes; marble made to look like skin, hair, and leaves.</div></div>
+                <div class="ow-flip"><div class="ow-flip-front">Transformation</div><div class="ow-flip-back">In Apollo and Daphne, the very moment a fleeing figure changes into a laurel tree.</div></div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 10px 0 0 0;">Compare this to the Greek ideal of Unit 4, where a figure like the kouros or a balanced classical athlete stood calm and self-contained. The Greeks and the Renaissance prized the perfect, stable form. Bernini prized the charged, unstable instant. Both are demanding; they simply chase different goals.</p>
+    </div>
+
+    <!-- PART 3 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 3 &middot; WATCH IT WORK</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~15 MIN</span></div>
+
+        <div class="spotlight">
+            <div class="spotlight-title">&#128269; ARTWORK SPOTLIGHT</div>
+            <div class="spotlight-work">David (1623)</div>
+            <div class="spotlight-loc">Gian Lorenzo Bernini &middot; Galleria Borghese, Rome (Baroque)</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E635E;">Describe:</span> A life-size marble figure of a young man twists at the waist, weight on one leg, the other braced behind. He clenches a sling, his torso winds away from his hips, his brow furrows and his lips press together. A discarded armor and harp lie at his feet.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E1C42;">Analyze:</span> The spiraling <strong>form</strong> and coiled <strong>line</strong> create powerful <strong>movement</strong>; the figure occupies the space around it rather than a single front view. Tense muscles and a strained face show emotion at its peak. This is dynamism and the decisive moment in stone.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A8741F;">Interpret:</span> One reading is that Bernini wants you to feel the effort and risk of the act, not just admire a hero. By freezing the instant before the throw, he places you in the scene as the unseen Goliath, making the danger present.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A33D1F;">Judge:</span> It succeeds on Baroque terms. Where Michelangelo's David is timeless and calm, Bernini's is urgent and alive, proving that marble can carry motion and feeling as vividly as any painting.</div>
+        </div>
+
+        <div class="optima-widget ow-select">
+            <div class="widget-kicker">&#9989; CHECK YOUR UNDERSTANDING</div>
+            <div class="widget-row" data-correct="b">
+                <div class="widget-row-prompt">The biggest difference between Bernini's David and Michelangelo's David is that Bernini's&hellip;</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="No. Both are carved from marble; the difference is the moment each one shows.">is made of bronze, not marble</button>
+                    <button data-choice="b" data-fb="Correct. Bernini freezes the peak of action, while Michelangelo shows a calm, still moment before the fight.">captures the peak of action rather than a calm, still pose</button>
+                    <button data-choice="c" data-fb="No. Bernini's David is a single full figure, like Michelangelo's; the difference is motion versus stillness.">shows several figures at once</button>
+                </div>
+            </div>
+            <div class="widget-row" data-correct="c">
+                <div class="widget-row-prompt">In Apollo and Daphne, Bernini's marble is most remarkable because it&hellip;</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="No. The work is freestanding marble, not a flat carving; its wonder is the sense of change and motion.">is a flat relief on a wall</button>
+                    <button data-choice="b" data-fb="No. It is a single carved group; the astonishing part is how it shows transformation in progress.">was assembled from many small tiles</button>
+                    <button data-choice="c" data-fb="Correct. Bernini froze the exact moment of transformation, with leaves and bark forming from flesh.">freezes a figure in the act of changing into a tree</button>
+                </div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
+
+        <div style="background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 14px 0;">
+            <div style="font-size: 11px; color: #A33D1F; margin-bottom: 8px;">&#9888;&#65039; WORTH KNOWING &middot; AI &amp; THE THIRD DIMENSION</div>
+            <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">An AI tool can generate a flat picture of a &ldquo;Baroque statue&rdquo; instantly. But Bernini's David and Apollo and Daphne were carved to be walked around: the meaning unfolds as you change position. AI image tools work in two dimensions and have no real sense of mass, balance, or how stone behaves under a chisel. They can suggest the look of marble; they cannot do the physical problem-solving that made a single block hold a body mid-twist without snapping.</div>
+        </div>
+    </div>
+
+    <!-- Vocabulary -->
+    <div class="vocab-box">
+        <div class="vocab-title">&#128214; VOCABULARY FROM THIS LESSON</div>
+        <table class="vocab-table"><tbody>
+            <tr><td>Baroque sculpture</td><td>Sculpture of about 1600 to 1750 that captures action, energy, and intense emotion in three dimensions.</td></tr>
+            <tr><td>The decisive moment</td><td>The single peak instant of action or feeling that a work freezes in time.</td></tr>
+            <tr><td>Dynamism</td><td>A strong sense of energy and movement, created by twisting, spiraling forms.</td></tr>
+            <tr><td>Virtuosity</td><td>Technical skill so high it astonishes, as when marble is made to look like flesh or leaves.</td></tr>
+        </tbody></table>
+    </div>
+
+    <!-- Now You Try -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="now-box" style="margin-top: 0;">
+            <div class="now-kicker">&#9999;&#65039; NOW YOU TRY &middot; IN YOUR NOTEBOOK</div>
+            <div class="accent-body">Think of an everyday action with a clear peak: a sprinter pushing off the blocks, someone catching a falling glass, a dancer at the top of a leap. In two or three sentences, describe the single &ldquo;decisive moment&rdquo; you would carve, and name one detail (a strained muscle, flying hair, a tilted balance) that would make a viewer feel the motion. Keep these notes for your Renaissance vs. Baroque discussion.</div>
+        </div>
+    </div>
+
+    <!-- What You'll Do Next -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU&rsquo;LL DO NEXT</div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Lesson 8.03</strong></div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">See how Baroque grandeur served kings, then how Rococo turned light and playful.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Renaissance vs. Baroque Art</strong> (discussion)</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Compare the calm ideal of the Renaissance with the dramatic motion of the Baroque.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Baroque Analysis</strong>, <strong>Chiaroscuro Challenge</strong>, and <strong>Unit 8 Quiz</strong></div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Complete the unit's analysis and creation, then the auto-graded quiz.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wrap-up -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128170; WHY THIS MATTERS</div>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Bernini proved that sculpture could do what Caravaggio did with paint: stop time at the most charged instant and pull the viewer inside it. The leap from Michelangelo's calm David to Bernini's twisting one shows in a single subject how art's goals changed between the Renaissance and the Baroque. Next, that same hunger for drama scales up to entire palaces, as art becomes a tool of royal power.</p>
+    </div>
+
+</div>
+
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 18px 34px; text-align: center;">
+    <div style="font-size: 18px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> &middot; ART HISTORY &amp; CRITICISM &middot; Semester 2 &middot; Student Lesson Page</div>
+    <div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 8.02 &middot; Bernini: Sculpture in Motion</div>
+    <div style="font-size: 12px; color: rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || 'Right.') : (sBtn.dataset.fb || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

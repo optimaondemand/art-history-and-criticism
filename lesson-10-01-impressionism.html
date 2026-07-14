@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Art History &amp; Criticism &mdash; Lesson 10.01</title>
+<style>
+    body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
+    .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    img { max-width: 100%; height: auto; display: block; }
+    .artfig { margin: 16px 0; }
+    .artfig img { border: 1px solid #D0D9E8; border-radius: 6px; }
+    .artcap { font-size: 13px; color: #666; line-height: 1.5; margin-top: 6px; }
+    .artcap strong { color: #0E1C42; font-style: italic; font-weight: 600; }
+    .art2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 640px) { .art2 { grid-template-columns: 1fr; } }
+    .look-box { background: #E6F4F3; border-left: 5px solid #14807A; border-top: 3px solid #2BB6AC; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .look-kicker { font-size: 11px; color: #0E635E; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .now-box { background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .now-kicker { font-size: 11px; color: #A33D1F; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .accent-body { font-size: 17px; color: #0E1C42; line-height: 1.6; }
+    .spotlight { border: 2px solid #0E1C42; border-radius: 10px; padding: 18px; margin: 18px 0; }
+    .spotlight-title { font-size: 12px; font-weight: 700; color: #0E1C42; letter-spacing: 0.5px; margin-bottom: 6px; }
+    .spotlight-work { font-weight: 700; color: #0E1C42; font-size: 16px; }
+    .spotlight-loc { color: #777; font-size: 13px; margin-bottom: 12px; }
+    .daij-row { font-size: 16px; color: #1a2340; line-height: 1.6; margin-bottom: 9px; }
+    .daij-label { font-weight: 700; margin-right: 6px; }
+    .vocab-box { background: #F4F6FA; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px 18px; margin: 18px 0; }
+    .vocab-title { font-size: 11px; font-weight: 700; color: #c7922c; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .vocab-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .vocab-table td { padding: 6px 0; color: #1a2340; vertical-align: top; border-top: 1px solid #E2E8F2; line-height: 1.55; }
+    .vocab-table td:first-child { font-weight: 700; color: #0E1C42; width: 165px; padding-right: 12px; }
+    .optima-widget { background: linear-gradient(135deg, #E6F4F3 0%, #F4FBFA 100%); border: 1px solid #BFE3DF; border-left: 5px solid #14807A; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .widget-kicker { font-size: 11px; color: #0E635E; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+    .widget-options button:hover { background: #F4F6FA; border-color: #2BB6AC; }
+    .widget-options button.correct { background: #E6F4F3; border-color: #14807A; color: #0E635E; }
+    .widget-options button.incorrect { background: #FCEDE8; border-color: #D85C38; color: #A33D1F; }
+    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+    .row-feedback.correct { background: #E6F4F3; border-left: 3px solid #14807A; color: #0E635E; }
+    .row-feedback.incorrect { background: #FCEDE8; border-left: 3px solid #D85C38; color: #A33D1F; }
+    .ow-flip-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px 18px; cursor: pointer; text-align: center; min-height: 64px; display: flex; align-items: center; justify-content: center; }
+    .ow-flip .ow-flip-back { display: none; color: #1a2340; font-size: 14px; line-height: 1.5; }
+    .ow-flip .ow-flip-front { color: #0E1C42; font-weight: 700; font-size: 15px; }
+    .ow-flip.flipped .ow-flip-front { display: none; }
+    .ow-flip.flipped .ow-flip-back { display: block; }
+    @media (max-width: 640px) { .ow-flip-grid { grid-template-columns: 1fr; } }
+    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 10px; }
+    .widget-reset:hover { background: #FDF3E3; }
+    .ow-reflect textarea { width: 100%; box-sizing: border-box; border: 1px solid #BFE3DF; border-radius: 6px; padding: 10px 12px; font-family: inherit; font-size: 15px; color: #0E1C42; resize: vertical; min-height: 70px; }
+    .ow-reflect .reflect-reveal { display: none; background: #FFFFFF; border-left: 3px solid #14807A; border-radius: 4px; padding: 10px 14px; margin-top: 10px; font-size: 15px; color: #1a2340; line-height: 1.55; }
+    .ow-reflect.revealed .reflect-reveal { display: block; }
+    .reflect-btn { background: #14807A; border: none; color: #fff; border-radius: 6px; padding: 8px 14px; font-size: 13px; cursor: pointer; font-family: inherit; margin-top: 10px; margin-right: 8px; }
+    .reflect-btn:hover { background: #0E635E; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;">
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+        <div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width: 50px; height: 40px; object-fit: contain;" /></div>
+        <div>
+            <div style="font-size: 28px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+            <div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
+        </div>
+    </div>
+    <div style="font-size: 36px; color: #ffffff; margin-bottom: 6px;">ART HISTORY &amp; CRITICISM</div>
+</div>
+
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Semester / Unit</div>
+        <div style="font-size: 17px; color: #0e1c42;">S2 &middot; Unit 10</div>
+        <div style="font-size: 12px; color: #666;">Impressionism &amp; Post-Impressionism</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+        <div style="font-size: 17px; color: #0e1c42;">Lesson 10.01</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+        <div style="font-size: 17px; color: #0e1c42; font-style: italic;">Impressionism: Painting the Fleeting Moment</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Module Theme</div>
+        <div style="font-size: 16px; color: #0e1c42;">Light, Color, and the Modern Eye</div>
+    </div>
+</div>
+
+<div style="padding: 24px 34px;">
+
+    <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">LESSON 10.01</div>
+        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">Impressionism: Painting the Fleeting Moment</div>
+        <div style="font-size: 16px; color: #666;">Interactive Lesson</div>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
+        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">How do you paint a single moment of light, before it changes?</div>
+        <div style="font-size: 18px; color: #1a2340; line-height: 1.65;">In the 1870s a group of painters in France stopped trying to finish a smooth, polished picture in the studio. They carried their paints outdoors and worked fast, chasing the way sunlight strikes water, fog, or a face at one passing instant. Their critics laughed at the unfinished look. Today we call them the Impressionists, and they changed what a painting could be.</div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#127919; BY THE END OF THIS LESSON YOU WILL BE ABLE TO&hellip;</div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> explain what Impressionism set out to do and when and where it began.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> identify plein air, broken brushwork, and optical color in an Impressionist painting.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> prepare for my Impressionist analysis and my own Color &amp; Light Study.</div>
+        </div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128203; WHAT YOU NEED FOR THIS LESSON</div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">A notebook or an open Word document; this lesson sets up your Impressionist analysis and Color &amp; Light Study</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">A window or an outdoor view you can look at for a minute or two</div>
+        </div>
+    </div>
+
+    <!-- PART 1 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 1 &middot; LOOK FIRST</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~12 MIN</span></div>
+
+        <div class="look-box">
+            <div class="look-kicker">&#128064; LOOK CLOSELY &middot; STAND BACK, THEN LEAN IN</div>
+            <div class="accent-body">Look at the harbor below. From a few steps back you see water, fog, boats, and an orange sun on a hazy morning. Now lean in close to the surface of the paint. The water is loose horizontal strokes; the sun is a few quick dabs. Nothing is sharply outlined. The picture is built from marks that only become a scene when your eye pulls back.</div>
+        </div>
+
+        <div class="artfig">
+            <img src="images/monet-impression-sunrise.jpg" alt="Claude Monet, Impression, Sunrise, showing an orange sun over a hazy harbor" />
+            <div class="artcap"><strong>Impression, Sunrise</strong>, Claude Monet, 1872 or 1873. Mus&eacute;e Marmottan Monet, Paris. Public domain.</div>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 14px 0 10px 0;"><strong>Impressionism</strong> was a movement of French painters working mainly in the 1870s and 1880s. Their goal was not to paint a scene the way the mind knows it should look, with every edge crisp and every detail filled in. It was to paint the immediate visual <strong>impression</strong>: what the eye actually catches in a single glance, at one moment, under one quality of light.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">The movement even got its name by accident. When Monet showed the painting above at an independent exhibition in 1874, a critic mocked its loose, sketchy look and seized on the title, calling the whole group &ldquo;Impressionists&rdquo; as an insult. The artists kept the name, and the joke became a banner.</p>
+    </div>
+
+    <!-- PART 2 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 2 &middot; A NEW WAY OF SEEING</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~16 MIN</span></div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Three habits made the Impressionist look possible. First, they painted <strong>plein air</strong>, French for &ldquo;open air,&rdquo; setting up easels outdoors to study real light rather than reconstructing it from memory in a studio. Newly available paint in metal tubes made this practical. Second, they used quick, visible, <strong>broken brushwork</strong>: short separate strokes of color left unblended, so a wall of fog or a sleeve of a dress is a flurry of marks rather than a smooth surface. Third, they trusted <strong>optical color</strong>, placing small touches of bright, often unmixed color side by side and letting the viewer's eye blend them at a distance, which keeps the color looking alive.</p>
+
+        <!-- Legible comparison: smooth studio finish vs broken brushwork -->
+        <div style="display: flex; gap: 14px; flex-wrap: wrap; margin: 12px 0;">
+            <div style="flex: 1; min-width: 240px; background: #F4F6FA; border-left: 5px solid #6b7a99; border-radius: 8px; padding: 14px 18px;">
+                <div style="font-size: 12px; font-weight: 700; color: #4a5878; letter-spacing: 0.3px; margin-bottom: 6px;">SMOOTH STUDIO FINISH</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Earlier painters blended their strokes into a seamless surface, so the individual marks of the brush disappear.</div>
+            </div>
+            <div style="flex: 1; min-width: 240px; background: #FCEDE8; border-left: 5px solid #D85C38; border-radius: 8px; padding: 14px 18px;">
+                <div style="font-size: 12px; font-weight: 700; color: #A33D1F; letter-spacing: 0.3px; margin-bottom: 6px;">BROKEN BRUSHWORK</div>
+                <div style="font-size: 16px; color: #0E1C42; line-height: 1.55;">Impressionists left short, separate strokes of unblended color side by side. Up close it is a flurry of marks; step back and your eye mixes them into shimmering light. Look closely at Monet&rsquo;s surface above to see this at work.</div>
+            </div>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Their subjects changed too. Instead of gods, kings, and history, the Impressionists painted ordinary <strong>modern life</strong>: a foggy harbor, a riverbank, a cafe, a woman pouring tea, sunlight through trees. The everyday became worth painting because the real subject was the light and the moment, not the importance of the scene.</p>
+
+        <div class="art2">
+            <div class="artfig">
+                <img src="images/renoir-guernsey.jpg" alt="Renoir, View of Guernsey, an outdoor coastal scene in soft hazy light" />
+                <div class="artcap"><strong>Brouillard &agrave; Guernesey (View of Guernsey)</strong>, Pierre-Auguste Renoir, 1883. Public domain.</div>
+            </div>
+            <div class="artfig">
+                <img src="images/cassatt-tea.jpg" alt="Mary Cassatt, The Tea, two women at a tea table in a domestic interior" />
+                <div class="artcap"><strong>The Tea</strong>, Mary Cassatt, about 1880. Museum of Fine Arts, Boston. Public domain.</div>
+            </div>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 10px 0 0 0;">Renoir studies an outdoor coast softened by haze; Mary Cassatt, an American who joined the group in Paris, catches a private modern moment of two women at tea. In both, the brushwork stays loose and the light, not the storyline, holds the picture together.</p>
+
+        <!-- REFLECT widget -->
+        <div class="optima-widget ow-reflect">
+            <div class="widget-kicker">&#9999;&#65039; THINK FIRST &middot; THEN REVEAL</div>
+            <div class="widget-question">Why would an Impressionist paint outdoors and work fast, instead of finishing carefully in a studio? Type a sentence, then reveal one way to think about it.</div>
+            <textarea placeholder="Your idea..."></textarea>
+            <button class="reflect-btn">Reveal a response</button>
+            <button class="widget-reset">Reset</button>
+            <div class="reflect-reveal">Light changes by the minute: the sun moves, fog lifts, clouds pass. To capture one true moment of light, you have to be in front of it and work before it changes. The speed is not laziness; it is the only way to catch a passing effect that a slow studio painting would lose.</div>
+        </div>
+    </div>
+
+    <!-- PART 3 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 3 &middot; LOOK LONG AT ONE WORK</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~15 MIN</span></div>
+
+        <div class="spotlight">
+            <div class="spotlight-title">&#128269; ARTWORK SPOTLIGHT</div>
+            <div class="spotlight-work">Impression, Sunrise (1872 or 1873)</div>
+            <div class="spotlight-loc">Claude Monet &middot; Mus&eacute;e Marmottan Monet, Paris</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E635E;">Describe:</span> A hazy harbor at dawn. A small orange sun sits low in a gray-blue sky and lays a broken orange streak on the water. Dark boats and faint cranes and masts are barely defined; everything is soft.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E1C42;">Analyze:</span> The whole picture is loose, visible <strong>brushwork</strong>; the water is quick horizontal strokes. The sun is the one bright <strong>color</strong> note against a muted field, so the eye goes straight to it. There are almost no hard edges, which makes the air feel damp and moving.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A8741F;">Interpret:</span> One reading is that Monet is not painting a harbor so much as a single minute of morning light. The vagueness is the point: this is how a place looks at a passing glance, not how a map would record it.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A33D1F;">Judge:</span> Judged by its own goal, capturing a fleeting effect of light, it succeeds completely. The critic who mocked it as a mere &ldquo;impression&rdquo; accidentally named exactly what makes it work.</div>
+        </div>
+
+        <!-- SELECT widget; correct indices vary (b, then a) -->
+        <div class="optima-widget ow-select">
+            <div class="widget-kicker">&#9989; CHECK YOUR UNDERSTANDING</div>
+            <div class="widget-row" data-correct="b">
+                <div class="widget-row-prompt">&ldquo;Plein air&rdquo; painting means working&hellip;</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="No. Impressionists wanted real changing light, which a studio cannot give them.">from memory in a studio</button>
+                    <button data-choice="b" data-fb="Correct. Plein air means &lsquo;open air&rsquo;: painting outdoors, in front of the real light.">outdoors, in front of the real scene</button>
+                    <button data-choice="c" data-fb="No. That describes earlier polished academic painting, not Impressionism.">slowly, blending every edge smooth</button>
+                </div>
+            </div>
+            <div class="widget-row" data-correct="a">
+                <div class="widget-row-prompt">The name &ldquo;Impressionism&rdquo; came from&hellip;</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="Correct. A critic mocked Monet&rsquo;s &lsquo;Impression, Sunrise&rsquo; and the group kept the label.">a critic mocking the title of Monet&rsquo;s harbor painting</button>
+                    <button data-choice="b" data-fb="No. The artists did not name themselves first; the label began as an insult.">the artists naming their own academy</button>
+                    <button data-choice="c" data-fb="No. The name comes from the painting&rsquo;s title, not from a city.">the name of a French town</button>
+                </div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
+
+        <div style="background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 14px 0;">
+            <div style="font-size: 11px; color: #A33D1F; margin-bottom: 8px;">&#9888;&#65039; WORTH KNOWING &middot; AI &amp; THE &ldquo;IMPRESSIONIST FILTER&rdquo;</div>
+            <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">An AI tool can apply an &ldquo;Impressionist filter&rdquo; to any photo in seconds, scattering brushlike strokes across it. But Impressionism did not begin as a surface style. It began with painters standing outdoors, watching real light change over time and deciding what to keep. The method was a way of seeing, not a preset. An AI can copy the look of broken brushwork; it cannot do the looking that produced it.</div>
+        </div>
+    </div>
+
+    <!-- Vocabulary -->
+    <div class="vocab-box">
+        <div class="vocab-title">&#128214; VOCABULARY FROM THIS LESSON</div>
+        <table class="vocab-table"><tbody>
+            <tr><td>Impressionism</td><td>A French movement of the 1870s and 1880s that painted the immediate visual impression of a scene under changing light.</td></tr>
+            <tr><td>Plein air</td><td>French for &ldquo;open air&rdquo;; painting outdoors in front of the real scene and its light.</td></tr>
+            <tr><td>Broken brushwork</td><td>Short, separate, visible strokes of unblended color rather than a smooth surface.</td></tr>
+            <tr><td>Optical color</td><td>Small touches of bright color placed side by side that the viewer&rsquo;s eye blends at a distance.</td></tr>
+            <tr><td>The fleeting moment</td><td>A single passing instant of light or atmosphere that the painter tries to capture.</td></tr>
+        </tbody></table>
+    </div>
+
+    <!-- Now You Try -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="now-box" style="margin-top: 0;">
+            <div class="now-kicker">&#9999;&#65039; NOW YOU TRY &middot; IN YOUR NOTEBOOK</div>
+            <div class="accent-body">Look out a window or at an outdoor view for one full minute. Do not name objects. Instead write down the colors and the quality of light you actually see right now: warm or cool, sharp or hazy, where the brightest and darkest spots fall. Note one color you would not have guessed was there (a blue in a shadow, an orange on a wall). This noticing becomes the seed of your Color &amp; Light Study.</div>
+        </div>
+    </div>
+
+    <!-- What You'll Do Next -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU&rsquo;LL DO NEXT</div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Lesson 10.02</strong> (interactive)</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">See how the next generation pushed beyond Impressionism in Post-Impressionism.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Impressionist Artwork Analysis</strong> (assignment)</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Write a full four-step analysis of a Monet, Renoir, or Cassatt.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Color &amp; Light Study</strong> (creation) and <strong>Unit 10 Quiz</strong></div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Make your own study of light, then take the short auto-graded quiz.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wrap-up -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128170; WHY THIS MATTERS</div>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">The Impressionists made a quiet revolution. They said a painting could be about how a moment looks rather than what it means or whom it honors, and that ordinary life under real light was worth a serious artist&rsquo;s attention. Once painters started trusting their own eye over the rules of the studio, the door was open. The next generation would walk straight through it.</p>
+    </div>
+
+</div>
+
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 18px 34px; text-align: center;">
+    <div style="font-size: 18px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> &middot; ART HISTORY &amp; CRITICISM &middot; Semester 2 &middot; Student Lesson Page</div>
+    <div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 10.01 &middot; Impressionism: Painting the Fleeting Moment</div>
+    <div style="font-size: 12px; color: rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      w.classList.remove('revealed');
+      var ta = w.querySelector('textarea'); if (ta) { ta.value = ''; }
+      return;
+    }
+    var rb = e.target.closest('.reflect-btn');
+    if (rb) { rb.closest('.ow-reflect').classList.add('revealed'); return; }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || 'Right.') : (sBtn.dataset.fb || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

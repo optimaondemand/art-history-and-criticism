@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Art History &amp; Criticism &mdash; Lesson 6.01</title>
+<style>
+    body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
+    .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    img { max-width: 100%; height: auto; display: block; }
+    .artfig { margin: 16px 0; }
+    .artfig img { border: 1px solid #D0D9E8; border-radius: 6px; }
+    .artcap { font-size: 13px; color: #666; line-height: 1.5; margin-top: 6px; }
+    .artcap strong { color: #0E1C42; font-style: italic; font-weight: 600; }
+    .art2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 640px) { .art2 { grid-template-columns: 1fr; } }
+    .look-box { background: #E6F4F3; border-left: 5px solid #14807A; border-top: 3px solid #2BB6AC; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .look-kicker { font-size: 11px; color: #0E635E; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .now-box { background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .now-kicker { font-size: 11px; color: #A33D1F; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .accent-body { font-size: 17px; color: #0E1C42; line-height: 1.6; }
+    .spotlight { border: 2px solid #0E1C42; border-radius: 10px; padding: 18px; margin: 18px 0; }
+    .spotlight-title { font-size: 12px; font-weight: 700; color: #0E1C42; letter-spacing: 0.5px; margin-bottom: 6px; }
+    .spotlight-work { font-weight: 700; color: #0E1C42; font-size: 16px; }
+    .spotlight-loc { color: #777; font-size: 13px; margin-bottom: 12px; }
+    .daij-row { font-size: 16px; color: #1a2340; line-height: 1.6; margin-bottom: 9px; }
+    .daij-label { font-weight: 700; margin-right: 6px; }
+    .vocab-box { background: #F4F6FA; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px 18px; margin: 18px 0; }
+    .vocab-title { font-size: 11px; font-weight: 700; color: #c7922c; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .vocab-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .vocab-table td { padding: 6px 0; color: #1a2340; vertical-align: top; border-top: 1px solid #E2E8F2; line-height: 1.55; }
+    .vocab-table td:first-child { font-weight: 700; color: #0E1C42; width: 160px; padding-right: 12px; }
+    .optima-widget { background: linear-gradient(135deg, #E6F4F3 0%, #F4FBFA 100%); border: 1px solid #BFE3DF; border-left: 5px solid #14807A; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .widget-kicker { font-size: 11px; color: #0E635E; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+    .widget-options button:hover { background: #F4F6FA; border-color: #2BB6AC; }
+    .widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+    .widget-options button.correct { background: #E6F4F3; border-color: #14807A; color: #0E635E; }
+    .widget-options button.incorrect { background: #FCEDE8; border-color: #D85C38; color: #A33D1F; }
+    .widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+    .widget-feedback.show { display: block; }
+    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+    .row-feedback.correct { background: #E6F4F3; border-left: 3px solid #14807A; color: #0E635E; }
+    .row-feedback.incorrect { background: #FCEDE8; border-left: 3px solid #D85C38; color: #A33D1F; }
+    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 10px; }
+    .widget-reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;">
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+        <div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width: 50px; height: 40px; object-fit: contain;" /></div>
+        <div>
+            <div style="font-size: 28px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+            <div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
+        </div>
+    </div>
+    <div style="font-size: 36px; color: #ffffff; margin-bottom: 6px;">ART HISTORY &amp; CRITICISM</div>
+</div>
+
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Semester / Unit</div>
+        <div style="font-size: 17px; color: #0e1c42;">S1 &middot; Unit 6</div>
+        <div style="font-size: 12px; color: #666;">Byzantine, Islamic &amp; Medieval Art</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+        <div style="font-size: 17px; color: #0e1c42;">Lesson 6.01</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+        <div style="font-size: 17px; color: #0e1c42; font-style: italic;">Heaven in Gold: Byzantine Art &amp; Hagia Sophia</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Module Theme</div>
+        <div style="font-size: 16px; color: #0e1c42;">Art in Service of the Sacred</div>
+    </div>
+</div>
+
+<div style="padding: 24px 34px;">
+
+    <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">LESSON 6.01</div>
+        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">Heaven in Gold: Byzantine Art &amp; Hagia Sophia</div>
+        <div style="font-size: 16px; color: #666;">Interactive Lesson</div>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
+        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">How do you build a space that feels like heaven on earth, and fill it with figures that seem to belong to eternity rather than to this world?</div>
+        <div style="font-size: 18px; color: #1a2340; line-height: 1.65;">After Rome&rsquo;s western empire fell, its eastern half lived on for a thousand years as the Christian Byzantine Empire. Its art turned away from Greek naturalism toward something different on purpose: flat, golden, and otherworldly, built to lift the mind to God.</div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#127919; BY THE END OF THIS LESSON YOU WILL BE ABLE TO&hellip;</div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> explain how Hagia Sophia&rsquo;s dome and pendentives create a sense of floating space.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> describe the style and purpose of Byzantine mosaics and icons.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> explain why Byzantine art chose flatness and gold over naturalism.</div>
+        </div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128203; WHAT YOU NEED FOR THIS LESSON</div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">A notebook or an open Word document for the &ldquo;Now You Try&rdquo; near the end of this lesson</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">Your memory of the Roman arch and dome from Unit 5, and the mosaic from Lesson 5.03</div>
+        </div>
+    </div>
+
+    <!-- PART 1 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 1 &middot; LOOK FIRST</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~12 MIN</span></div>
+
+        <div class="look-box">
+            <div class="look-kicker">&#128064; LOOK CLOSELY &middot; FIND THE DOME, THEN THE GOLD</div>
+            <div class="accent-body">Look at the great building, then at the golden mosaic. The church is crowned by an enormous dome; the mosaic glows with gold and shows still, frontal figures. Neither tries to look like everyday life. What feeling do you think the makers wanted, and how does each choice serve it?</div>
+        </div>
+
+        <div class="art2">
+            <div class="artfig">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hagia_Sophia_Mars_2013.jpg" alt="Hagia Sophia in Constantinople (Istanbul)" />
+                <div class="artcap"><strong>Hagia Sophia</strong>, Constantinople (Istanbul), 532&ndash;537 CE. Photograph by Arild V&aring;gen, licensed CC BY-SA 3.0, via Wikimedia Commons.</div>
+            </div>
+            <div class="artfig">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Meister_von_San_Vitale_in_Ravenna_003.jpg" alt="Byzantine mosaic of Emperor Justinian and his attendants, San Vitale, Ravenna" />
+                <div class="artcap"><strong>Emperor Justinian and his attendants, San Vitale</strong>, Ravenna, Italy, c. 547 CE. Faithful reproduction of a public-domain mosaic (The Yorck Project). Public domain.</div>
+            </div>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 14px 0 10px 0;"><strong>Hagia Sophia</strong> (&ldquo;Holy Wisdom&rdquo;) was built in just five years for the emperor Justinian. Its vast central <strong>dome</strong> seems to float, because a ring of windows around its base floods the rim with light, so the heavy dome looks as if it hangs from heaven. The dome rests on four curved triangles called <strong>pendentives</strong>, which carry a round dome smoothly down onto a square room, a Byzantine engineering breakthrough.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Inside, Byzantine churches glowed with <strong>mosaics</strong> set against backgrounds of gold. As at San Vitale in Ravenna, the figures are flat, frontal, and solemn, floating on a shimmering gold ground rather than standing in a real place. This was a deliberate choice. Byzantine artists were not failing at naturalism; they were rejecting it, to show a holy realm beyond the physical world.</p>
+    </div>
+
+    <!-- PART 2 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 2 &middot; THE FLOATING DOME &amp; THE GOLD GROUND</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~16 MIN</span></div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">The pendentive solved an old problem. A dome is round; a room is usually square. How do you set one on the other? Byzantine builders filled each upper corner of the square with a curved triangle. Together the four <strong>pendentives</strong> form a continuous circle at the top to carry the dome, while their points come down onto the four corners below.</p>
+
+        <!-- Concept visual: dome on pendentives -->
+        <div style="background: #FAFBFD; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px; margin: 12px 0; text-align: center;">
+            <svg viewBox="0 0 320 200" width="100%" style="max-width: 360px; height: auto;" role="img" aria-label="A dome resting on four pendentives over a square base">
+                <rect x="1" y="1" width="318" height="198" fill="#ffffff" stroke="#D0D9E8"/>
+                <!-- square base -->
+                <rect x="90" y="120" width="140" height="60" fill="none" stroke="#9c8463" stroke-width="2"/>
+                <!-- pendentive triangles (top corners) -->
+                <path d="M90 120 Q120 120 160 110 Q120 120 90 150 Z" fill="#cdb393" stroke="#9c8463"/>
+                <path d="M230 120 Q200 120 160 110 Q200 120 230 150 Z" fill="#cdb393" stroke="#9c8463"/>
+                <!-- dome -->
+                <path d="M105 110 A 55 45 0 0 1 215 110 Z" fill="#d8c0a2" stroke="#9c8463"/>
+                <!-- window ring (light) -->
+                <line x1="105" y1="110" x2="215" y2="110" stroke="#D85C38" stroke-width="3"/>
+                <text x="160" y="60" font-family="Segoe UI, sans-serif" font-size="11" fill="#0E1C42" text-anchor="middle">dome</text>
+                <text x="248" y="108" font-family="Segoe UI, sans-serif" font-size="10" fill="#A33D1F" text-anchor="start">ring of light</text>
+                <text x="62" y="145" font-family="Segoe UI, sans-serif" font-size="10" fill="#0E635E" text-anchor="end">pendentive</text>
+                <text x="160" y="195" font-family="Segoe UI, sans-serif" font-size="11" fill="#0E1C42" text-anchor="middle">square base</text>
+            </svg>
+            <div style="font-size: 13px; color: #666; margin-top: 6px;">Four curved triangles (pendentives) carry the round dome down onto a square room; a ring of windows makes the dome seem to float.</div>
+        </div>
+
+        <div class="optima-widget ow-reflect">
+            <div class="widget-kicker">&#128172; QUICK CHECK-IN &middot; NO WRONG ANSWER</div>
+            <div class="widget-question">Byzantine figures are flat and set on plain gold, not in a real landscape. Why might artists <em>choose</em> to leave out depth and setting?</div>
+            <div class="widget-options">
+                <button data-response="A strong read. Gold is not a place; it is light and eternity. Removing a real setting lifts the figures out of our world into a timeless, holy one. The flatness is the message.">To show a holy realm beyond the physical world</button>
+                <button data-response="Reasonable. Stripping away distraction also focuses all attention on the sacred figure and its meaning, not on a believable scene. Less world, more worship.">To focus attention on the sacred, not the scene</button>
+                <button data-response="Fair to wonder, but no: these artists could work naturalistically and chose not to. The flatness is a deliberate spiritual style, not a lack of skill.">Maybe they could not paint depth</button>
+            </div>
+            <div class="widget-feedback"></div>
+            <button class="widget-reset">Reset</button>
+        </div>
+    </div>
+
+    <!-- PART 3 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 3 &middot; WATCH IT WORK</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~15 MIN</span></div>
+
+        <div class="spotlight">
+            <div class="spotlight-title">&#128269; ARTWORK SPOTLIGHT</div>
+            <div class="spotlight-work">Hagia Sophia (532&ndash;537 CE)</div>
+            <div class="spotlight-loc">Constantinople (Istanbul)</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E635E;">Describe:</span> A massive building is crowned by a wide, shallow dome, with smaller half-domes stepping down around it and tall windows piercing the walls and the dome&rsquo;s base.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E1C42;">Analyze:</span> The dome rests on <strong>pendentives</strong> over a square core, and the ring of windows at its base floods it with light, so the heavy <strong>form</strong> reads as weightless. Interior gold mosaics multiply that light into <strong>space</strong> that feels boundless.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A8741F;">Interpret:</span> Light and the floating dome were meant to feel divine, as if the roof opened to heaven. One reading is that the whole building is an argument that God&rsquo;s wisdom is vast, luminous, and beyond human weight.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A33D1F;">Judge:</span> It succeeds so powerfully that a visitor reportedly cried that Justinian had outdone Solomon. For a thousand years it was the largest enclosed space in the world, and it still stuns.</div>
+        </div>
+
+        <div class="optima-widget ow-select">
+            <div class="widget-kicker">&#9989; CHECK YOUR UNDERSTANDING</div>
+            <div class="widget-row" data-correct="b">
+                <div class="widget-row-prompt">The curved triangles that let a round dome sit on a square room are called&hellip;</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="No. A voussoir is a wedge block in an arch, from Unit 5.">voussoirs</button>
+                    <button data-choice="b" data-fb="Correct. Pendentives are the curved triangles that carry a dome onto a square base.">pendentives</button>
+                    <button data-choice="c" data-fb="No. A pediment is the triangular gable of a Greek temple, a different thing.">pediments</button>
+                </div>
+            </div>
+            <div class="widget-row" data-correct="a">
+                <div class="widget-row-prompt">Byzantine artists set figures on plain gold backgrounds mainly to&hellip;</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="Correct. Gold suggests divine light and eternity, lifting the figures out of the ordinary world.">suggest a timeless, heavenly realm</button>
+                    <button data-choice="b" data-fb="No. The flat style is deliberate; it is not a failed attempt at a real landscape.">because they could not paint landscapes</button>
+                    <button data-choice="c" data-fb="Gold leaf was costly, not cheap; the choice was about meaning, not saving money.">because gold was the cheapest option</button>
+                </div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
+
+        <div style="background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 14px 0;">
+            <div style="font-size: 11px; color: #A33D1F; margin-bottom: 8px;">&#9888;&#65039; WORTH KNOWING &middot; AI &amp; &ldquo;BAD&rdquo; VERSUS DIFFERENT</div>
+            <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">Ask an AI to &ldquo;improve&rdquo; a Byzantine icon and it may make it more lifelike, treating flatness as a flaw to fix. That misses the point entirely: the flatness is the meaning. AI tends to push toward whatever is most common in its training, often modern realism. It <em>cannot</em> tell a deliberate sacred style from a mistake. Judging a work by its own goals, not a default, is the historian&rsquo;s job.</div>
+        </div>
+    </div>
+
+    <!-- Vocabulary -->
+    <div class="vocab-box">
+        <div class="vocab-title">&#128214; VOCABULARY FROM THIS LESSON</div>
+        <table class="vocab-table"><tbody>
+            <tr><td>Byzantine</td><td>The Christian Eastern Roman Empire and its art, centered on Constantinople.</td></tr>
+            <tr><td>Dome</td><td>A rounded vault forming a roof; Hagia Sophia&rsquo;s seems to float on light.</td></tr>
+            <tr><td>Pendentive</td><td>A curved triangle that carries a round dome down onto a square base.</td></tr>
+            <tr><td>Icon</td><td>A holy image of a sacred figure, painted flat and frontal for devotion.</td></tr>
+            <tr><td>Gold ground</td><td>A plain gold background in mosaic or icon, suggesting divine, timeless light.</td></tr>
+        </tbody></table>
+    </div>
+
+    <!-- Now You Try -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="now-box" style="margin-top: 0;">
+            <div class="now-kicker">&#9999;&#65039; NOW YOU TRY &middot; IN YOUR NOTEBOOK</div>
+            <div class="accent-body">In three sentences, explain how Byzantine art uses flatness and gold to express the sacred, instead of the naturalism the Greeks prized. Point to one feature in the images above. You are practicing the form-to-belief reasoning you will use in the Byzantine vs. Gothic comparison later this unit.</div>
+        </div>
+    </div>
+
+    <!-- What You'll Do Next -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU&rsquo;LL DO NEXT</div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Lesson 6.02 &middot; Pattern as Prayer: Islamic Art</strong></div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">You will see how Islamic art turned geometry, calligraphy, and pattern into sacred beauty.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Hagia Sophia or Chartres Analysis</strong> (assignment)</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">You may choose Hagia Sophia for your four-step analysis; the Gothic option comes in Lesson 6.03.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wrap-up -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128170; WHY THIS MATTERS</div>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Byzantine art teaches a lesson that runs through the rest of this course: realism is not the only goal of art, and not always the highest. A culture that wanted to picture eternity chose gold and stillness over flesh and depth, on purpose. Learning to respect that choice on its own terms is what separates an art historian from a casual viewer.</p>
+    </div>
+
+</div>
+
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 18px 34px; text-align: center;">
+    <div style="font-size: 18px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> &middot; ART HISTORY &amp; CRITICISM &middot; Semester 1 &middot; Student Lesson Page</div>
+    <div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 6.01 &middot; Heaven in Gold: Byzantine Art &amp; Hagia Sophia</div>
+    <div style="font-size: 12px; color: rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || 'Right.') : (sBtn.dataset.fb || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

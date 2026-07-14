@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Art History &amp; Criticism &mdash; Lesson 2.02</title>
+<style>
+    body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
+    .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    img { max-width: 100%; height: auto; display: block; }
+    .artfig { margin: 16px 0; }
+    .artfig img { border: 1px solid #D0D9E8; border-radius: 6px; }
+    .artcap { font-size: 13px; color: #666; line-height: 1.5; margin-top: 6px; }
+    .artcap strong { color: #0E1C42; font-style: italic; font-weight: 600; }
+    .look-box { background: #E6F4F3; border-left: 5px solid #14807A; border-top: 3px solid #2BB6AC; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .look-kicker { font-size: 11px; color: #0E635E; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .now-box { background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .now-kicker { font-size: 11px; color: #A33D1F; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .accent-body { font-size: 17px; color: #0E1C42; line-height: 1.6; }
+    .spotlight { border: 2px solid #0E1C42; border-radius: 10px; padding: 18px; margin: 18px 0; }
+    .spotlight-title { font-size: 12px; font-weight: 700; color: #0E1C42; letter-spacing: 0.5px; margin-bottom: 6px; }
+    .spotlight-work { font-weight: 700; color: #0E1C42; font-size: 16px; }
+    .spotlight-loc { color: #777; font-size: 13px; margin-bottom: 12px; }
+    .daij-row { font-size: 16px; color: #1a2340; line-height: 1.6; margin-bottom: 9px; }
+    .daij-label { font-weight: 700; margin-right: 6px; }
+    .vocab-box { background: #F4F6FA; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px 18px; margin: 18px 0; }
+    .vocab-title { font-size: 11px; font-weight: 700; color: #c7922c; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .vocab-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .vocab-table td { padding: 6px 0; color: #1a2340; vertical-align: top; border-top: 1px solid #E2E8F2; line-height: 1.55; }
+    .vocab-table td:first-child { font-weight: 700; color: #0E1C42; width: 160px; padding-right: 12px; }
+    .optima-widget { background: linear-gradient(135deg, #E6F4F3 0%, #F4FBFA 100%); border: 1px solid #BFE3DF; border-left: 5px solid #14807A; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .widget-kicker { font-size: 11px; color: #0E635E; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+    .widget-options button:hover { background: #F4F6FA; border-color: #2BB6AC; }
+    .widget-options button.correct { background: #E6F4F3; border-color: #14807A; color: #0E635E; }
+    .widget-options button.incorrect { background: #FCEDE8; border-color: #D85C38; color: #A33D1F; }
+    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+    .row-feedback.correct { background: #E6F4F3; border-left: 3px solid #14807A; color: #0E635E; }
+    .row-feedback.incorrect { background: #FCEDE8; border-left: 3px solid #D85C38; color: #A33D1F; }
+    .ow-scale .widget-options { justify-content: space-between; }
+    .ow-scale .widget-options button { flex: 1; text-align: center; }
+    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 10px; }
+    .widget-reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;">
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+        <div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width: 50px; height: 40px; object-fit: contain;" /></div>
+        <div>
+            <div style="font-size: 28px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+            <div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
+        </div>
+    </div>
+    <div style="font-size: 36px; color: #ffffff; margin-bottom: 6px;">ART HISTORY &amp; CRITICISM</div>
+</div>
+
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Semester / Unit</div>
+        <div style="font-size: 17px; color: #0e1c42;">S1 &middot; Unit 2</div>
+        <div style="font-size: 12px; color: #666;">Prehistoric Art</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+        <div style="font-size: 17px; color: #0e1c42;">Lesson 2.02</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+        <div style="font-size: 17px; color: #0e1c42; font-style: italic;">Raising Stones: Stonehenge &amp; the Neolithic</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Module Theme</div>
+        <div style="font-size: 16px; color: #0e1c42;">Reading the Silent Record</div>
+    </div>
+</div>
+
+<div style="padding: 24px 34px;">
+
+    <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">LESSON 2.02</div>
+        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">Raising Stones: Stonehenge &amp; the Neolithic</div>
+        <div style="font-size: 16px; color: #666;">Interactive Lesson</div>
+    </div>
+
+    <!-- Today's Focus -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
+        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">What would make a community spend generations dragging giant stones across the land to build something with no roof and no walls?</div>
+        <div style="font-size: 18px; color: #1a2340; line-height: 1.65;">In Lesson 2.01 prehistoric people painted on a cave wall. Here they do something even more ambitious: they shape the landscape itself into a monument that still stands after 4,500 years.</div>
+    </div>
+
+    <!-- Objectives -->
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#127919; BY THE END OF THIS LESSON YOU WILL BE ABLE TO&hellip;</div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> describe Stonehenge and explain what makes it a work of monumental architecture.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> explain post-and-lintel construction and the terms megalith and trilithon.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> compare a painted work and a built work as evidence of one culture&rsquo;s priorities.</div>
+        </div>
+    </div>
+
+    <!-- Materials -->
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128203; WHAT YOU NEED FOR THIS LESSON</div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">A notebook or an open Word document for the &ldquo;Now You Try&rdquo; near the end of this lesson</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">Your notes on the Lascaux paintings from Lesson 2.01, for the comparison</div>
+        </div>
+    </div>
+
+    <!-- PART 1 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 1 &middot; LOOK FIRST</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~10 MIN</span></div>
+
+        <div class="look-box">
+            <div class="look-kicker">&#128064; LOOK CLOSELY &middot; THINK ABOUT SCALE</div>
+            <div class="accent-body">The largest of these standing stones weigh around 25 tons, taller than two people and heavier than three cars. They were shaped and raised without metal tools, wheels, or machines. As you look, ask: what does it take, in people and in years, to make this happen?</div>
+        </div>
+
+        <div class="artfig">
+            <img src="images/stonehenge-1901.jpg" alt="Stonehenge, photographed in 1901" />
+            <div class="artcap"><strong>Stonehenge</strong>, Salisbury Plain, England; built in stages c. 3000&ndash;1500 BC. Photographed 1901. Public domain.</div>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 14px 0 10px 0;">Stonehenge stands on Salisbury Plain in southern England. It was not built all at once; it grew over roughly 1,500 years, beginning around 3000 BC, with the great circle of shaped sarsen stones raised about 2500 BC. The builders were Neolithic (&ldquo;New Stone Age&rdquo;) people, farmers rather than the roaming hunters of Lascaux. That shift matters: settled farming communities had the organization, the shared purpose, and the staying-in-one-place to undertake a project measured in generations.</p>
+    </div>
+
+    <!-- PART 2 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 2 &middot; HOW IT STANDS UP</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~18 MIN</span></div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">The huge stones are called <strong>megaliths</strong> (from Greek <em>mega</em>, &ldquo;great,&rdquo; and <em>lithos</em>, &ldquo;stone&rdquo;). They are assembled using the oldest building method in the world: <strong>post-and-lintel</strong>, in which two upright posts support a horizontal beam, the lintel, laid across the top. At Stonehenge, a pair of posts capped by one lintel forms a <strong>trilithon</strong> (&ldquo;three stones&rdquo;). Look back at the photo and you can pick the trilithons out.</p>
+
+        <!-- Concept visual: post-and-lintel SVG (teal/coral) -->
+        <div style="background: #FAFBFD; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px; margin: 12px 0; text-align: center;">
+            <svg viewBox="0 0 320 200" width="100%" style="max-width: 360px; height: auto;" role="img" aria-label="Post and lintel diagram: two vertical posts supporting a horizontal lintel">
+                <rect x="1" y="1" width="318" height="198" fill="#ffffff" stroke="#D0D9E8"/>
+                <rect x="60" y="44" width="200" height="34" rx="4" fill="#9aa7bd" stroke="#6b7a99"/>
+                <rect x="70" y="78" width="44" height="100" rx="4" fill="#b3bccc" stroke="#6b7a99"/>
+                <rect x="206" y="78" width="44" height="100" rx="4" fill="#b3bccc" stroke="#6b7a99"/>
+                <line x1="40" y1="178" x2="280" y2="178" stroke="#14807A" stroke-width="2"/>
+                <text x="160" y="36" font-family="Segoe UI, sans-serif" font-size="13" fill="#A33D1F" text-anchor="middle">LINTEL (horizontal beam)</text>
+                <text x="92" y="135" font-family="Segoe UI, sans-serif" font-size="12" fill="#0E1C42" text-anchor="middle" transform="rotate(-90 92 135)">POST</text>
+                <text x="228" y="135" font-family="Segoe UI, sans-serif" font-size="12" fill="#0E1C42" text-anchor="middle" transform="rotate(-90 228 135)">POST</text>
+            </svg>
+            <div style="font-size: 13px; color: #666; margin-top: 6px;">Post-and-lintel: two posts plus one lintel make a trilithon. The same idea later holds up Greek temples and cathedral doorways.</div>
+        </div>
+
+        <div style="background: #E6F4F3; border-left: 5px solid #14807A; border-top: 3px solid #2BB6AC; border-radius: 6px; padding: 14px 20px; margin: 14px 0;">
+            <div style="font-size: 11px; color: #0E635E; margin-bottom: 8px;">&#128161; CONNECTION</div>
+            <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">Post-and-lintel is not a prehistoric curiosity. You will see the exact same structure holding up the Parthenon in Unit 4 and framing cathedral portals in Unit 6. Stonehenge is the first chapter of a building story that runs through the whole course.</div>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 12px 0 0 0;">Why build it? Here the evidence is real but partial. The monument is carefully aligned with the sun: at the summer solstice the sun rises in line with its main axis, and at the winter solstice it sets along it. That alignment points strongly to a ritual and astronomical purpose, perhaps marking the turning of the year, perhaps tied to the dead (many burials have been found nearby). As with the caves, we can describe and analyze with confidence and interpret with care.</p>
+    </div>
+
+    <!-- PART 3 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 3 &middot; TWO WORKS, ONE QUESTION</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~22 MIN</span></div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 12px 0;">Lascaux and Stonehenge are wildly different objects, a painting in the dark and a ring of stone under the open sky. But an art historian can hold them side by side and ask the same question of both: <em>what does this work tell us about what its makers valued?</em> One culture invested its skill in capturing the animals it hunted; another organized hundreds of people for generations to align stone with the sky. Comparing them is your graded task this unit, so practice the move now.</p>
+
+        <div class="spotlight">
+            <div class="spotlight-title">&#128269; ARTWORK SPOTLIGHT</div>
+            <div class="spotlight-work">Stonehenge, Salisbury Plain (begun c. 3000 BC)</div>
+            <div class="spotlight-loc">Wiltshire, England</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E635E;">Describe:</span> A ring of enormous upright stones stands on open grassland, some still capped by horizontal stones, others fallen.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E1C42;">Analyze:</span> The stones are arranged in a circle of post-and-lintel trilithons, their great <strong>scale</strong> and the open <strong>space</strong> at the center giving the ring a sense of deliberate order and weight.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A8741F;">Interpret:</span> One possible reading is that the precise solstice alignment made the circle a kind of calendar or temple marking the turning of the year. The evidence is strong but not complete.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A33D1F;">Judge:</span> As architecture it succeeds powerfully: with only stone tools, the builders made a structure that still commands the landscape and tracks the sun 4,500 years later.</div>
+        </div>
+
+        <!-- scale widget (engine varied from the other lessons) -->
+        <div class="optima-widget ow-scale">
+            <div class="widget-kicker">&#128207; PLACE IT ON THE SCALE</div>
+            <div class="widget-question">How certain can an art historian honestly be that Stonehenge was used to track the sun? Choose the most defensible position.</div>
+            <div class="widget-row" data-correct="c">
+                <div class="widget-row-prompt">Pick the answer that best fits the evidence.</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="Too strong. With no written record from the builders, &lsquo;certain&rsquo; overstates what we can know.">Certain</button>
+                    <button data-choice="b" data-fb="Too weak. The precise solstice alignment is real, measurable evidence; this is more than a guess.">Pure guess</button>
+                    <button data-choice="c" data-fb="Correct. The solstice alignment is strong physical evidence, so a well-supported theory is the honest position, neither certainty nor a shrug.">Well-supported theory</button>
+                    <button data-choice="d" data-fb="No. There is real evidence here, so &lsquo;impossible to say anything&rsquo; ignores the alignment we can measure.">Impossible to say</button>
+                </div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
+
+        <div style="background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 14px 0;">
+            <div style="font-size: 11px; color: #A33D1F; margin-bottom: 8px;">&#9888;&#65039; WORTH KNOWING &middot; AI &amp; CONFIDENT FICTION</div>
+            <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">Stonehenge attracts a lot of myths (that it was built by a lost super-civilization, or aliens, or in a single year). An AI tool trained on the open internet has absorbed those myths alongside the real archaeology and can repeat them in a confident voice. It <em>cannot</em> reliably tell solid evidence from popular fiction. When a claim sounds dramatic, that is your cue to check it against a museum or scholarly source, the habit this whole course is building.</div>
+        </div>
+    </div>
+
+    <!-- Vocabulary box -->
+    <div class="vocab-box">
+        <div class="vocab-title">&#128214; VOCABULARY FROM THIS LESSON</div>
+        <table class="vocab-table"><tbody>
+            <tr><td>Neolithic</td><td>The &ldquo;New Stone Age&rdquo; of settled farming communities, the people who built Stonehenge.</td></tr>
+            <tr><td>Monumental</td><td>Built at great scale to last and to impress, as architecture meant to outlast its makers.</td></tr>
+            <tr><td>Megalith</td><td>A very large stone used in building (Greek: &ldquo;great stone&rdquo;).</td></tr>
+            <tr><td>Post-and-lintel</td><td>The oldest construction method: two upright posts supporting a horizontal beam (the lintel).</td></tr>
+            <tr><td>Trilithon</td><td>Two upright stones capped by a single lintel: &ldquo;three stones.&rdquo;</td></tr>
+        </tbody></table>
+    </div>
+
+    <!-- Now You Try -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="now-box" style="margin-top: 0;">
+            <div class="now-kicker">&#9999;&#65039; NOW YOU TRY &middot; IN YOUR NOTEBOOK</div>
+            <div class="accent-body">In two sentences, answer this for both works: <em>what did its makers have to value to make it possible?</em> One sentence for the Lascaux paintings, one for Stonehenge. Keep each answer tied to something you can actually see or know about the work. You will expand exactly this thinking into your Unit 2 comparison.</div>
+        </div>
+    </div>
+
+    <!-- What You'll Do Next -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU&rsquo;LL DO NEXT</div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Lascaux &amp; Stonehenge</strong> (discussion)</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Post a short claim about the two works as cultural artifacts, then respond to a classmate.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Prehistoric Symbol Painting</strong> (creation activity)</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Make a small image using only earth-tone marks and symbols, the way the first artists did.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Unit 2 Quiz</strong> and VR Museum Journal</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">A short auto-graded quiz, plus a guided visit to a prehistoric space in the VR environment.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wrap-up -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128170; WHY THIS MATTERS</div>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Architecture is art you can walk into, and it begins here, with people deciding that some purpose was worth moving mountains of stone for. Every temple, cathedral, and dome ahead in this course is a more elaborate answer to the same impulse that raised Stonehenge: the human drive to build something larger than ourselves and make it mean something.</p>
+    </div>
+
+</div>
+
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 18px 34px; text-align: center;">
+    <div style="font-size: 18px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> &middot; ART HISTORY &amp; CRITICISM &middot; Semester 1 &middot; Student Lesson Page</div>
+    <div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 2.02 &middot; Raising Stones: Stonehenge &amp; the Neolithic</div>
+    <div style="font-size: 12px; color: rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || 'Right.') : (sBtn.dataset.fb || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

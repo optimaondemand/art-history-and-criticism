@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Art History &amp; Criticism &mdash; Lesson 6.02</title>
+<style>
+    body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
+    .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    img { max-width: 100%; height: auto; display: block; }
+    .artfig { margin: 16px 0; }
+    .artfig img { border: 1px solid #D0D9E8; border-radius: 6px; }
+    .artcap { font-size: 13px; color: #666; line-height: 1.5; margin-top: 6px; }
+    .artcap strong { color: #0E1C42; font-style: italic; font-weight: 600; }
+    .look-box { background: #E6F4F3; border-left: 5px solid #14807A; border-top: 3px solid #2BB6AC; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .look-kicker { font-size: 11px; color: #0E635E; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .now-box { background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .now-kicker { font-size: 11px; color: #A33D1F; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .accent-body { font-size: 17px; color: #0E1C42; line-height: 1.6; }
+    .spotlight { border: 2px solid #0E1C42; border-radius: 10px; padding: 18px; margin: 18px 0; }
+    .spotlight-title { font-size: 12px; font-weight: 700; color: #0E1C42; letter-spacing: 0.5px; margin-bottom: 6px; }
+    .spotlight-work { font-weight: 700; color: #0E1C42; font-size: 16px; }
+    .spotlight-loc { color: #777; font-size: 13px; margin-bottom: 12px; }
+    .daij-row { font-size: 16px; color: #1a2340; line-height: 1.6; margin-bottom: 9px; }
+    .daij-label { font-weight: 700; margin-right: 6px; }
+    .vocab-box { background: #F4F6FA; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px 18px; margin: 18px 0; }
+    .vocab-title { font-size: 11px; font-weight: 700; color: #c7922c; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .vocab-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .vocab-table td { padding: 6px 0; color: #1a2340; vertical-align: top; border-top: 1px solid #E2E8F2; line-height: 1.55; }
+    .vocab-table td:first-child { font-weight: 700; color: #0E1C42; width: 160px; padding-right: 12px; }
+    .optima-widget { background: linear-gradient(135deg, #E6F4F3 0%, #F4FBFA 100%); border: 1px solid #BFE3DF; border-left: 5px solid #14807A; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .widget-kicker { font-size: 11px; color: #0E635E; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+    .widget-options button:hover { background: #F4F6FA; border-color: #2BB6AC; }
+    .widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+    .widget-options button.correct { background: #E6F4F3; border-color: #14807A; color: #0E635E; }
+    .widget-options button.incorrect { background: #FCEDE8; border-color: #D85C38; color: #A33D1F; }
+    .widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+    .widget-feedback.show { display: block; }
+    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+    .row-feedback.correct { background: #E6F4F3; border-left: 3px solid #14807A; color: #0E635E; }
+    .row-feedback.incorrect { background: #FCEDE8; border-left: 3px solid #D85C38; color: #A33D1F; }
+    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 10px; }
+    .widget-reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;">
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+        <div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width: 50px; height: 40px; object-fit: contain;" /></div>
+        <div>
+            <div style="font-size: 28px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+            <div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
+        </div>
+    </div>
+    <div style="font-size: 36px; color: #ffffff; margin-bottom: 6px;">ART HISTORY &amp; CRITICISM</div>
+</div>
+
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Semester / Unit</div>
+        <div style="font-size: 17px; color: #0e1c42;">S1 &middot; Unit 6</div>
+        <div style="font-size: 12px; color: #666;">Byzantine, Islamic &amp; Medieval Art</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+        <div style="font-size: 17px; color: #0e1c42;">Lesson 6.02</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+        <div style="font-size: 17px; color: #0e1c42; font-style: italic;">Pattern as Prayer: Islamic Art &amp; the Mosque</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Module Theme</div>
+        <div style="font-size: 16px; color: #0e1c42;">Art in Service of the Sacred</div>
+    </div>
+</div>
+
+<div style="padding: 24px 34px;">
+
+    <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">LESSON 6.02</div>
+        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">Pattern as Prayer: Islamic Art &amp; the Mosque</div>
+        <div style="font-size: 16px; color: #666;">Interactive Lesson</div>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
+        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">If a tradition turns away from picturing holy figures, where does it pour its genius for beauty instead?</div>
+        <div style="font-size: 18px; color: #1a2340; line-height: 1.65;">Islamic art, spreading across three continents from the 7th century on, largely avoided images of God and the prophets in sacred settings. In their place it raised three arts to extraordinary heights: geometry, the flowing arabesque, and the written word itself.</div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#127919; BY THE END OF THIS LESSON YOU WILL BE ABLE TO&hellip;</div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> explain why much Islamic religious art avoids figural images.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> identify geometric pattern, arabesque, and calligraphy as central Islamic art forms.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> describe key features of a mosque, using the Great Mosque of C&oacute;rdoba.</div>
+        </div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128203; WHAT YOU NEED FOR THIS LESSON</div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">A notebook or an open Word document for the &ldquo;Now You Try&rdquo; near the end of this lesson</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">The Roman arch from Unit 5, for comparison with the mosque&rsquo;s arches</div>
+        </div>
+    </div>
+
+    <!-- PART 1 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 1 &middot; LOOK FIRST</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~12 MIN</span></div>
+
+        <div class="look-box">
+            <div class="look-kicker">&#128064; LOOK CLOSELY &middot; LET YOUR EYE WANDER</div>
+            <div class="accent-body">Look into this hall of striped arches marching in every direction. There is no single figure to land on, no story being told. Where does your eye go, and where does it stop? How does a space with no central image still feel deeply ordered and even holy?</div>
+        </div>
+
+        <div class="artfig">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Colonnes_de_la_Mezquita_%288281472877%29.jpg" alt="Interior hall of the Great Mosque of Cordoba with red-and-white double arches" />
+            <div class="artcap"><strong>Great Mosque of C&oacute;rdoba (Mezquita)</strong>, interior, begun 785 CE, C&oacute;rdoba, Spain. Photograph by Nicolas Vollmer, licensed under CC BY 2.0. Retrieved from Wikimedia Commons.</div>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 14px 0 10px 0;">In many Islamic settings, especially the mosque, artists avoided images of living beings, and above all of God and the prophets, to keep worship focused on the one God and away from anything that might be worshiped as an idol. This is called <strong>aniconism</strong>. Far from limiting art, it pushed Muslim artists to perfect forms of beauty that need no figures at all.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">The Great Mosque of C&oacute;rdoba shows the result. Its prayer hall is a vast &ldquo;forest&rdquo; of columns, linked by striped <strong>arches</strong> in alternating red brick and white stone, repeating in every direction so the space seems endless. There is no statue, no altar image. The beauty is in the rhythm, the light, and the pattern.</p>
+    </div>
+
+    <!-- PART 2 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 2 &middot; GEOMETRY, ARABESQUE &amp; THE WORD</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~16 MIN</span></div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Islamic artists raised three non-figural arts to a peak. <strong>Geometric pattern</strong> builds endlessly repeating designs from circles and polygons, suggesting the infinite order of creation. The <strong>arabesque</strong> is a flowing, scrolling pattern of stylized leaves and vines that seems to grow without end. And <strong>calligraphy</strong>, beautiful Arabic writing, is the highest art of all, because it carries the words of the Qur&rsquo;an. Together these cover walls, books, tiles, and metalwork in shimmering, mathematical beauty.</p>
+
+        <!-- Concept visual: geometric star pattern -->
+        <div style="background: #FAFBFD; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px; margin: 12px 0; text-align: center;">
+            <svg viewBox="0 0 320 160" width="100%" style="max-width: 380px; height: auto;" role="img" aria-label="A repeating Islamic-style geometric star pattern">
+                <rect x="1" y="1" width="318" height="158" fill="#ffffff" stroke="#D0D9E8"/>
+                <g stroke="#14807A" stroke-width="1.5" fill="none">
+                    <g transform="translate(70,80)"><polygon points="0,-28 8,-8 28,0 8,8 0,28 -8,8 -28,0 -8,-8"/><polygon points="20,-20 5,-20 20,-5 27,-27" transform="rotate(0)"/><rect x="-20" y="-20" width="40" height="40"/></g>
+                    <g transform="translate(160,80)"><polygon points="0,-28 8,-8 28,0 8,8 0,28 -8,8 -28,0 -8,-8"/><rect x="-20" y="-20" width="40" height="40"/></g>
+                    <g transform="translate(250,80)"><polygon points="0,-28 8,-8 28,0 8,8 0,28 -8,8 -28,0 -8,-8"/><rect x="-20" y="-20" width="40" height="40"/></g>
+                </g>
+                <g stroke="#D85C38" stroke-width="1.2" fill="none">
+                    <line x1="70" y1="52" x2="160" y2="52"/><line x1="70" y1="108" x2="160" y2="108"/>
+                    <line x1="160" y1="52" x2="250" y2="52"/><line x1="160" y1="108" x2="250" y2="108"/>
+                </g>
+                <text x="160" y="150" font-family="Segoe UI, sans-serif" font-size="11" fill="#0E1C42" text-anchor="middle">a star-and-polygon pattern repeats without end</text>
+            </svg>
+            <div style="font-size: 13px; color: #666; margin-top: 4px;">Geometric pattern repeats in every direction, with no center and no edge, a picture of the infinite.</div>
+        </div>
+
+        <div class="optima-widget ow-reflect">
+            <div class="widget-kicker">&#128172; QUICK CHECK-IN &middot; NO WRONG ANSWER</div>
+            <div class="widget-question">A geometric pattern has no center and no edge; it could go on forever. Why might that endlessness feel right for sacred Islamic art?</div>
+            <div class="widget-options">
+                <button data-response="A strong read. A pattern with no end can stand for the infinite and the eternal, the boundlessness of God, without ever picturing God. Form carries the idea directly.">It suggests the infinite without picturing God</button>
+                <button data-response="Reasonable. The strict order and mathematics of the pattern can also express a created universe that is rational and harmonious, ordered by one Maker.">It expresses a rational, ordered creation</button>
+                <button data-response="Fair. The repeating pattern also invites contemplation: the eye can rest and the mind can settle, almost like a visual form of prayer or meditation.">It invites calm contemplation</button>
+            </div>
+            <div class="widget-feedback"></div>
+            <button class="widget-reset">Reset</button>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 10px 0 0 0;">A mosque has its own features. A <strong>mihrab</strong> is a niche in the wall that marks the <em>qibla</em>, the direction of Mecca that worshipers face to pray. A tall <strong>minaret</strong> is the tower from which the call to prayer is given. Many mosques center on an open courtyard. The C&oacute;rdoba prayer hall, with its endless arches, is one of the most beautiful interiors ever built.</p>
+    </div>
+
+    <!-- PART 3 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 3 &middot; WATCH IT WORK</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~15 MIN</span></div>
+
+        <div class="spotlight">
+            <div class="spotlight-title">&#128269; ARTWORK SPOTLIGHT</div>
+            <div class="spotlight-work">Great Mosque of C&oacute;rdoba, prayer hall (begun 785 CE)</div>
+            <div class="spotlight-loc">C&oacute;rdoba, Spain</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E635E;">Describe:</span> Rows of columns fill a wide low hall, joined overhead by double arches striped in alternating red and white, repeating in every direction with no single focal image.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E1C42;">Analyze:</span> The repeated arches create a powerful <strong>pattern</strong> and <strong>rhythm</strong>; the alternating colors add <strong>contrast</strong>; the endless repetition denies any center, so the <strong>space</strong> feels boundless.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A8741F;">Interpret:</span> With no figures to focus on, the architecture itself becomes the experience of the sacred. One reading is that the hall turns the worshiper&rsquo;s walk and gaze into a kind of moving meditation on the infinite.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A33D1F;">Judge:</span> It succeeds magnificently. Centuries later, visitors still describe the hall as overwhelming and serene at once, proof that non-figural beauty can move us as deeply as any image.</div>
+        </div>
+
+        <div class="optima-widget ow-select">
+            <div class="widget-kicker">&#9989; CHECK YOUR UNDERSTANDING</div>
+            <div class="widget-row" data-correct="b">
+                <div class="widget-row-prompt">Much Islamic religious art avoids images of living beings in order to&hellip;</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="No. Muslim artists were superbly skilled; avoiding figures was a religious choice, not a limit of ability.">hide a lack of skill at drawing people</button>
+                    <button data-choice="b" data-fb="Correct. Aniconism keeps worship focused on the one God and avoids anything that might be treated as an idol.">keep worship focused on God, not idols</button>
+                    <button data-choice="c" data-fb="No. The avoidance is rooted in religious concern about images, not in materials.">because paint was unavailable</button>
+                </div>
+            </div>
+            <div class="widget-row" data-correct="a">
+                <div class="widget-row-prompt">The niche in a mosque wall that marks the direction of Mecca is the&hellip;</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="Correct. The mihrab marks the qibla, the direction worshipers face to pray.">mihrab</button>
+                    <button data-choice="b" data-fb="No. The minaret is the tower for the call to prayer, not the direction niche.">minaret</button>
+                    <button data-choice="c" data-fb="No. An arabesque is a scrolling vegetal pattern, not a part of the wall.">arabesque</button>
+                </div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
+
+        <div style="background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 14px 0;">
+            <div style="font-size: 11px; color: #A33D1F; margin-bottom: 8px;">&#9888;&#65039; WORTH KNOWING &middot; AI &amp; REAL CALLIGRAPHY</div>
+            <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">AI tools can generate &ldquo;Arabic calligraphy&rdquo; that looks ornate but is often nonsense: invented letterforms that spell nothing. To a reader of Arabic, the difference is obvious and the error can be disrespectful, since real calligraphy carries sacred text. AI <em>cannot</em> reliably tell meaningful script from decorative scribble. Treat a tradition&rsquo;s sacred art with the care of checking it against real sources.</div>
+        </div>
+    </div>
+
+    <!-- Vocabulary -->
+    <div class="vocab-box">
+        <div class="vocab-title">&#128214; VOCABULARY FROM THIS LESSON</div>
+        <table class="vocab-table"><tbody>
+            <tr><td>Aniconism</td><td>The avoidance of images of living beings, especially in sacred Islamic settings.</td></tr>
+            <tr><td>Arabesque</td><td>A flowing, scrolling pattern of stylized leaves and vines.</td></tr>
+            <tr><td>Calligraphy</td><td>The art of beautiful writing; in Islam, the highest art, carrying the words of the Qur&rsquo;an.</td></tr>
+            <tr><td>Geometric pattern</td><td>Endlessly repeating designs from circles and polygons, suggesting the infinite.</td></tr>
+            <tr><td>Mosque</td><td>A Muslim house of worship; features include the mihrab and minaret.</td></tr>
+            <tr><td>Mihrab</td><td>A wall niche marking the direction of Mecca that worshipers face.</td></tr>
+        </tbody></table>
+    </div>
+
+    <!-- Now You Try -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="now-box" style="margin-top: 0;">
+            <div class="now-kicker">&#9999;&#65039; NOW YOU TRY &middot; IN YOUR NOTEBOOK</div>
+            <div class="accent-body">Byzantine art and Islamic art both serve the sacred, but in opposite ways: one fills churches with holy images, the other fills mosques with pattern and the written word. In three sentences, describe that contrast, and say what each tradition was trying to make a worshiper feel.</div>
+        </div>
+    </div>
+
+    <!-- What You'll Do Next -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU&rsquo;LL DO NEXT</div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Lesson 6.03 &middot; Light and the Word: Cathedrals &amp; Manuscripts</strong></div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">You will meet the Gothic cathedral and the illuminated manuscript of medieval Europe.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Byzantine vs. Gothic</strong> (discussion)</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Soon you will compare two Christian visual traditions; keep today&rsquo;s ideas about the sacred in mind.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wrap-up -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128170; WHY THIS MATTERS</div>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Islamic art proves that the absence of one kind of image can open the door to extraordinary beauty of another kind. Its geometry, arabesque, and calligraphy shaped art and design from Spain to India, and still inspire artists and mathematicians today. Learning to find meaning in pattern, not just in pictures, widens your eye for the rest of the course and beyond.</p>
+    </div>
+
+</div>
+
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 18px 34px; text-align: center;">
+    <div style="font-size: 18px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> &middot; ART HISTORY &amp; CRITICISM &middot; Semester 1 &middot; Student Lesson Page</div>
+    <div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 6.02 &middot; Pattern as Prayer: Islamic Art &amp; the Mosque</div>
+    <div style="font-size: 12px; color: rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || 'Right.') : (sBtn.dataset.fb || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

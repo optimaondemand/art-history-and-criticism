@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Art History &amp; Criticism &mdash; Lesson 10.02</title>
+<style>
+    body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
+    .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    img { max-width: 100%; height: auto; display: block; }
+    .artfig { margin: 16px 0; }
+    .artfig img { border: 1px solid #D0D9E8; border-radius: 6px; }
+    .artcap { font-size: 13px; color: #666; line-height: 1.5; margin-top: 6px; }
+    .artcap strong { color: #0E1C42; font-style: italic; font-weight: 600; }
+    .art2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 640px) { .art2 { grid-template-columns: 1fr; } }
+    .look-box { background: #E6F4F3; border-left: 5px solid #14807A; border-top: 3px solid #2BB6AC; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .look-kicker { font-size: 11px; color: #0E635E; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .now-box { background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .now-kicker { font-size: 11px; color: #A33D1F; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .accent-body { font-size: 17px; color: #0E1C42; line-height: 1.6; }
+    .spotlight { border: 2px solid #0E1C42; border-radius: 10px; padding: 18px; margin: 18px 0; }
+    .spotlight-title { font-size: 12px; font-weight: 700; color: #0E1C42; letter-spacing: 0.5px; margin-bottom: 6px; }
+    .spotlight-work { font-weight: 700; color: #0E1C42; font-size: 16px; }
+    .spotlight-loc { color: #777; font-size: 13px; margin-bottom: 12px; }
+    .daij-row { font-size: 16px; color: #1a2340; line-height: 1.6; margin-bottom: 9px; }
+    .daij-label { font-weight: 700; margin-right: 6px; }
+    .vocab-box { background: #F4F6FA; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px 18px; margin: 18px 0; }
+    .vocab-title { font-size: 11px; font-weight: 700; color: #c7922c; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .vocab-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .vocab-table td { padding: 6px 0; color: #1a2340; vertical-align: top; border-top: 1px solid #E2E8F2; line-height: 1.55; }
+    .vocab-table td:first-child { font-weight: 700; color: #0E1C42; width: 165px; padding-right: 12px; }
+    .optima-widget { background: linear-gradient(135deg, #E6F4F3 0%, #F4FBFA 100%); border: 1px solid #BFE3DF; border-left: 5px solid #14807A; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .widget-kicker { font-size: 11px; color: #0E635E; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+    .widget-options button:hover { background: #F4F6FA; border-color: #2BB6AC; }
+    .widget-options button.correct { background: #E6F4F3; border-color: #14807A; color: #0E635E; }
+    .widget-options button.incorrect { background: #FCEDE8; border-color: #D85C38; color: #A33D1F; }
+    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+    .row-feedback.correct { background: #E6F4F3; border-left: 3px solid #14807A; color: #0E635E; }
+    .row-feedback.incorrect { background: #FCEDE8; border-left: 3px solid #D85C38; color: #A33D1F; }
+    .ow-flip-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .ow-flip { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px 18px; cursor: pointer; text-align: center; min-height: 64px; display: flex; align-items: center; justify-content: center; }
+    .ow-flip .ow-flip-back { display: none; color: #1a2340; font-size: 14px; line-height: 1.5; }
+    .ow-flip .ow-flip-front { color: #0E1C42; font-weight: 700; font-size: 15px; }
+    .ow-flip.flipped .ow-flip-front { display: none; }
+    .ow-flip.flipped .ow-flip-back { display: block; }
+    @media (max-width: 640px) { .ow-flip-grid { grid-template-columns: 1fr; } }
+    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 10px; }
+    .widget-reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;">
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+        <div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width: 50px; height: 40px; object-fit: contain;" /></div>
+        <div>
+            <div style="font-size: 28px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+            <div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
+        </div>
+    </div>
+    <div style="font-size: 36px; color: #ffffff; margin-bottom: 6px;">ART HISTORY &amp; CRITICISM</div>
+</div>
+
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Semester / Unit</div>
+        <div style="font-size: 17px; color: #0e1c42;">S2 &middot; Unit 10</div>
+        <div style="font-size: 12px; color: #666;">Impressionism &amp; Post-Impressionism</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+        <div style="font-size: 17px; color: #0e1c42;">Lesson 10.02</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+        <div style="font-size: 17px; color: #0e1c42; font-style: italic;">Post-Impressionism: Beyond the Moment</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Module Theme</div>
+        <div style="font-size: 16px; color: #0e1c42;">Light, Color, and the Modern Eye</div>
+    </div>
+</div>
+
+<div style="padding: 24px 34px;">
+
+    <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">LESSON 10.02</div>
+        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">Post-Impressionism: Beyond the Moment</div>
+        <div style="font-size: 16px; color: #666;">Interactive Lesson</div>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
+        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">Once you can capture a moment of light, what else is a painting for?</div>
+        <div style="font-size: 18px; color: #1a2340; line-height: 1.65;">Impressionism caught the fleeting moment, but some artists wanted more. They admired its bright color and freedom, yet felt it gave up too much: solid structure, deep feeling, lasting order. The next generation kept the Impressionist palette and pushed past the passing instant in very different directions. We call them the Post-Impressionists.</div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#127919; BY THE END OF THIS LESSON YOU WILL BE ABLE TO&hellip;</div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> explain how Post-Impressionism built beyond Impressionism.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> describe Seurat&rsquo;s pointillism and Cézanne&rsquo;s search for structure.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> connect Post-Impressionism to the modern art that follows it.</div>
+        </div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128203; WHAT YOU NEED FOR THIS LESSON</div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">A notebook or an open Word document for your Color &amp; Light Study notes</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">Lesson 10.01 fresh in mind: plein air, broken brushwork, optical color</div>
+        </div>
+    </div>
+
+    <!-- PART 1 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 1 &middot; LOOK FIRST</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~12 MIN</span></div>
+
+        <div class="look-box">
+            <div class="look-kicker">&#128064; LOOK CLOSELY &middot; TWO DIFFERENT ANSWERS</div>
+            <div class="accent-body">Look at Seurat&rsquo;s study on the left: the color is laid down in countless tiny separate touches, almost mechanical, the figures calm and still. Now look at Cézanne&rsquo;s river on the right: trees, water, and bank are built from flat blocky planes of color that lock together like masonry. Both start from Impressionism, yet neither is chasing a fleeting moment. What is each one after instead?</div>
+        </div>
+
+        <div class="art2">
+            <div class="artfig">
+                <img src="images/seurat-bathers-study.jpg" alt="Seurat, study for Bathers at Asnieres, figures by a river built from small dabs of color" />
+                <div class="artcap"><strong>Study for Bathers at Asni&egrave;res</strong>, Georges Seurat, about 1883 to 1884. Public domain.</div>
+            </div>
+            <div class="artfig">
+                <img src="images/cezanne-banks-marne.jpg" alt="Cezanne, Banks of the Marne, a calm river scene built from blocky planes of color" />
+                <div class="artcap"><strong>Banks of the Marne</strong>, Paul Cézanne, 1888. Public domain.</div>
+            </div>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 14px 0 10px 0;"><strong>Post-Impressionism</strong> is not a single style. It is the name historians give to several French artists of roughly the 1880s and 1890s who started from Impressionism and then pushed beyond it. They kept its bright, unmixed color and its freedom from old rules, but each wanted something Impressionism had set aside: lasting order, solid form, or deep personal feeling.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Think of it as the second generation. Impressionism opened the door by trusting color and the artist&rsquo;s own eye. Post-Impressionism walked through and asked what else painting could do once the moment had been mastered.</p>
+    </div>
+
+    <!-- PART 2 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 2 &middot; THREE PATHS BEYOND THE MOMENT</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~16 MIN</span></div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;"><strong>Georges Seurat</strong> turned Impressionist instinct into a method. In <strong>pointillism</strong> (also called <strong>divisionism</strong>), he covered the canvas with thousands of tiny dots of pure color placed side by side. He did not blend them on the canvas; he relied on <strong>optical mixing</strong>, letting the viewer&rsquo;s eye fuse adjacent dots into new colors at a distance. The result is bright, but also still, ordered, and almost scientific, the opposite of a quick sketch.</p>
+
+        <!-- Legible explanation: optical mixing -->
+        <div style="background: #E6F4F3; border-left: 5px solid #14807A; border-top: 3px solid #2BB6AC; border-radius: 8px; padding: 14px 20px; margin: 12px 0;">
+            <div style="font-size: 12px; font-weight: 700; color: #0E635E; letter-spacing: 0.3px; margin-bottom: 6px;">HOW OPTICAL MIXING WORKS</div>
+            <div style="font-size: 16px; color: #0E1C42; line-height: 1.6;"><strong>Up close:</strong> the canvas is thousands of separate dots of pure, unmixed color. <strong>From across the room:</strong> your eye fuses neighboring dots into a single glowing tone. Seurat never blends the paint on the canvas; the blending happens in your eye, which keeps the color vivid. Step back from Seurat&rsquo;s painting above and watch the dots pull together.</div>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;"><strong>Paul Cézanne</strong> went the other way. He wanted to give Impressionism back its lost solidity, to make &ldquo;something durable, like the art of the museums.&rdquo; He searched for the underlying <strong>structure</strong> of nature, simplifying trees, water, and hills into firm geometric planes of color that fit together like building blocks. His pictures feel weighty and constructed. By breaking the world into planes, Cézanne pointed straight toward Cubism, which is why he is often called the bridge to twentieth-century art.</p>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">A third path was pure feeling. <strong>Vincent van Gogh</strong> used intense, sometimes unrealistic color and thick, swirling brushwork to carry raw <strong>expression</strong>, his own emotion, into the painting. A night sky could blaze and churn far beyond what the eye reports, because the truth he was after was inner, not optical.</p>
+
+        <!-- FLIP widget -->
+        <div class="optima-widget ow-flip-wrap">
+            <div class="widget-kicker">&#128064; FLIP TO CHECK &middot; CLICK EACH CARD</div>
+            <div class="widget-question">Cover the text above. Can you recall what each Post-Impressionist was reaching for? Click a card to flip it.</div>
+            <div class="ow-flip-grid">
+                <div class="ow-flip"><div class="ow-flip-front">Seurat</div><div class="ow-flip-back">Pointillism: tiny dots of pure color that the eye blends (optical mixing); ordered and calm.</div></div>
+                <div class="ow-flip"><div class="ow-flip-front">Cézanne</div><div class="ow-flip-back">Structure: the solid geometric form under nature; the bridge toward Cubism.</div></div>
+                <div class="ow-flip"><div class="ow-flip-front">Van Gogh</div><div class="ow-flip-back">Expression: intense color and swirling strokes to carry inner emotion.</div></div>
+                <div class="ow-flip"><div class="ow-flip-front">All three shared</div><div class="ow-flip-back">Started from Impressionism, kept its bright color, then pushed past the fleeting moment.</div></div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
+    </div>
+
+    <!-- PART 3 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 3 &middot; LOOK LONG AT ONE WORK</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~15 MIN</span></div>
+
+        <div class="spotlight">
+            <div class="spotlight-title">&#128269; ARTWORK SPOTLIGHT</div>
+            <div class="spotlight-work">Study for Bathers at Asni&egrave;res (about 1883 to 1884)</div>
+            <div class="spotlight-loc">Georges Seurat &middot; Post-Impressionism (pointillism)</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E635E;">Describe:</span> Figures rest on a riverbank in sunlight, with water and a far shore behind. The whole surface is built from small, separate touches of color rather than smooth areas. The mood is quiet and the figures are still.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E1C42;">Analyze:</span> Seurat keeps Impressionist bright <strong>color</strong> but controls it. Tiny dabs of pure color sit side by side and blend in the viewer&rsquo;s eye (optical mixing), while the figures are arranged in calm, stable <strong>shapes</strong>. The method is systematic, not spontaneous.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A8741F;">Interpret:</span> One reading is that Seurat wanted the light of Impressionism with the order and permanence it lacked. He turns a sunny instant into something composed and timeless, closer to a classical relief than a quick sketch.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A33D1F;">Judge:</span> Judged by that goal, giving Impressionist color a lasting structure, it succeeds. The dotted surface shimmers, yet the picture feels deliberately built and calm rather than fleeting.</div>
+        </div>
+
+        <!-- SELECT widget; correct indices vary (c, then b) -->
+        <div class="optima-widget ow-select">
+            <div class="widget-kicker">&#9989; CHECK YOUR UNDERSTANDING</div>
+            <div class="widget-row" data-correct="c">
+                <div class="widget-row-prompt">In pointillism, the colors are blended&hellip;</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="No. Seurat deliberately did not mix the colors on the palette; he kept them pure.">on the palette before painting</button>
+                    <button data-choice="b" data-fb="No. The dots stay separate on the canvas; the mixing is not physical.">by smearing the dots together on the canvas</button>
+                    <button data-choice="c" data-fb="Correct. The eye fuses the separate dots at a distance. This is optical mixing.">in the viewer&rsquo;s eye, at a distance</button>
+                </div>
+            </div>
+            <div class="widget-row" data-correct="b">
+                <div class="widget-row-prompt">Cézanne is called a &ldquo;bridge to the twentieth century&rdquo; because he&hellip;</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="No. That describes van Gogh&rsquo;s expressive aim, not Cézanne&rsquo;s search for structure.">poured raw emotion into swirling color</button>
+                    <button data-choice="b" data-fb="Correct. Breaking nature into geometric planes pointed directly toward Cubism.">broke nature into geometric planes that point toward Cubism</button>
+                    <button data-choice="c" data-fb="No. Returning to crisp polished realism is the opposite of what Cézanne did.">returned to smooth academic realism</button>
+                </div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
+
+        <div style="background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 14px 0;">
+            <div style="font-size: 11px; color: #A33D1F; margin-bottom: 8px;">&#9888;&#65039; WORTH KNOWING &middot; AI &amp; ARTISTIC DECISIONS</div>
+            <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">Seurat&rsquo;s dots, Cézanne&rsquo;s planes, and van Gogh&rsquo;s swirls are not random textures; each is a deliberate choice about what the artist wanted a painting to do. An AI can generate &ldquo;a pointillist scene&rdquo; or &ldquo;a Cézanne-style landscape&rdquo; on request, blending the visual habits of many works. It cannot make the underlying decision, the reason a particular artist chose order, or structure, or feeling, over the alternatives. That decision is what makes these three painters different from one another.</div>
+        </div>
+    </div>
+
+    <!-- Vocabulary -->
+    <div class="vocab-box">
+        <div class="vocab-title">&#128214; VOCABULARY FROM THIS LESSON</div>
+        <table class="vocab-table"><tbody>
+            <tr><td>Post-Impressionism</td><td>French art of roughly the 1880s and 1890s that started from Impressionism and pushed beyond the fleeting moment.</td></tr>
+            <tr><td>Pointillism / divisionism</td><td>Building an image from many tiny dots of pure, unmixed color (Seurat).</td></tr>
+            <tr><td>Optical mixing</td><td>Letting the viewer&rsquo;s eye blend separate dots of color into new tones at a distance.</td></tr>
+            <tr><td>Structure / form</td><td>The solid, underlying geometry of a scene; Cézanne&rsquo;s main pursuit.</td></tr>
+            <tr><td>Expression</td><td>Using color and brushwork to carry inner feeling rather than to record the eye&rsquo;s view (van Gogh).</td></tr>
+        </tbody></table>
+    </div>
+
+    <!-- Now You Try -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="now-box" style="margin-top: 0;">
+            <div class="now-kicker">&#9999;&#65039; NOW YOU TRY &middot; IN YOUR NOTEBOOK</div>
+            <div class="accent-body">Take the color-and-light notes you made in Lesson 10.01 and decide which Post-Impressionist path fits what you want to say. Will you chase the bright fleeting light (Impressionist), build it from small dots of pure color (Seurat), reduce the scene to firm blocky planes (Cézanne), or push the color past realism to carry a feeling (van Gogh)? Write one sentence naming your choice and why. This decision will shape your Color &amp; Light Study.</div>
+        </div>
+    </div>
+
+    <!-- What You'll Do Next -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU&rsquo;LL DO NEXT</div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Impressionist Artwork Analysis</strong> (assignment)</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Write a full four-step analysis of a Monet, Renoir, or Cassatt.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Academic Art vs. Impressionism</strong> (discussion)</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Weigh the polished official salon style against the new loose outdoor painting.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Color &amp; Light Study</strong> (creation) and <strong>Unit 10 Quiz</strong></div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Make your own study of light and color, then take the short auto-graded quiz.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wrap-up -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128170; WHY THIS MATTERS</div>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">In one generation, painting moved from copying what the eye reports to deciding what a painting should be: ordered, solid, or charged with feeling. Cézanne&rsquo;s broken-down forms point straight at the twentieth century, when artists will shatter the picture entirely. Next: modern and contemporary art.</p>
+    </div>
+
+</div>
+
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 18px 34px; text-align: center;">
+    <div style="font-size: 18px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> &middot; ART HISTORY &amp; CRITICISM &middot; Semester 2 &middot; Student Lesson Page</div>
+    <div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 10.02 &middot; Post-Impressionism: Beyond the Moment</div>
+    <div style="font-size: 12px; color: rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || 'Right.') : (sBtn.dataset.fb || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Art History &amp; Criticism &mdash; Lesson 11.01</title>
+<style>
+    body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
+    .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    img { max-width: 100%; height: auto; display: block; }
+    .look-box { background: #E6F4F3; border-left: 5px solid #14807A; border-top: 3px solid #2BB6AC; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .look-kicker { font-size: 11px; color: #0E635E; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .now-box { background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 16px 0; }
+    .now-kicker { font-size: 11px; color: #A33D1F; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .accent-body { font-size: 17px; color: #0E1C42; line-height: 1.6; }
+    .linkout { display: block; background: #E6F4F3; border-left: 5px solid #14807A; border-top: 3px solid #2BB6AC; border-radius: 6px; padding: 14px 20px; margin: 12px 0; text-decoration: none; }
+    .linkout-kicker { font-size: 11px; color: #0E635E; letter-spacing: 0.5px; margin-bottom: 6px; font-weight: 600; }
+    .linkout-work { font-size: 16px; color: #0E1C42; font-weight: 700; }
+    .linkout-museum { font-size: 14px; color: #0E635E; margin-top: 4px; }
+    .linkout-go { font-size: 14px; color: #14807A; font-weight: 700; margin-top: 8px; }
+    .spotlight { border: 2px solid #0E1C42; border-radius: 10px; padding: 18px; margin: 18px 0; }
+    .spotlight-title { font-size: 12px; font-weight: 700; color: #0E1C42; letter-spacing: 0.5px; margin-bottom: 6px; }
+    .spotlight-work { font-weight: 700; color: #0E1C42; font-size: 16px; }
+    .spotlight-loc { color: #777; font-size: 13px; margin-bottom: 12px; }
+    .daij-row { font-size: 16px; color: #1a2340; line-height: 1.6; margin-bottom: 9px; }
+    .daij-label { font-weight: 700; margin-right: 6px; }
+    .vocab-box { background: #F4F6FA; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px 18px; margin: 18px 0; }
+    .vocab-title { font-size: 11px; font-weight: 700; color: #c7922c; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .vocab-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .vocab-table td { padding: 6px 0; color: #1a2340; vertical-align: top; border-top: 1px solid #E2E8F2; line-height: 1.55; }
+    .vocab-table td:first-child { font-weight: 700; color: #0E1C42; width: 175px; padding-right: 12px; }
+    .optima-widget { background: linear-gradient(135deg, #E6F4F3 0%, #F4FBFA 100%); border: 1px solid #BFE3DF; border-left: 5px solid #14807A; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .widget-kicker { font-size: 11px; color: #0E635E; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+    .widget-options button:hover { background: #F4F6FA; border-color: #2BB6AC; }
+    .widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+    .widget-options button.correct { background: #E6F4F3; border-color: #14807A; color: #0E635E; }
+    .widget-options button.incorrect { background: #FCEDE8; border-color: #D85C38; color: #A33D1F; }
+    .widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
+    .widget-feedback.show { display: block; }
+    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+    .row-feedback.correct { background: #E6F4F3; border-left: 3px solid #14807A; color: #0E635E; }
+    .row-feedback.incorrect { background: #FCEDE8; border-left: 3px solid #D85C38; color: #A33D1F; }
+    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 10px; }
+    .widget-reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;">
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+        <div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width: 50px; height: 40px; object-fit: contain;" /></div>
+        <div>
+            <div style="font-size: 28px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+            <div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
+        </div>
+    </div>
+    <div style="font-size: 36px; color: #ffffff; margin-bottom: 6px;">ART HISTORY &amp; CRITICISM</div>
+</div>
+
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Semester / Unit</div>
+        <div style="font-size: 17px; color: #0e1c42;">S2 &middot; Unit 11</div>
+        <div style="font-size: 12px; color: #666;">Modern &amp; Contemporary Art</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+        <div style="font-size: 17px; color: #0e1c42;">Lesson 11.01</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+        <div style="font-size: 17px; color: #0e1c42; font-style: italic;">Cubism &amp; Abstraction: Breaking Down What We See</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Module Theme</div>
+        <div style="font-size: 16px; color: #0e1c42;">Breaking the Frame</div>
+    </div>
+</div>
+
+<div style="padding: 24px 34px;">
+
+    <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">LESSON 11.01</div>
+        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">Cubism &amp; Abstraction: Breaking Down What We See</div>
+        <div style="font-size: 16px; color: #666;">Interactive Lesson</div>
+    </div>
+
+    <div style="background: #E6F4F3; border-left: 5px solid #14807A; border-radius: 6px; padding: 12px 18px; margin-bottom: 20px;">
+        <div style="font-size: 15px; color: #0E635E; line-height: 1.6;"><strong>A note on the artwork in this unit.</strong> The works in Unit 11 are still under copyright, so we do not reproduce them here. Instead, each one is a link to the official museum or foundation page where you can view it. Open every link as you read. The diagrams on this page are original and generic; they illustrate ideas, not any specific artwork.</div>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
+        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">What happens to a painting when an artist stops trying to show how things look, and starts showing how the mind actually sees?</div>
+        <div style="font-size: 18px; color: #1a2340; line-height: 1.65;">For five hundred years, European painters chased one goal: a convincing window onto the visible world. In the early 1900s a few artists tore that window apart. Cubists shattered a single object into many viewpoints at once; others pushed further, until the picture no longer showed any object at all. This is where art breaks the frame.</div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#127919; BY THE END OF THIS LESSON YOU WILL BE ABLE TO&hellip;</div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> explain how Cubism combines several viewpoints of one object into a single fragmented image.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> describe what non-representational abstraction is, and why Kandinsky and Mondrian pursued it.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> apply the four-step method to an abstract work and prepare for my modern analysis.</div>
+        </div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128203; WHAT YOU NEED FOR THIS LESSON</div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">A notebook or an open Word document; this lesson sets up your Student-Selected Modern Artwork Analysis</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; border-left: 3px solid #D0D9E8; padding-left: 14px;"><span style="color: #c7922c; font-size: 18px; flex-shrink: 0;">&#9654;</span>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.6;">An internet connection to open the museum links; the works are viewed on their official pages, not shown here</div>
+        </div>
+    </div>
+
+    <!-- PART 1 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 1 &middot; LOOK FIRST</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~12 MIN</span></div>
+
+        <div class="look-box">
+            <div class="look-kicker">&#128064; LOOK CLOSELY &middot; OPEN THE LINK, THEN COME BACK</div>
+            <div class="accent-body">Open the first link below and look at the painting before reading on. You will see a face and a guitar, but not from one fixed spot. It is as if you walked around the subject and the artist pinned every angle to the same flat surface at once. Where does the front of the face turn into the side?</div>
+        </div>
+
+        <a class="linkout" href="https://www.moma.org/collection/works/79051" target="_blank" rel="noopener">
+            <div class="linkout-kicker">&#128279; VIEW ON THE MUSEUM SITE</div>
+            <div class="linkout-work">Pablo Picasso, <em>Girl with a Mandolin (Fanny Tellier)</em> (1910)</div>
+            <div class="linkout-museum">The Museum of Modern Art (MoMA), New York</div>
+            <div class="linkout-go">Open in a new tab to view the work &rsaquo;</div>
+        </a>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 14px 0 10px 0;"><strong>Cubism</strong>, invented around 1907 to 1912 by <strong>Pablo Picasso</strong> and <strong>Georges Braque</strong>, broke with a rule that had governed Western painting since the Renaissance: that a picture shows one scene from one fixed point of view. Cubists asked a different question. We never truly see an object from a single spot. We move, we remember the other side, we know a guitar has a back as well as a front. So why not put all of that into one image?</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Their answer was to break the subject into <strong>fragments</strong> and flat planes, then reassemble them so the front, side, and top of a thing appear together. The painting stops pretending to be a window. It becomes a record of looking from many angles over time, flattened onto the <strong>picture plane</strong>, the actual flat surface of the canvas.</p>
+    </div>
+
+    <!-- PART 2 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 2 &middot; MANY VIEWS, ONE IMAGE</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~16 MIN</span></div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Here is the Cubist idea in its simplest form. Imagine a plain jug. From the front you see its outline; from above you see a circle; from the side you see its handle. Normally a painter must pick one of these. The Cubist refuses to pick, and folds all three views into one flattened image.</p>
+
+                <!-- Real public-domain forerunner + legible explanation of the Cubist idea -->
+        <div style="margin: 16px 0;">
+            <img src="images/cezanne-banks-marne.jpg" alt="Paul Cezanne, The Banks of the Marne" style="max-width:100%; height:auto; display:block; border: 1px solid #D0D9E8; border-radius: 6px;" />
+            <div style="font-size: 13px; color: #666; line-height: 1.5; margin-top: 6px;"><strong style="color:#0E1C42; font-style:italic; font-weight:600;">The Banks of the Marne</strong>, Paul C&eacute;zanne, c. 1888. Public domain. C&eacute;zanne built his scenes from firm, blocky planes rather than smooth illusion. Younger painters pushed that idea until objects broke into many facets, and Cubism was born.</div>
+        </div>
+        <div style="background: #E6F4F3; border-left: 5px solid #14807A; border-top: 3px solid #2BB6AC; border-radius: 8px; padding: 14px 20px; margin: 12px 0;">
+            <div style="font-size: 12px; font-weight: 700; color: #0E635E; letter-spacing: 0.3px; margin-bottom: 6px;">THE CUBIST IDEA IN ONE SENTENCE</div>
+            <div style="font-size: 16px; color: #0E1C42; line-height: 1.6;">Picture a plain jug: from the front you see its outline, from above a circle, from the side its handle. A normal painting must pick one view. Cubism refuses to pick and folds several views into one flattened image, so a single canvas shows an object from many sides at once.</div>
+        </div>
+
+        <div class="optima-widget ow-flip-wrap">
+            <div class="widget-kicker">&#128064; FLIP TO CHECK &middot; CLICK EACH CARD</div>
+            <div class="widget-question">Cover the text above. Can you recall each idea? Click a card to flip it.</div>
+            <div class="ow-flip-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+                <div class="ow-flip" style="background:#fff;border:1px solid #D0D9E8;border-radius:8px;padding:16px 18px;cursor:pointer;text-align:center;min-height:64px;display:flex;align-items:center;justify-content:center;"><div class="ow-flip-front" style="color:#0E1C42;font-weight:700;font-size:15px;">Cubism</div><div class="ow-flip-back" style="display:none;color:#1a2340;font-size:14px;line-height:1.5;">Combines several viewpoints of one object into a single fragmented image.</div></div>
+                <div class="ow-flip" style="background:#fff;border:1px solid #D0D9E8;border-radius:8px;padding:16px 18px;cursor:pointer;text-align:center;min-height:64px;display:flex;align-items:center;justify-content:center;"><div class="ow-flip-front" style="color:#0E1C42;font-weight:700;font-size:15px;">Fragmentation</div><div class="ow-flip-back" style="display:none;color:#1a2340;font-size:14px;line-height:1.5;">Breaking a subject into flat planes and pieces that are then reassembled.</div></div>
+                <div class="ow-flip" style="background:#fff;border:1px solid #D0D9E8;border-radius:8px;padding:16px 18px;cursor:pointer;text-align:center;min-height:64px;display:flex;align-items:center;justify-content:center;"><div class="ow-flip-front" style="color:#0E1C42;font-weight:700;font-size:15px;">Picture plane</div><div class="ow-flip-back" style="display:none;color:#1a2340;font-size:14px;line-height:1.5;">The actual flat surface of the canvas, which Cubism stops hiding.</div></div>
+                <div class="ow-flip" style="background:#fff;border:1px solid #D0D9E8;border-radius:8px;padding:16px 18px;cursor:pointer;text-align:center;min-height:64px;display:flex;align-items:center;justify-content:center;"><div class="ow-flip-front" style="color:#0E1C42;font-weight:700;font-size:15px;">Picasso &amp; Braque</div><div class="ow-flip-back" style="display:none;color:#1a2340;font-size:14px;line-height:1.5;">The two artists who invented Cubism together, around 1907 to 1912.</div></div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 10px 0 0 0;">Once artists accepted that a painting did not have to copy the visible world, a further step became possible. If the canvas is its own flat reality, why must it show any object at all? This question opened the door to pure <strong>abstraction</strong>.</p>
+    </div>
+
+    <!-- PART 3 -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;"><span>&#128218; PART 3 &middot; LEAVING THE OBJECT BEHIND</span><span style="background: #FDF3E3; color: #C7922C; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700;">~15 MIN</span></div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Around 1910 to 1920, <strong>Wassily Kandinsky</strong> and <strong>Piet Mondrian</strong> arrived, by different roads, at <strong>non-representational</strong> art: paintings of pure color, line, and shape that depict no recognizable thing. Kandinsky believed color and form could move a viewer the way music does, without picturing anything. Mondrian reduced painting to straight black lines and a few flat primary blocks, searching for a calm, universal order beneath the messy surface of nature.</p>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Open these works on the museum sites and notice what is, and is not, there:</p>
+
+        <a class="linkout" href="https://www.guggenheim.org/artwork/1924" target="_blank" rel="noopener">
+            <div class="linkout-kicker">&#128279; VIEW ON THE MUSEUM SITE</div>
+            <div class="linkout-work">Wassily Kandinsky, <em>Several Circles</em> (1926)</div>
+            <div class="linkout-museum">Solomon R. Guggenheim Museum, New York</div>
+            <div class="linkout-go">Open in a new tab to view the work &rsaquo;</div>
+        </a>
+
+        <a class="linkout" href="https://www.moma.org/collection/works/78699" target="_blank" rel="noopener">
+            <div class="linkout-kicker">&#128279; VIEW ON THE MUSEUM SITE</div>
+            <div class="linkout-work">Piet Mondrian, <em>Broadway Boogie Woogie</em> (1942 to 1943)</div>
+            <div class="linkout-museum">The Museum of Modern Art (MoMA), New York</div>
+            <div class="linkout-go">Open in a new tab to view the work &rsaquo;</div>
+        </a>
+
+                <!-- Legible comparison: representational vs non-representational -->
+        <div style="display: flex; gap: 14px; flex-wrap: wrap; margin: 12px 0;">
+            <div style="flex: 1; min-width: 240px; background: #E6F4F3; border-left: 5px solid #14807A; border-radius: 8px; padding: 14px 18px;">
+                <div style="font-size: 12px; font-weight: 700; color: #0E635E; letter-spacing: 0.3px; margin-bottom: 6px;">REPRESENTATIONAL</div>
+                <div style="font-size: 16px; color: #0E1C42; line-height: 1.55;">The work shows a recognizable thing: a person, a landscape, an object. You can name what you are looking at.</div>
+            </div>
+            <div style="flex: 1; min-width: 240px; background: #FCEDE8; border-left: 5px solid #D85C38; border-radius: 8px; padding: 14px 18px;">
+                <div style="font-size: 12px; font-weight: 700; color: #A33D1F; letter-spacing: 0.3px; margin-bottom: 6px;">NON-REPRESENTATIONAL</div>
+                <div style="font-size: 16px; color: #0E1C42; line-height: 1.55;">The work depicts no object at all, only pure line, shape, and color. There is nothing to name; the arrangement itself is the subject.</div>
+            </div>
+        </div>
+
+        <div class="spotlight">
+            <div class="spotlight-title">&#128269; ARTWORK SPOTLIGHT</div>
+            <div class="spotlight-work">Wassily Kandinsky, <em>Several Circles</em> (1926)</div>
+            <div class="spotlight-loc">View it first on the Guggenheim site (link above), then read and apply the four-step method</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E635E;">Describe:</span> Open the link and look. You see many circles of different sizes and colors floating on a dark background; some overlap, a large pale circle glows near the center, and none of them form a recognizable object.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#0E1C42;">Analyze:</span> Pure <strong>shape</strong> and <strong>color</strong> do all the work. Variation in size and overlap creates depth and movement; the warm and cool colors set up contrast, and the floating arrangement gives a sense of weightless space with no horizon.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A8741F;">Interpret:</span> With no subject to read, the painting asks you to respond to color and form directly, the way you might respond to music. One reading is that it pictures an inner, spiritual harmony rather than anything in the outside world.</div>
+            <div class="daij-row"><span class="daij-label" style="color:#A33D1F;">Judge:</span> Judge it by its own aim, to move the viewer through pure form. If the arrangement holds your eye and stirs a feeling without naming a thing, it succeeds on the terms it set for itself.</div>
+        </div>
+
+        <div class="optima-widget ow-select">
+            <div class="widget-kicker">&#9989; CHECK YOUR UNDERSTANDING</div>
+            <div class="widget-row" data-correct="c">
+                <div class="widget-row-prompt">Cubism broke which long-standing rule of Western painting?</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="No. Cubists still used paint and canvas; the materials were not the issue.">that paintings should use oil paint</button>
+                    <button data-choice="b" data-fb="No. Color was not the target; Cubist works are often muted browns and grays.">that paintings should be colorful</button>
+                    <button data-choice="c" data-fb="Correct. Cubism rejected the single fixed viewpoint, combining many angles of one object at once.">that a picture shows one scene from one fixed viewpoint</button>
+                </div>
+            </div>
+            <div class="widget-row" data-correct="a">
+                <div class="widget-row-prompt">A non-representational painting is one that&hellip;</div>
+                <div class="widget-options">
+                    <button data-choice="a" data-fb="Correct. Non-representational art shows pure color, line, and shape and depicts no recognizable object.">depicts no recognizable object, only pure form</button>
+                    <button data-choice="b" data-fb="No. A faithful copy of nature is the opposite of non-representational art.">copies nature as exactly as possible</button>
+                    <button data-choice="c" data-fb="No. Showing a famous person is still representing a thing; that is representational.">always shows a famous person</button>
+                </div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
+
+        <div style="background: #FCEDE8; border-left: 5px solid #D85C38; border-top: 3px solid #F0805C; border-radius: 6px; padding: 14px 20px; margin: 14px 0;">
+            <div style="font-size: 11px; color: #A33D1F; margin-bottom: 8px;">&#9888;&#65039; WORTH KNOWING &middot; AI &amp; SEEING FROM MANY ANGLES</div>
+            <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">AI image tools can generate a picture that looks Cubist or abstract on demand, by averaging patterns from countless existing images. What they do not have is the reason Cubists had: a deliberate argument about how human beings actually see. Cubism came from a specific problem the artists set themselves and solved through years of work. AI <em>can</em> imitate the surface style; it does not arrive at the idea. When you analyze these works, you are studying the thinking, not just the look.</div>
+        </div>
+    </div>
+
+    <!-- Vocabulary -->
+    <div class="vocab-box">
+        <div class="vocab-title">&#128214; VOCABULARY FROM THIS LESSON</div>
+        <table class="vocab-table"><tbody>
+            <tr><td>Cubism</td><td>An early-1900s style that combines several viewpoints of one object into one fragmented image.</td></tr>
+            <tr><td>Abstraction</td><td>Art that moves away from showing things as they look, toward emphasizing form, color, and line.</td></tr>
+            <tr><td>Non-representational</td><td>Art that depicts no recognizable object at all, only pure color, line, and shape.</td></tr>
+            <tr><td>Fragmentation</td><td>Breaking a subject into flat planes and pieces that are then reassembled.</td></tr>
+            <tr><td>Picture plane</td><td>The actual flat surface of the canvas, which Cubism stops disguising as a window.</td></tr>
+        </tbody></table>
+    </div>
+
+    <!-- Now You Try -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="now-box" style="margin-top: 0;">
+            <div class="now-kicker">&#9999;&#65039; NOW YOU TRY &middot; IN YOUR NOTEBOOK</div>
+            <div class="accent-body">Pick a simple object near you (a mug, a phone, a shoe). In your notebook, sketch it three times, from the front, the side, and above. Then make a fourth sketch that combines all three views into one flattened, fragmented image, the way a Cubist would. Write one sentence on what the combined version shows that no single view could. This warms you up for choosing and analyzing a modern work.</div>
+        </div>
+    </div>
+
+    <!-- What You'll Do Next -->
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU&rsquo;LL DO NEXT</div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Lesson 11.02: The Inner World</strong></div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Move from the outer object to the inner mind: Surrealism and Abstract Expressionism.</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 14px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Student-Selected Modern Artwork Analysis</strong> (assignment)</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Begin choosing a modern or contemporary work to analyze with the four-step method later this unit.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wrap-up -->
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128170; WHY THIS MATTERS</div>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">For centuries art measured itself by how convincingly it copied the world. Cubism and abstraction proposed something radical: that a painting could be true to how we see, or to feeling and form themselves, without copying anything. Every later movement in this unit builds on that freedom. Once the frame is broken, the question is no longer "does it look real?" but "what is this work trying to do, and does it succeed?" That is exactly the question four-step analysis trains you to answer.</p>
+    </div>
+
+</div>
+
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 18px 34px; text-align: center;">
+    <div style="font-size: 18px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> &middot; ART HISTORY &amp; CRITICISM &middot; Semester 2 &middot; Student Lesson Page</div>
+    <div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 11.01 &middot; Cubism &amp; Abstraction: Breaking Down What We See</div>
+    <div style="font-size: 12px; color: rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); c.querySelector('.ow-flip-front').style.display=''; c.querySelector('.ow-flip-back').style.display='none'; });
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) {
+      var front = flip.querySelector('.ow-flip-front');
+      var back = flip.querySelector('.ow-flip-back');
+      var nowFlipped = back.style.display === 'none' || back.style.display === '';
+      if (nowFlipped) { front.style.display = 'none'; back.style.display = 'block'; flip.classList.add('flipped'); }
+      else { front.style.display = ''; back.style.display = 'none'; flip.classList.remove('flipped'); }
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || 'Right.') : (sBtn.dataset.fb || 'Not quite. Try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
