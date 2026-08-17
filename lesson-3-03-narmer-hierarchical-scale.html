@@ -46,9 +46,12 @@
     .row-feedback.incorrect { background: #FCEDE8; border-left: 3px solid #D85C38; color: #A33D1F; }
     .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 10px; }
     .widget-reset:hover { background: #FDF3E3; }
-    .scale-demo { display: flex; align-items: flex-end; justify-content: center; gap: 28px; padding: 16px; }
-    .scale-fig { background: #14807A; border-radius: 4px 4px 0 0; width: 40px; }
-    .scale-label { font-size: 12px; color: #0E1C42; text-align: center; margin-top: 6px; }
+    .scale-read { display: flex; flex-wrap: wrap; gap: 22px; align-items: flex-start; }
+    .scale-read-img { flex: 0 1 290px; min-width: 200px; }
+    .scale-read-key { flex: 1 1 330px; min-width: 260px; }
+    .scale-rank { padding: 2px 0 2px 13px; margin-bottom: 13px; }
+    .scale-rank-name { font-size: 16px; color: #0E1C42; font-weight: 700; margin-bottom: 2px; }
+    .scale-rank-note { font-size: 15px; color: #1a2340; line-height: 1.5; }
 </style>
 </head>
 <body>
@@ -353,14 +356,30 @@
 
         <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 8px 0;"><strong>Hierarchical scale:</strong> the more important a figure, the larger it is drawn, regardless of real-life size or distance. The king towers over his enemies and servants not because he stood closer, but because he mattered most.</p>
 
-        <!-- Concept visual: hierarchical scale -->
-        <div style="background: #FAFBFD; border: 1px solid #D0D9E8; border-radius: 8px; padding: 8px; margin: 12px 0;">
-            <div class="scale-demo">
-                <div><div class="scale-fig" style="height: 120px;"></div><div class="scale-label">King<br/>(most important)</div></div>
-                <div><div class="scale-fig" style="height: 64px; background:#9c8463;"></div><div class="scale-label">Official</div></div>
-                <div><div class="scale-fig" style="height: 40px; background:#b3bccc;"></div><div class="scale-label">Enemy /<br/>servant</div></div>
+        <!-- Concept visual: hierarchical scale, read on the carving itself -->
+        <div style="background: #FAFBFD; border: 1px solid #D0D9E8; border-radius: 8px; padding: 16px; margin: 12px 0;">
+            <div class="scale-read">
+                <div class="scale-read-img">
+                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Narmer_Palette_smiting_side.jpg?width=700" alt="The smiting side of the Palette of Narmer. A tall king in the high white crown raises a mace over a kneeling captive he holds by the hair. A much smaller attendant stands behind the king, and two small figures lie in the band below." style="border: 1px solid #D0D9E8; border-radius: 6px;" />
+                </div>
+                <div class="scale-read-key">
+                    <div style="font-size: 12px; color: #0E635E; letter-spacing: 0.5px; font-weight: 700; margin-bottom: 12px;">SIZE ORDER ON THIS SIDE OF THE PALETTE</div>
+                    <div class="scale-rank" style="border-left: 4px solid #14807A;">
+                        <div class="scale-rank-name">1. King Narmer, the largest figure</div>
+                        <div class="scale-rank-note">Tall white crown, arm raised with the mace. He fills almost the full height of the main scene.</div>
+                    </div>
+                    <div class="scale-rank" style="border-left: 4px solid #2BB6AC;">
+                        <div class="scale-rank-name">2. The sandal bearer, much smaller</div>
+                        <div class="scale-rank-note">A servant standing behind the king, carrying the king's sandals.</div>
+                    </div>
+                    <div class="scale-rank" style="border-left: 4px solid #D85C38;">
+                        <div class="scale-rank-name">3. The kneeling captive, smaller still</div>
+                        <div class="scale-rank-note">Forced to the ground and gripped by the hair, about to be struck.</div>
+                    </div>
+                    <div style="font-size: 15px; color: #1a2340; line-height: 1.55; background: #E6F4F3; border-radius: 6px; padding: 11px 14px;"><strong>Notice:</strong> cover these labels, look only at the carving, and put the three men in order from largest to smallest. All three stand within arm's reach of one another, so distance cannot be what changes their size. Rank is.</div>
+                </div>
             </div>
-            <div style="font-size: 13px; color: #666; margin-top: 2px; text-align:center;">Hierarchical scale: size shows importance, not distance. The most powerful figure is the biggest.</div>
+            <div class="artcap"><strong>Palette of Narmer</strong> (smiting side), Early Dynastic Period, c. 3100 BC. Greywacke. Egyptian Museum, Cairo. Faithful reproduction of a public-domain work, via Wikimedia Commons. Public domain.</div>
         </div>
 
         <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 10px 0 8px 0;"><strong>Registers:</strong> the surface is divided into horizontal bands, like lines on a page, so scenes are organized and read in order rather than floating freely. <strong>Composite view:</strong> the human body is shown from its clearest angle for each part, the head in profile but the eye from the front, the shoulders frontal but the legs and feet in profile. The result is a body assembled from its most recognizable views, a figure built for clarity, not for a snapshot.</p>
